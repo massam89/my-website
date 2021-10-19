@@ -24,7 +24,8 @@ class CreateOwnersTable extends Migration
             $table->string('degree');
             $table->string('email');
             $table->string('avatar_url');
-            $table->string('location');
+            $table->string('bg_url');
+            $table->string('address');
             $table->timestamps();
         });
     }

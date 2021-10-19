@@ -9,8 +9,12 @@ class Landing extends Controller
 {
     public function index() {
 
-        $owner = Owner::all();
+        $owner = Owner::all()->first();
 
-        return view('welcome')->with('owners', $owner[0]);
+        if(isset($owner)) {
+            return view('welcome')->with('owner', $owner);
+        }
+        
+        return view('defaultWelcome');
     }
 }
