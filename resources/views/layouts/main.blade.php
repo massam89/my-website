@@ -7,7 +7,7 @@
         <meta name="description" content="">
         <meta name="author" content="">
 
-        <title>Dashboard</title>
+        <title>Dashboard {{ Auth::user()->name }} </title>
 
         <!-- Custom fonts for this template-->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -57,7 +57,7 @@
                     </a>
                     <div id="collapseSystem" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                         <div class="bg-white py-2 collapse-inner rounded">
-                            <a class="collapse-item" href="{{ route('owner.create') }}">Main details</a>
+                            <a class="collapse-item" href="{{ route('owner.store') }}">Main details</a>
                         </div>
                     </div>
                 </li>
@@ -95,6 +95,16 @@
                                 <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
                                     aria-labelledby="userDropdown"> 
                                     
+                                    <a class="dropdown-item" href="/">
+
+                                        <i class="fa fa-globe fa-sm fa-fw mr-2 text-gray-400"></i>
+                                        {{ __('Website') }}
+                                    </a>
+                                    <a class="dropdown-item" href="/">
+
+                                        <i class="fas fa-user-circle fa-sm fa-fw mr-2 text-gray-400"></i>
+                                        {{ __('Profile') }}
+                                    </a>
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                         onclick="event.preventDefault();
                                                     document.getElementById('logout-form').submit();">

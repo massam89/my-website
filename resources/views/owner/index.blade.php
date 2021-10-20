@@ -8,7 +8,7 @@
                 <div class="card-header">{{ __('Set owner detail') }}</div>
 
                 <div class="card-body">
-                    <form method="POST" action="{{ route('owner.store') }}" enctype="multipart/form-data">
+                    <form method="POST" action="{{ route('owner') }}" enctype="multipart/form-data">
                         @csrf
 
                         <div class="form-group row">

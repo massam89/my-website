@@ -23,4 +23,9 @@ Auth::routes();
 
 Route::get('/home', [HomeController::class, 'index'])->name('home');
 
-Route::resource('owner', OwnerController::class);
+Route::get('/owner', [OwnerController::class, 'index'])->name('owner');
+Route::post('/owner', [OwnerController::class, 'store'])->name('owner.store');
+
+Route::get('{any}', function(){
+    return redirect('/');
+})->where('any', '.*');
