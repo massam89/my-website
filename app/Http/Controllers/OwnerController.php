@@ -40,6 +40,14 @@ class OwnerController extends Controller
         } else {
             $bg = $owner->bg_url;
         }
+
+        if(isset($request->favicon_url)){
+            $favExt = $request->favicon_url->extension();
+            $request->favicon_url->move(public_path('assets/img/owner'), 'favicon.' . $favExt); 
+            $favicon = 'assets/img/owner/favicon.' . $favExt;
+        } else {
+            $favicon = $owner->favicon_url;
+        }
         
         if(isset($owner)){
         
@@ -51,10 +59,12 @@ class OwnerController extends Controller
                 'phone' => $request->input('phone'), 
                 'city' => $request->input('city'), 
                 'degree' => $request->input('degree'), 
-                'email' => $request->input('email'),  
+                'email' => $request->input('email'),
+                'address' => $request->input('address'),  
                 'avatar_url' => $avatar, 
                 'bg_url' => $bg,
-                'address' => $request->input('address')
+                'favicon_url' => $favicon
+                
             ]);
         } else {
             Owner::create([
@@ -66,9 +76,11 @@ class OwnerController extends Controller
                 'city' => $request->input('city'), 
                 'degree' => $request->input('degree'), 
                 'email' => $request->input('email'),  
+                'address' => $request->input('address'),
                 'avatar_url' => 'assets/img/owner/avatar.' . $avatarExt, 
                 'bg_url' => 'assets/img/owner/hero-bg.' . $bgExt,
-                'address' => $request->input('address')
+                'favicon_url' => 'assets/img/owner/favicon.' . $favExt
+                
             ]);
         }
 

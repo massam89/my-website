@@ -19,7 +19,7 @@ use App\Http\Controllers\OwnerController;
 
 Route::get('/', [Landing::class, 'index']);
 
-Auth::routes();
+Auth::routes(['verify' => true, 'register' => false]);
 
 Route::get('/home', [HomeController::class, 'index'])->name('home');
 

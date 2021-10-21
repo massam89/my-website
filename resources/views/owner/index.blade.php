@@ -124,6 +124,20 @@
                         </div>
 
                         <div class="form-group row">
+                            <label for="address" class="col-md-4 col-form-label text-md-right">{{ __('Address') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="address" type="text" class="form-control @error('address') is-invalid @enderror" name="address" value="@if(isset($owner)){{ $owner->address }}@endif" required autocomplete="address" autofocus>
+
+                                @error('address')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
                             <label for="avatar_url" class="col-md-4 col-form-label text-md-right">{{ __('Avater') }}</label>
 
                             <div class="col-md-6">
@@ -152,12 +166,12 @@
                         </div>
 
                         <div class="form-group row">
-                            <label for="address" class="col-md-4 col-form-label text-md-right">{{ __('Address') }}</label>
+                            <label for="favicon_url" class="col-md-4 col-form-label text-md-right">{{ __('Favicon') }}</label>
 
                             <div class="col-md-6">
-                                <input id="address" type="text" class="form-control @error('address') is-invalid @enderror" name="address" value="@if(isset($owner)){{ $owner->address }}@endif" required autocomplete="address" autofocus>
+                                <input id="favicon_url" type="file" class="form-control @error('favicon_url') is-invalid @enderror" name="favicon_url" >
 
-                                @error('address')
+                                @error('favicon_url')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>

@@ -23,9 +23,10 @@ class CreateOwnersTable extends Migration
             $table->string('city');
             $table->string('degree');
             $table->string('email');
+            $table->string('address');
             $table->string('avatar_url');
             $table->string('bg_url');
-            $table->string('address');
+            $table->string('favicon_url');    
             $table->timestamps();
         });
     }
@@ -37,6 +38,6 @@ class CreateOwnersTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('owners');
+        Schema::dropIfExists('owner');
     }
 }
