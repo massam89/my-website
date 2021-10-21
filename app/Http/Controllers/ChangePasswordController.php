@@ -10,6 +10,9 @@ class ChangePasswordController extends Controller
 {
     public function change_password(Request $request) 
     {
+        $request->validate([
+            'password' => ['required', 'string', 'min:8', 'confirmed']
+        ]);
 
        $user = User::all()->first();
 
@@ -17,6 +20,6 @@ class ChangePasswordController extends Controller
             'password' => Hash::make($request->password)
         ]);
 
-        return redirect()->route('user.index')->with('message', 'User\'s password successfully edited! ');
+        return redirect()->route('home')->with('message', 'User\'s password successfully edited! ');
     }
 }
