@@ -48,11 +48,11 @@
         <img src="{{ $owner->avatar_url }}" alt="" class="img-fluid rounded-circle">
         <h1 class="text-light"><a href="index.html">{{ $owner->name }}</a></h1>
         <div class="social-links mt-3 text-center">
-          <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
-          <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
-          <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
-          <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>
-          <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+          <a href="{{ $owner->twitter }}" class="twitter"><i class="bx bxl-twitter"></i></a>
+          <a href="{{ $owner->facebook }}" class="facebook"><i class="bx bxl-facebook"></i></a>
+          <a href="{{ $owner->instagram }}" class="instagram"><i class="bx bxl-instagram"></i></a>
+          <a href="{{ $owner->linkedin }}" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+          <a href="{{ $owner->github }}" class="github"><i class="bx bxl-github"></i></a>
         </div>
       </div>
 
@@ -573,13 +573,13 @@
               <div class="email">
                 <i class="bi bi-envelope"></i>
                 <h4>Email:</h4>
-                <p>{{ $owner->email }}</p>
+                <p><a href="mailto:{{ $owner->email }}">{{ $owner->email }}</a></p>
               </div>
 
               <div class="phone">
                 <i class="bi bi-phone"></i>
                 <h4>Call:</h4>
-                <p>{{ $owner->phone }}</p>
+                <p><a href="tel:{{ $owner->phone }}">{{ $owner->phone }}</a></p>
               </div>
 
               <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12097.433213460943!2d-74.0062269!3d40.7101282!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xb89d1fe6bc499443!2sDowntown+Conference+Center!5e0!3m2!1smk!2sbg!4v1539943755621" frameborder="0" style="border:0; width: 100%; height: 290px;" allowfullscreen></iframe>
@@ -627,14 +627,14 @@
   <footer id="footer">
     <div class="container">
       <div class="copyright">
-        &copy; Copyright <strong><span>iPortfolio</span></strong>
+        &copy; Copyright <strong><span><script>document.write(window.location.host)</script></span></strong>
       </div>
       <div class="credits">
         <!-- All the links in the footer should remain intact. -->
         <!-- You can delete the links only if you purchased the pro version. -->
         <!-- Licensing information: https://bootstrapmade.com/license/ -->
         <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/iportfolio-bootstrap-portfolio-websites-template/ -->
-        Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+        Designed by <a href="https://bootstrapmade.com/">BootstrapMade </a>, <a href="https://masoudsam.com/">Masoud Sam</a>
       </div>
     </div>
   </footer><!-- End  Footer -->

@@ -5,9 +5,9 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{ __('Set owner detail') }}</div>
-
+                <div class="card-header">{{ __('Set owner\' details') }}</div>
                 <div class="card-body">
+                    <h5 class="m-2">Personal details</h5>
                     <form method="POST" action="{{ route('owner') }}" enctype="multipart/form-data">
                         @csrf
 
@@ -136,6 +136,80 @@
                                 @enderror
                             </div>
                         </div>
+
+                        <h5 class="m-2">Social medias</h5>
+
+                        <div class="form-group row">
+                            <label for="twitter" class="col-md-4 col-form-label text-md-right">{{ __('twitter') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="twitter" type="text" class="form-control @error('twitter') is-invalid @enderror" name="twitter" value="@if(isset($owner)){{ $owner->twitter }}@endif" required autocomplete="twitter" autofocus>
+
+                                @error('twitter')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="facebook" class="col-md-4 col-form-label text-md-right">{{ __('facebook') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="facebook" type="text" class="form-control @error('facebook') is-invalid @enderror" name="facebook" value="@if(isset($owner)){{ $owner->facebook }}@endif" required autocomplete="facebook" autofocus>
+
+                                @error('facebook')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="instagram" class="col-md-4 col-form-label text-md-right">{{ __('instagram') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="instagram" type="text" class="form-control @error('instagram') is-invalid @enderror" name="instagram" value="@if(isset($owner)){{ $owner->instagram }}@endif" required autocomplete="instagram" autofocus>
+
+                                @error('instagram')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="linkedin" class="col-md-4 col-form-label text-md-right">{{ __('linkedin') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="linkedin" type="text" class="form-control @error('linkedin') is-invalid @enderror" name="linkedin" value="@if(isset($owner)){{ $owner->linkedin }}@endif" required autocomplete="linkedin" autofocus>
+
+                                @error('linkedin')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="github" class="col-md-4 col-form-label text-md-right">{{ __('github') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="github" type="text" class="form-control @error('github') is-invalid @enderror" name="github" value="@if(isset($owner)){{ $owner->github }}@endif" required autocomplete="github" autofocus>
+
+                                @error('github')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+
+                        <h5 class="m-2">Upload files</h5>
 
                         <div class="form-group row">
                             <label for="avatar_url" class="col-md-4 col-form-label text-md-right">{{ __('Avater') }}</label>

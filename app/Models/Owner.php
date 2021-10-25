@@ -11,5 +11,5 @@ class Owner extends Model
 
     protected $table = 'owner';
 
-    protected $fillable = ['name', 'expertises', 'birthdate', 'website', 'phone', 'city', 'degree', 'email', 'address', 'avatar_url', 'bg_url', 'favicon_url' ];
+    protected $fillable = ['name', 'expertises', 'birthdate', 'website', 'phone', 'city', 'degree', 'email', 'address', 'twitter', 'facebook', 'instagram', 'linkedin', 'github', 'avatar_url', 'bg_url', 'favicon_url' ];
 }

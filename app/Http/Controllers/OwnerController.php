@@ -61,6 +61,11 @@ class OwnerController extends Controller
                 'degree' => $request->input('degree'), 
                 'email' => $request->input('email'),
                 'address' => $request->input('address'),  
+                'twitter' => $request->input('twitter'),  
+                'facebook' => $request->input('facebook'),  
+                'instagram' => $request->input('instagram'),  
+                'linkedin' => $request->input('linkedin'),  
+                'github' => $request->input('github'),  
                 'avatar_url' => $avatar, 
                 'bg_url' => $bg,
                 'favicon_url' => $favicon
@@ -77,6 +82,11 @@ class OwnerController extends Controller
                 'degree' => $request->input('degree'), 
                 'email' => $request->input('email'),  
                 'address' => $request->input('address'),
+                'twitter' => $request->input('twitter'),
+                'facebook' => $request->input('facebook'),
+                'instagram' => $request->input('instagram'),
+                'linkedin' => $request->input('linkedin'),
+                'github' => $request->input('github'),
                 'avatar_url' => 'assets/img/owner/avatar.' . $avatarExt, 
                 'bg_url' => 'assets/img/owner/hero-bg.' . $bgExt,
                 'favicon_url' => 'assets/img/owner/favicon.' . $favExt

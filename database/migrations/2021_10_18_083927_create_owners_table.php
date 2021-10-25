@@ -24,6 +24,11 @@ class CreateOwnersTable extends Migration
             $table->string('degree');
             $table->string('email');
             $table->string('address');
+            $table->string('twitter');
+            $table->string('facebook');
+            $table->string('instagram');
+            $table->string('linkedin');
+            $table->string('github');
             $table->string('avatar_url');
             $table->string('bg_url');
             $table->string('favicon_url');    
