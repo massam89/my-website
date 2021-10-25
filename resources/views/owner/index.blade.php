@@ -143,7 +143,7 @@
                             <label for="twitter" class="col-md-4 col-form-label text-md-right">{{ __('twitter') }}</label>
 
                             <div class="col-md-6">
-                                <input id="twitter" type="text" class="form-control @error('twitter') is-invalid @enderror" name="twitter" value="@if(isset($owner)){{ $owner->twitter }}@endif" required autocomplete="twitter" autofocus>
+                                <input id="twitter" type="url" class="form-control @error('twitter') is-invalid @enderror" name="twitter" value="@if(isset($owner)){{ $owner->twitter }}@endif" autocomplete="twitter" autofocus>
 
                                 @error('twitter')
                                     <span class="invalid-feedback" role="alert">
@@ -157,7 +157,7 @@
                             <label for="facebook" class="col-md-4 col-form-label text-md-right">{{ __('facebook') }}</label>
 
                             <div class="col-md-6">
-                                <input id="facebook" type="text" class="form-control @error('facebook') is-invalid @enderror" name="facebook" value="@if(isset($owner)){{ $owner->facebook }}@endif" required autocomplete="facebook" autofocus>
+                                <input id="facebook" type="url" class="form-control @error('facebook') is-invalid @enderror" name="facebook" value="@if(isset($owner)){{ $owner->facebook }}@endif"  autocomplete="facebook" autofocus>
 
                                 @error('facebook')
                                     <span class="invalid-feedback" role="alert">
@@ -171,7 +171,7 @@
                             <label for="instagram" class="col-md-4 col-form-label text-md-right">{{ __('instagram') }}</label>
 
                             <div class="col-md-6">
-                                <input id="instagram" type="text" class="form-control @error('instagram') is-invalid @enderror" name="instagram" value="@if(isset($owner)){{ $owner->instagram }}@endif" required autocomplete="instagram" autofocus>
+                                <input id="instagram" type="url" class="form-control @error('instagram') is-invalid @enderror" name="instagram" value="@if(isset($owner)){{ $owner->instagram }}@endif" autocomplete="instagram" autofocus>
 
                                 @error('instagram')
                                     <span class="invalid-feedback" role="alert">
@@ -185,7 +185,7 @@
                             <label for="linkedin" class="col-md-4 col-form-label text-md-right">{{ __('linkedin') }}</label>
 
                             <div class="col-md-6">
-                                <input id="linkedin" type="text" class="form-control @error('linkedin') is-invalid @enderror" name="linkedin" value="@if(isset($owner)){{ $owner->linkedin }}@endif" required autocomplete="linkedin" autofocus>
+                                <input id="linkedin" type="url" class="form-control @error('linkedin') is-invalid @enderror" name="linkedin" value="@if(isset($owner)){{ $owner->linkedin }}@endif" autocomplete="linkedin" autofocus>
 
                                 @error('linkedin')
                                     <span class="invalid-feedback" role="alert">
@@ -199,7 +199,7 @@
                             <label for="github" class="col-md-4 col-form-label text-md-right">{{ __('github') }}</label>
 
                             <div class="col-md-6">
-                                <input id="github" type="text" class="form-control @error('github') is-invalid @enderror" name="github" value="@if(isset($owner)){{ $owner->github }}@endif" required autocomplete="github" autofocus>
+                                <input id="github" type="url" class="form-control @error('github') is-invalid @enderror" name="github" value="@if(isset($owner)){{ $owner->github }}@endif" autocomplete="github" autofocus>
 
                                 @error('github')
                                     <span class="invalid-feedback" role="alert">

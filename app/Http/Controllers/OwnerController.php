@@ -22,6 +22,9 @@ class OwnerController extends Controller
 
     public function store(Request $request)
     {
+        $avatarExt = '';
+        $bgExt = '';
+        $favExt = '';
 
         $owner = Owner::all()->first();
         
@@ -30,7 +33,7 @@ class OwnerController extends Controller
             $request->avatar_url->move(public_path('assets/img/owner'), 'avatar.' . $avatarExt); 
             $avatar = 'assets/img/owner/avatar.' . $avatarExt;
         } else {
-            $avatar = $owner->avatar_url;
+            $avatar = $owner ? $owner->avatar_url : '';
         }
 
         if(isset($request->bg_url)){
@@ -38,7 +41,7 @@ class OwnerController extends Controller
             $request->bg_url->move(public_path('assets/img/owner'), 'hero-bg.' . $bgExt); 
             $bg = 'assets/img/owner/hero-bg.' . $bgExt;
         } else {
-            $bg = $owner->bg_url;
+            $bg = $owner ? $owner->bg_url : '';
         }
 
         if(isset($request->favicon_url)){
@@ -46,7 +49,7 @@ class OwnerController extends Controller
             $request->favicon_url->move(public_path('assets/img/owner'), 'favicon.' . $favExt); 
             $favicon = 'assets/img/owner/favicon.' . $favExt;
         } else {
-            $favicon = $owner->favicon_url;
+            $favicon = $owner ? $owner->favicon_url : '';
         }
         
         if(isset($owner)){
