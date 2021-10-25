@@ -71,13 +71,10 @@
         
                                     <div class="col-md-6">
                                         <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
-        
-                                        @error('message')
-                                            <span class="invalid-feedback" role="alert">
-                                                <strong>{{ $message }}</strong>
-                                            </span>
-                                        @enderror
-                                    </div>
+                                        @if($errors->any('password'))
+                                        <span class="text-danger">{{ $errors->first('password') }}</span>
+                                    @endif
+                                    </div>     
                                 </div>
         
                                 <div class="form-group row">
@@ -85,6 +82,9 @@
         
                                     <div class="col-md-6">
                                         <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
+                                        @if($errors->any('password_confirmation'))
+                                             <span class="text-danger">{{ $errors->first('password_confirmation') }}</span>
+                                         @endif
                                     </div>
                                 </div>
         

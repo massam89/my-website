@@ -11,10 +11,11 @@ class ChangePasswordController extends Controller
     public function change_password(Request $request) 
     {
         $request->validate([
-            'password' => ['required', 'string', 'min:8', 'confirmed']
+            'password' => 'required|min:6|max:100',
+            'password_confirmation' => 'required|min:6|same:password'
         ]);
 
-       $user = User::all()->first();
+        $user = User::all()->first();
 
         $user->update([
             'password' => Hash::make($request->password)
