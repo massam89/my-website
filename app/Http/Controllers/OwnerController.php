@@ -68,11 +68,21 @@ class OwnerController extends Controller
                 'facebook' => $request->input('facebook'),  
                 'instagram' => $request->input('instagram'),  
                 'linkedin' => $request->input('linkedin'),  
-                'github' => $request->input('github'),  
+                'github' => $request->input('github'),
+                'about_text1' => $request->input('about_text1'),
+                'about_header' => $request->input('about_header'),
+                'about_text2' => $request->input('about_text2'),
+                'about_text3' => $request->input('about_text3'),
+                'facts_text' => $request->input('facts_text'),
+                'skills_text' => $request->input('skills_text'),
+                'resume_text' => $request->input('resume_text'),
+                'portfolio_text' => $request->input('portfolio_text'),
+                'services_text' => $request->input('services_text'),
+                'testimonials_text' => $request->input('testimonials_text'),
+                'contact_text' => $request->input('contact_text'),
                 'avatar_url' => $avatar, 
                 'bg_url' => $bg,
-                'favicon_url' => $favicon
-                
+                'favicon_url' => $favicon     
             ]);
         } else {
             Owner::create([
@@ -90,6 +100,18 @@ class OwnerController extends Controller
                 'instagram' => $request->input('instagram'),
                 'linkedin' => $request->input('linkedin'),
                 'github' => $request->input('github'),
+                'about_text1' => $request->input('about_text1'),
+                'about_header' => $request->input('about_header'),
+                'about_text2' => $request->input('about_text2'),
+                'about_text3' => $request->input('about_text3'),
+                'facts_text' => $request->input('facts_text'),
+                'skills_text' => $request->input('skills_text'),
+                'skills_text' => $request->input('skills_text'),
+                'resume_text' => $request->input('resume_text'),
+                'portfolio_text' => $request->input('portfolio_text'),
+                'services_text' => $request->input('services_text'),
+                'testimonials_text' => $request->input('testimonials_text'),
+                'contact_text' => $request->input('contact_text'),
                 'avatar_url' => 'assets/img/owner/avatar.' . $avatarExt, 
                 'bg_url' => 'assets/img/owner/hero-bg.' . $bgExt,
                 'favicon_url' => 'assets/img/owner/favicon.' . $favExt

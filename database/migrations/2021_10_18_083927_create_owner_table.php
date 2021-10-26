@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateOwnersTable extends Migration
+class CreateOwnerTable extends Migration
 {
     /**
      * Run the migrations.
@@ -29,6 +29,17 @@ class CreateOwnersTable extends Migration
             $table->string('instagram')->nullable();
             $table->string('linkedin')->nullable();
             $table->string('github')->nullable();
+            $table->mediumText('about_text1')->nullable();
+            $table->string('about_header')->nullable();
+            $table->mediumText('about_text2')->nullable();
+            $table->mediumText('about_text3')->nullable();
+            $table->mediumText('facts_text')->nullable();
+            $table->mediumText('skills_text')->nullable();
+            $table->mediumText('resume_text')->nullable();
+            $table->mediumText('portfolio_text')->nullable();
+            $table->mediumText('services_text')->nullable();
+            $table->mediumText('testimonials_text')->nullable();
+            $table->mediumText('contact_text')->nullable();
             $table->string('avatar_url');
             $table->string('bg_url');
             $table->string('favicon_url');    
