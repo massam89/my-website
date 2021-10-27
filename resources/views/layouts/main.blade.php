@@ -18,8 +18,8 @@
         <link href="{{ asset('css/sb-admin.min.css') }}" rel="stylesheet">
 
         <!-- Favicons -->
-        <link href="{{ $owner->favicon_url }}" rel="icon">
-        <link href="{{ $owner->favicon_url }}" rel="apple-touch-icon">
+        <link href="{{ ucfirst($owner->favicon_url) }}" rel="icon">
+        <link href="{{ ucfirst($owner->favicon_url) }}" rel="icon">
     </head>
 
     <body id="page-top">
