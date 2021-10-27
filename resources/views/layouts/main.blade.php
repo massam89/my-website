@@ -57,8 +57,13 @@
                         <i class="fas fa-database"></i>
                         <span>Main data</span>
                     </a>
-                </li>
 
+                    <a class="nav-link collapsed" href="{{ route('facts') }}">
+                        <i class="fas fa-database"></i>
+                        <span>Facts</span>
+                    </a>
+                </li>
+                
                 {{-- <li class="nav-item">
                     <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseSystem"
                         aria-expanded="true" aria-controls="collapseSystem">

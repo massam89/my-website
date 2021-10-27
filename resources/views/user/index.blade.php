@@ -72,8 +72,8 @@
                                     <div class="col-md-6">
                                         <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
                                         @if($errors->any('password'))
-                                        <span class="text-danger">{{ $errors->first('password') }}</span>
-                                    @endif
+                                             <span class="text-danger">{{ $errors->first('password') }}</span>
+                                         @endif
                                     </div>     
                                 </div>
         

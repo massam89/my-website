@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ChangePasswordController;
+use App\Http\Controllers\FactsController;
 use App\Http\Controllers\Landing;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
@@ -31,6 +32,9 @@ Route::post('/owner', [OwnerController::class, 'store'])->name('owner.store');
 
 Route::get('/user', [UserController::class, 'index'])->name('user');
 Route::post('/user', [UserController::class, 'update'])->name('user.update');
+
+Route::get('/facts', [FactsController::class, 'index'])->name('facts');
+Route::post('/facts', [FactsController::class, 'update'])->name('facts.update');
 
 Route::post('/user/change-password', [ChangePasswordController::class, 'change_password'])->name('users.change.passoword');
 
