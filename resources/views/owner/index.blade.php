@@ -222,7 +222,10 @@
 
                             <div class="col-md-6 d-flex">
                                 <input id="avatar_url" type="file" class="form-control" name="avatar_url" >
-                                <img class="ml-2" width= "35" height="35" src="{{ $owner->avatar_url }}" alt="avatar image">    
+                                @isset($owner, $owner->avatar_url)
+                                    <img class="ml-2" width= "35" height="35" src="{{ $owner->avatar_url }}" alt="avatar image">  
+                                @endisset
+                                  
                             </div>
                         </div>
 
@@ -231,7 +234,9 @@
 
                             <div class="col-md-6 d-flex">
                                 <input id="bg_url" type="file" class="form-control" name="bg_url" >
-                                <img class="ml-2" width= "35" height="35" src="{{ $owner->bg_url }}" alt="background image"> 
+                                @isset($owner, $owner->bg_url)
+                                    <img class="ml-2" width= "35" height="35" src="{{ $owner->bg_url }}" alt="background image"> 
+                                @endisset
                             </div>
                         </div>
 
@@ -240,7 +245,9 @@
 
                             <div class="col-md-6 d-flex">
                                 <input id="favicon_url" type="file" class="form-control" name="favicon_url" >
-                                <img class="ml-2" width= "35" height="35" src="{{ $owner->favicon_url }}" alt="favicon image"> 
+                                @isset($owner, $owner->favicon_url)
+                                  <img class="ml-2" width= "35" height="35" src="{{ $owner->favicon_url }}" alt="favicon image"> 
+                                @endisset
                             </div>
                         </div>
 

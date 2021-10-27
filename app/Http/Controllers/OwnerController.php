@@ -33,7 +33,7 @@ class OwnerController extends Controller
             $request->avatar_url->move(public_path('assets/img/owner'), 'avatar.' . $avatarExt); 
             $avatar = 'assets/img/owner/avatar.' . $avatarExt;
         } else {
-            $avatar = $owner ? $owner->avatar_url : '';
+            $avatar = $owner ? $owner->avatar_url : null;
         }
 
         if(isset($request->bg_url)){
@@ -41,7 +41,7 @@ class OwnerController extends Controller
             $request->bg_url->move(public_path('assets/img/owner'), 'hero-bg.' . $bgExt); 
             $bg = 'assets/img/owner/hero-bg.' . $bgExt;
         } else {
-            $bg = $owner ? $owner->bg_url : '';
+            $bg = $owner ? $owner->bg_url : null;
         }
 
         if(isset($request->favicon_url)){
@@ -49,7 +49,7 @@ class OwnerController extends Controller
             $request->favicon_url->move(public_path('assets/img/owner'), 'favicon.' . $favExt); 
             $favicon = 'assets/img/owner/favicon.' . $favExt;
         } else {
-            $favicon = $owner ? $owner->favicon_url : '';
+            $favicon = $owner ? $owner->favicon_url : null;
         }
         
         if(isset($owner)){
@@ -112,9 +112,9 @@ class OwnerController extends Controller
                 'services_text' => $request->input('services_text'),
                 'testimonials_text' => $request->input('testimonials_text'),
                 'contact_text' => $request->input('contact_text'),
-                'avatar_url' => 'assets/img/owner/avatar.' . $avatarExt, 
-                'bg_url' => 'assets/img/owner/hero-bg.' . $bgExt,
-                'favicon_url' => 'assets/img/owner/favicon.' . $favExt
+                'avatar_url' => $avatar, 
+                'bg_url' => $bg,
+                'favicon_url' => $favicon
                 
             ]);
         }

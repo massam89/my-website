@@ -40,9 +40,9 @@ class CreateOwnerTable extends Migration
             $table->mediumText('services_text')->nullable();
             $table->mediumText('testimonials_text')->nullable();
             $table->mediumText('contact_text')->nullable();
-            $table->string('avatar_url');
-            $table->string('bg_url');
-            $table->string('favicon_url');    
+            $table->string('avatar_url')->nullable();
+            $table->string('bg_url')->nullable();
+            $table->string('favicon_url')->nullable();    
             $table->timestamps();
         });
     }
