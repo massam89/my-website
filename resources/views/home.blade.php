@@ -1,4 +1,4 @@
-@extends('layouts.main')
+@extends('layouts.main', ['owner', $owner])
 
 @section('content')
 @if (session('message'))

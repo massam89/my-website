@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{ __('Set owner\' details') }}</div>
+                <div class="card-header">{{ __('Set main data') }}</div>
                 <div class="card-body">
                     <h5 class="m-2">Personal details</h5>
                     <form method="POST" action="{{ route('owner') }}" enctype="multipart/form-data">
