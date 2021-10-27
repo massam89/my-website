@@ -26,7 +26,7 @@
     <link href="{{ asset('css/sb-admin.min.css') }}" rel="stylesheet">
 
     <!-- Favicons -->
-    <link href="/assets/img/default/favicon.png" rel="icon">
+    <link href="/assets/img/owner/favicon.png" rel="icon">
 
 </head>
 <body>

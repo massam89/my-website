@@ -18,8 +18,7 @@
         <link href="{{ asset('css/sb-admin.min.css') }}" rel="stylesheet">
 
         <!-- Favicons -->
-        <link href="{{ ucfirst($owner->favicon_url) }}" rel="icon">
-        <link href="{{ ucfirst($owner->favicon_url) }}" rel="icon">
+        <link href="/assets/img/owner/favicon.png" rel="icon">
     </head>
 
     <body id="page-top">
