@@ -62,6 +62,11 @@
                         <i class="fas fa-database"></i>
                         <span>Facts</span>
                     </a>
+
+                    <a class="nav-link collapsed" href="{{ route('skills.index') }}">
+                        <i class="fas fa-database"></i>
+                        <span>Skills</span>
+                    </a>
                 </li>
                 
                 {{-- <li class="nav-item">

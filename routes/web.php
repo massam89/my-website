@@ -7,8 +7,8 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\OwnerController;
+use App\Http\Controllers\SkillController;
 use App\Http\Controllers\UserController;
-use App\Models\User;
 
 /*
 |--------------------------------------------------------------------------
@@ -35,6 +35,8 @@ Route::post('/user', [UserController::class, 'update'])->name('user.update');
 
 Route::get('/facts', [FactsController::class, 'index'])->name('facts');
 Route::post('/facts', [FactsController::class, 'update'])->name('facts.update');
+
+Route::resource('/skills', SkillController::class);
 
 Route::post('/user/change-password', [ChangePasswordController::class, 'change_password'])->name('users.change.passoword');
 
