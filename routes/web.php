@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ChangePasswordController;
+use App\Http\Controllers\EducationController;
 use App\Http\Controllers\FactsController;
 use App\Http\Controllers\Landing;
 use Illuminate\Support\Facades\Route;
@@ -37,6 +38,8 @@ Route::get('/facts', [FactsController::class, 'index'])->name('facts');
 Route::post('/facts', [FactsController::class, 'update'])->name('facts.update');
 
 Route::resource('/skills', SkillController::class);
+
+Route::resource('/education', EducationController::class);
 
 Route::post('/user/change-password', [ChangePasswordController::class, 'change_password'])->name('users.change.passoword');
 
