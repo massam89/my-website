@@ -72,6 +72,11 @@
                         <i class="fas fa-database"></i>
                         <span>Educations</span>
                     </a>
+
+                    <a class="nav-link collapsed" href="{{ route('experience.index') }}">
+                        <i class="fas fa-database"></i>
+                        <span>Experiences</span>
+                    </a>
                 </li>
                 
                 {{-- <li class="nav-item">

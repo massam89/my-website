@@ -15,7 +15,7 @@ class CreateExperienceDescriptionsTable extends Migration
     {
         Schema::create('experience_descriptions', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('experience_id')->constrained();
+            $table->foreignId('experience_id')->constrained()->onDelete('cascade');
             $table->string('experience_description_text');
             $table->timestamps();
         });

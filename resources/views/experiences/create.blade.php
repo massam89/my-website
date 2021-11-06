@@ -11,7 +11,7 @@
                 <div class="col-md-8">
                     <div class="card">
                         <div class="card-header">
-                            {{ __('Create skill') }}
+                            {{ __('Create experience') }}
                             <a href="{{ route('experience.index') }}" class="float-right btn">Back</a>
                         </div>
         

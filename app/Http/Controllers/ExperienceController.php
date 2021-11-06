@@ -49,6 +49,7 @@ class ExperienceController extends Controller
      */
     public function store(Request $request)
     {
+        
         $experience = Experience::create([
             'experience_title' => $request->experience_title,
             'experience_date' =>$request->experience_date,
@@ -62,8 +63,7 @@ class ExperienceController extends Controller
                 'experience_id' => $experience->id,
                 'experience_description_text' => $description
             ]);
-            }
-            
+            }   
         };
 
         return redirect()->route('experience.index')->with('message', 'Experience has been created!');
@@ -88,7 +88,9 @@ class ExperienceController extends Controller
      */
     public function edit($id)
     {
-        //
+        $experience = Experience::where('id', $id)->get()->first();
+     
+        return view('experiences.edit')->with('experience', $experience);
     }
 
     /**
@@ -100,7 +102,32 @@ class ExperienceController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+
+        $experience = Experience::where('id', $id)->get()->first();
+
+        $experience->update([
+            'experience_title' => $request->experience_title,
+            'experience_date' =>$request->experience_date,
+            'experience_location' =>$request->experience_location
+        ]);
+
+        $descriptions= Experience_description::where('experience_id', $id)->get();
+
+        foreach($descriptions as $description) {
+            $description->delete();
+        }
+
+        foreach($request->experience_description as $description) {
+
+            if($description != null) {
+                Experience_description::create([
+                'experience_id' => $experience->id,
+                'experience_description_text' => $description
+            ]);
+            }   
+        };
+
+        return redirect()->route('experience.index')->with('message', 'Experience has been updated!');
     }
 
     /**
@@ -111,6 +138,10 @@ class ExperienceController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $experience = Experience::where('id', $id)->get()->first();
+
+        $experience->delete();
+
+        return redirect()->route('experience.index')->with('message', 'Experience has been deleted!');
     }
 }
