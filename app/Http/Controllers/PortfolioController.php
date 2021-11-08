@@ -47,11 +47,26 @@ class PortfolioController extends Controller
      */
     public function store(Request $request)
     {
+        $portfolioExt = '';
+        
+        if(isset($request->portfolio_image_link)){
+
+            $randnum = uniqid();
+
+            $portfolioExt = $request->portfolio_image_link->extension('');
+
+            $request->portfolio_image_link->move(public_path('assets/img/owner/'), $randnum . '.' . $portfolioExt); 
+            $portfolio = 'assets/img/owner/'. $randnum . '.' . $portfolioExt;
+        } else {
+            $portfolio = null;
+        }
+
         Portfolio::create([
             'portfolio_title' => $request->portfolio_title,
             'portfolio_category' => $request->portfolio_category,
             'portfolio_link' => $request->portfolio_link,
-            'portfolio_description' => $request->portfolio_description
+            'portfolio_description' => $request->portfolio_description,
+            'portfolio_image_link' => $portfolio
         ]);
 
         return redirect()->route('portfolio.index')->with('message', 'Portfolio has been created!');

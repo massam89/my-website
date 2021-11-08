@@ -38,6 +38,7 @@
                         <th scope="col">Portfolio category</th>
                         <th scope="col">Portfolio link</th>
                         <th scope="col">Portfolio description</th>
+                        <th scope="col">Portfolio image</th>
                         <th scope="col">Action</th>
                       </tr>
                     </thead>
@@ -49,6 +50,9 @@
                             <td>{{ $portfolio->portfolio_category }}</td>
                             <td><a target="_blank" href="{{ $portfolio->portfolio_link }}"><i class="fas fa-link"></i></a></td>
                             <td>{{ $portfolio->portfolio_description }}</i></td>
+                            <td>
+                              <img style="display:block;margin:auto;width:50px;height:50px" src="{{ $portfolio->portfolio_image_link }}" alt="portfolio image">
+                            </td>
                             <td>
                               <a href="{{ route('portfolio.edit', $portfolio->id) }}" class="btn btn-success btn-sm">Edit</a>
                             </td>

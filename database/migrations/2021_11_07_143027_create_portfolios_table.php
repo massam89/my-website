@@ -19,6 +19,7 @@ class CreatePortfoliosTable extends Migration
             $table->string('portfolio_description');
             $table->string('portfolio_link');
             $table->string('portfolio_category');
+            $table->string('portfolio_image_link')->nullable();
             $table->timestamps();
         });
     }
