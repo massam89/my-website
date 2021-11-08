@@ -20,8 +20,17 @@ class Landing extends Controller
         $educations = Education::all();
         $experiences = Experience::all();
         $portfolios = Portfolio::all();
-
         
+        $categoreis = [];
+        foreach ($portfolios as $portfolio) {
+            $category = explode(',', $portfolio->portfolio_category);
+            foreach ($category as $item){
+                array_push( $categoreis, $item);
+            }
+        }
+        $categoreis = array_unique($categoreis);
+
+
 
         if(isset($owner)) {
             return view('welcome', [
@@ -30,7 +39,8 @@ class Landing extends Controller
                 'skills' => $skills,
                 'educations' => $educations,
                 'experiences' => $experiences,
-                'portfolios' => $portfolios
+                'portfolios' => $portfolios,
+                'categories' => $categoreis
             ]);
         }
         

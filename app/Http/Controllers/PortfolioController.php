@@ -55,8 +55,8 @@ class PortfolioController extends Controller
 
             $portfolioExt = $request->portfolio_image_link->extension('');
 
-            $request->portfolio_image_link->move(public_path('assets/img/owner/'), $randnum . '.' . $portfolioExt); 
-            $portfolio = 'assets/img/owner/'. $randnum . '.' . $portfolioExt;
+            $request->portfolio_image_link->move(public_path('assets/img/owner/portfolio/'), $randnum . '.' . $portfolioExt); 
+            $portfolio = 'assets/img/owner/portfolio/'. $randnum . '.' . $portfolioExt;
         } else {
             $portfolio = null;
         }
@@ -112,8 +112,8 @@ class PortfolioController extends Controller
 
             $randnum = uniqid();
             $portfolioExt = $request->portfolio_image_link->extension('');
-            $request->portfolio_image_link->move(public_path('assets/img/owner/'), $randnum . '.' . $portfolioExt); 
-            $portfolio = 'assets/img/owner/'. $randnum . '.' . $portfolioExt;
+            $request->portfolio_image_link->move(public_path('assets/img/owner/portfolio/'), $randnum . '.' . $portfolioExt); 
+            $portfolio = 'assets/img/owner/portfolio/'. $randnum . '.' . $portfolioExt;
         } else {
             $portfolio = $portfolio1->portfolio_image_link;
         }
