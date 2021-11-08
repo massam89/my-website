@@ -8,6 +8,7 @@ use App\Models\Facts;
 use App\Models\Skill;
 use App\Models\Education;
 use App\Models\Experience;
+use App\Models\Portfolio;
 
 class Landing extends Controller
 {
@@ -18,14 +19,18 @@ class Landing extends Controller
         $skills = Skill::all();
         $educations = Education::all();
         $experiences = Experience::all();
+        $portfolios = Portfolio::all();
+
+        
 
         if(isset($owner)) {
             return view('welcome', [
                 'owner' => $owner,
                 'facts' => $facts,
                 'skills' => $skills,
-                'educations' =>$educations,
-                'experiences' =>$experiences
+                'educations' => $educations,
+                'experiences' => $experiences,
+                'portfolios' => $portfolios
             ]);
         }
         
