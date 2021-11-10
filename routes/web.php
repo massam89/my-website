@@ -11,6 +11,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\OwnerController;
 use App\Http\Controllers\PortfolioController;
 use App\Http\Controllers\SkillController;
+use App\Http\Controllers\TestimonialController;
 use App\Http\Controllers\UserController;
 
 /*
@@ -46,6 +47,8 @@ Route::resource('/education', EducationController::class);
 Route::resource('/experience', ExperienceController::class);
 
 Route::resource('/portfolio', PortfolioController::class);
+
+Route::resource('testimonial', TestimonialController::class);
 
 Route::post('/user/change-password', [ChangePasswordController::class, 'change_password'])->name('users.change.passoword');
 

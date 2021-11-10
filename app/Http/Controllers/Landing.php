@@ -9,6 +9,7 @@ use App\Models\Skill;
 use App\Models\Education;
 use App\Models\Experience;
 use App\Models\Portfolio;
+use App\Models\Testimonial;
 
 class Landing extends Controller
 {
@@ -20,7 +21,8 @@ class Landing extends Controller
         $educations = Education::all();
         $experiences = Experience::all();
         $portfolios = Portfolio::all();
-        
+        $testimonials = Testimonial::all();
+
         $categoreis = [];
         foreach ($portfolios as $portfolio) {
             $category = explode(',', $portfolio->portfolio_category);
@@ -40,7 +42,8 @@ class Landing extends Controller
                 'educations' => $educations,
                 'experiences' => $experiences,
                 'portfolios' => $portfolios,
-                'categories' => $categoreis
+                'categories' => $categoreis,
+                'testimonials' => $testimonials
             ]);
         }
         

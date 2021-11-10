@@ -82,6 +82,11 @@
                         <i class="fas fa-database"></i>
                         <span>Portfolio</span>
                     </a>
+
+                    <a class="nav-link collapsed" href="{{ route('testimonial.index') }}">
+                        <i class="fas fa-database"></i>
+                        <span>Testimonials</span>
+                    </a>
                 </li>
                 
                 {{-- <li class="nav-item">
