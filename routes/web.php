@@ -13,6 +13,7 @@ use App\Http\Controllers\PortfolioController;
 use App\Http\Controllers\SkillController;
 use App\Http\Controllers\TestimonialController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\VisibilityController;
 
 /*
 |--------------------------------------------------------------------------
@@ -39,6 +40,9 @@ Route::post('/user', [UserController::class, 'update'])->name('user.update');
 
 Route::get('/facts', [FactsController::class, 'index'])->name('facts');
 Route::post('/facts', [FactsController::class, 'update'])->name('facts.update');
+
+Route::get('visibility', [VisibilityController::class, 'index'])->name('visibility.index');
+Route::post('visibility', [VisibilityController::class, 'update'])->name('visibility.update');
 
 Route::resource('/skills', SkillController::class);
 

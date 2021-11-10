@@ -11,9 +11,9 @@
                 <div class="col-md-8">
                     <div class="card">
                         <div class="card-header">
-                            <span>{{ __('Update Facts') }}</span>                        
+                             <span>{{ __('Update Facts') }}</span>                                  
                         </div>
-        
+
                         <div class="card-body">
                             <form method="POST" action="{{ route('facts.update') }}">
                                 @csrf

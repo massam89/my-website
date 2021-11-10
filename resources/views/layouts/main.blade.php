@@ -54,38 +54,43 @@
                 <!-- Nav Item - Pages Collapse Menu -->
                 <li class="nav-item">
                     <a class="nav-link collapsed" href="{{ route('owner.store') }}">
-                        <i class="fas fa-database"></i>
+                        <i class="fas fa-user"></i>
                         <span>Main data</span>
                     </a>
 
                     <a class="nav-link collapsed" href="{{ route('facts') }}">
-                        <i class="fas fa-database"></i>
+                        <i class="fas fa-sort-numeric-up-alt"></i>
                         <span>Facts</span>
                     </a>
 
                     <a class="nav-link collapsed" href="{{ route('skills.index') }}">
-                        <i class="fas fa-database"></i>
+                        <i class="fas fa-hard-hat"></i>
                         <span>Skills</span>
                     </a>
 
                     <a class="nav-link collapsed" href="{{ route('education.index') }}">
-                        <i class="fas fa-database"></i>
+                        <i class="fas fa-user-graduate"></i>
                         <span>Educations</span>
                     </a>
 
                     <a class="nav-link collapsed" href="{{ route('experience.index') }}">
-                        <i class="fas fa-database"></i>
+                        <i class="fas fa-user-md"></i>
                         <span>Experiences</span>
                     </a>
 
                     <a class="nav-link collapsed" href="{{ route('portfolio.index') }}">
-                        <i class="fas fa-database"></i>
+                        <i class="fas fa-copy"></i>
                         <span>Portfolio</span>
                     </a>
 
                     <a class="nav-link collapsed" href="{{ route('testimonial.index') }}">
-                        <i class="fas fa-database"></i>
+                        <i class="fas fa-users"></i>
                         <span>Testimonials</span>
+                    </a>
+
+                    <a class="nav-link collapsed" href="{{ route('visibility.index') }}">
+                        <i class="fas fa-eye-slash"></i>
+                        <span>Visibility setting</span>
                     </a>
                 </li>
                 
