@@ -443,7 +443,8 @@
             </div>
 
             <div class="col-lg-7 mt-5 mt-lg-0 d-flex align-items-stretch">
-              <form action="forms/contact.php" method="post" role="form" class="php-email-form">
+              <form action="contactForm" method="post" role="form" class="php-email-form">
+                @csrf
                 <div class="row">
                   <div class="form-group col-md-6">
                     <label for="name">Your Name</label>
@@ -460,7 +461,7 @@
                 </div>
                 <div class="form-group">
                   <label for="name">Message</label>
-                  <textarea class="form-control" name="message" rows="10" required></textarea>
+                  <textarea class="form-control" name="text" rows="10" required></textarea>
                 </div>
                 <div class="my-3">
                   <div class="loading">Loading</div>

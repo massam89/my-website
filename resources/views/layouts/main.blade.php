@@ -92,6 +92,11 @@
                         <i class="fas fa-eye-slash"></i>
                         <span>Visibility setting</span>
                     </a>
+
+                    <a class="nav-link collapsed" href="{{ route('messages.index') }}">
+                        <i class="fas fa-inbox"></i>
+                        <span>Messages</span>
+                    </a>
                 </li>
                 
                 {{-- <li class="nav-item">
