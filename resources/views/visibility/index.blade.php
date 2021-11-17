@@ -18,10 +18,10 @@
                             <form method="POST" action="{{ route('visibility.update') }}">
                                 @csrf
 
-                                <div class="form-check">
+                                <div class="form-check mb-2">
                                     <input class="form-check-input" type="checkbox" id="selectall">
                                     <label class="form-check-label" for="selectall">
-                                      Select All
+                                      Select/deselect All
                                     </label>
                                 </div>
 

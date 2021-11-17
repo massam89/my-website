@@ -66,11 +66,11 @@
       <nav id="navbar" class="nav-menu navbar">
         <ul>
           <li><a href="#hero" class="nav-link scrollto active"><i class="bx bx-home"></i> <span>Home</span></a></li>
-          <li><a href="#about" class="nav-link scrollto"><i class="bx bx-user"></i> <span>About</span></a></li>
-          <li><a href="#resume" class="nav-link scrollto"><i class="bx bx-file-blank"></i> <span>Resume</span></a></li>
-          <li><a href="#portfolio" class="nav-link scrollto"><i class="bx bx-book-content"></i> <span>Portfolio</span></a></li>
-          <li><a href="#services" class="nav-link scrollto"><i class="bx bx-server"></i> <span>Services</span></a></li>
-          <li><a href="#contact" class="nav-link scrollto"><i class="bx bx-envelope"></i> <span>Contact</span></a></li>
+          @if($visibilities->about)<li><a href="#about" class="nav-link scrollto"><i class="bx bx-user"></i> <span>About</span></a></li>@endif
+          @if($visibilities->resume)<li><a href="#resume" class="nav-link scrollto"><i class="bx bx-file-blank"></i> <span>Resume</span></a></li>@endif
+          @if($visibilities->portfolio)<li><a href="#portfolio" class="nav-link scrollto"><i class="bx bx-book-content"></i> <span>Portfolio</span></a></li>@endif
+          @if($visibilities->service)<li><a href="#services" class="nav-link scrollto"><i class="bx bx-server"></i> <span>Services</span></a></li>@endif
+          @if($visibilities->contact)<li><a href="#contact" class="nav-link scrollto"><i class="bx bx-envelope"></i> <span>Contact</span></a></li>@endif
         </ul>
       </nav><!-- .nav-menu -->
     </div>
@@ -86,97 +86,103 @@
 
   <main id="main">
 
-    <!-- ======= About Section ======= -->
-    <section id="about" class="about">
-      <div class="container">
 
-        <div class="section-title">
-          <h2>About</h2>
-          <p>{{ $owner->about_text1 }}</p>
-        </div>
+<!-- ======= About Section ======= -->
+    @if ($visibilities->about) 
+      <section id="about" class="about">
+        <div class="container">
 
-        <div class="row">
-          <div class="col-lg-4" data-aos="fade-right">
-            <img src="{{ $owner->avatar_url }}" class="img-fluid" alt="">
+          <div class="section-title">
+            <h2>About</h2>
+            <p>{{ $owner->about_text1 }}</p>
           </div>
-          <div class="col-lg-8 pt-4 pt-lg-0 content" data-aos="fade-left">
-            <h3>{{ $owner->about_header }}</h3>
-            <p class="fst-italic">
-              {{ $owner->about_text2 }}
-            </p>
-            <div class="row">
-              <div class="col-lg-6">
-                <ul>
-                  <li><i class="bi bi-chevron-right"></i> <strong>Birthday:</strong> <span>{{ $owner->birthdate }}</span></li>
-                  <li><i class="bi bi-chevron-right"></i> <strong>Website:</strong> <span>{{ $owner->website }}</span></li>
-                  <li><i class="bi bi-chevron-right"></i> <strong>Phone:</strong> <span>{{ $owner->phone }}</span></li>
-                  <li><i class="bi bi-chevron-right"></i> <strong>City:</strong> <span>{{ $owner->city }}</span></li>
-                </ul>
-              </div>
-              <div class="col-lg-6">
-                <ul>
-                  <li><i class="bi bi-chevron-right"></i> <strong>Age:</strong> <span>{{ date("Y") - date('Y', strtotime($owner->birthdate)) }}</span></li>
-                  <li><i class="bi bi-chevron-right"></i> <strong>Degree:</strong> <span>{{ $owner->degree }}</span></li>
-                  <li><i class="bi bi-chevron-right"></i> <strong>Email:</strong> <span>{{ $owner->email }}</span></li>
-                </ul>
-              </div>
+
+          <div class="row">
+            <div class="col-lg-4" data-aos="fade-right">
+              <img src="{{ $owner->avatar_url }}" class="img-fluid" alt="">
             </div>
-            <p>{{ $owner->about_text3 }}</p>
+            <div class="col-lg-8 pt-4 pt-lg-0 content" data-aos="fade-left">
+              <h3>{{ $owner->about_header }}</h3>
+              <p class="fst-italic">
+                {{ $owner->about_text2 }}
+              </p>
+              <div class="row">
+                <div class="col-lg-6">
+                  <ul>
+                    <li><i class="bi bi-chevron-right"></i> <strong>Birthday:</strong> <span>{{ $owner->birthdate }}</span></li>
+                    <li><i class="bi bi-chevron-right"></i> <strong>Website:</strong> <span>{{ $owner->website }}</span></li>
+                    <li><i class="bi bi-chevron-right"></i> <strong>Phone:</strong> <span>{{ $owner->phone }}</span></li>
+                    <li><i class="bi bi-chevron-right"></i> <strong>City:</strong> <span>{{ $owner->city }}</span></li>
+                  </ul>
+                </div>
+                <div class="col-lg-6">
+                  <ul>
+                    <li><i class="bi bi-chevron-right"></i> <strong>Age:</strong> <span>{{ date("Y") - date('Y', strtotime($owner->birthdate)) }}</span></li>
+                    <li><i class="bi bi-chevron-right"></i> <strong>Degree:</strong> <span>{{ $owner->degree }}</span></li>
+                    <li><i class="bi bi-chevron-right"></i> <strong>Email:</strong> <span>{{ $owner->email }}</span></li>
+                  </ul>
+                </div>
+              </div>
+              <p>{{ $owner->about_text3 }}</p>
+            </div>
           </div>
-        </div>
 
-      </div>
-    </section><!-- End About Section -->
+        </div>
+      </section><!-- End About Section -->
+    @endif
 
     <!-- ======= Facts Section ======= -->
-    <section id="facts" class="facts">
-      <div class="container">
-
-        <div class="section-title">
-          <h2>Facts</h2>
-          <p>{{ $owner->facts_text }}</p>
+      @if ($visibilities->fact)
+      <section id="facts" class="facts">
+        <div class="container">
+  
+          <div class="section-title">
+            <h2>Facts</h2>
+            <p>{{ $owner->facts_text }}</p>
+          </div>
+  
+          <div class="row no-gutters">
+  
+            <div class="col-lg-3 col-md-6 d-md-flex align-items-md-stretch" data-aos="fade-up">
+              <div class="count-box">
+                <i class="bi bi-emoji-smile"></i>
+                <span data-purecounter-start="0" data-purecounter-end="{{ $facts->clients_number }}" data-purecounter-duration="1" class="purecounter"></span>
+                <p><strong>{{ $facts->clients_title }}</strong></p>
+              </div>
+            </div>
+  
+            <div class="col-lg-3 col-md-6 d-md-flex align-items-md-stretch" data-aos="fade-up" data-aos-delay="100">
+              <div class="count-box">
+                <i class="bi bi-journal-richtext"></i>
+                <span data-purecounter-start="0" data-purecounter-end="{{ $facts->projects_number }}" data-purecounter-duration="1" class="purecounter"></span>
+                <p><strong>{{ $facts->projects_title }}</strong></p>
+              </div>
+            </div>
+  
+            <div class="col-lg-3 col-md-6 d-md-flex align-items-md-stretch" data-aos="fade-up" data-aos-delay="200">
+              <div class="count-box">
+                <i class="bi bi-headset"></i>
+                <span data-purecounter-start="0" data-purecounter-end="{{ $facts->hours_number }}" data-purecounter-duration="1" class="purecounter"></span>
+                <p><strong>{{ $facts->hours_title }}</strong></p>
+              </div>
+            </div>
+  
+            <div class="col-lg-3 col-md-6 d-md-flex align-items-md-stretch" data-aos="fade-up" data-aos-delay="300">
+              <div class="count-box">
+                <i class="bi bi-people"></i>
+                <span data-purecounter-start="0" data-purecounter-end="{{ $facts->workers_number }}" data-purecounter-duration="1" class="purecounter"></span>
+                <p><strong>{{ $facts->workers_title }}</strong></p>
+              </div>
+            </div>
+  
+          </div>
+  
         </div>
-
-        <div class="row no-gutters">
-
-          <div class="col-lg-3 col-md-6 d-md-flex align-items-md-stretch" data-aos="fade-up">
-            <div class="count-box">
-              <i class="bi bi-emoji-smile"></i>
-              <span data-purecounter-start="0" data-purecounter-end="{{ $facts->clients_number }}" data-purecounter-duration="1" class="purecounter"></span>
-              <p><strong>{{ $facts->clients_title }}</strong></p>
-            </div>
-          </div>
-
-          <div class="col-lg-3 col-md-6 d-md-flex align-items-md-stretch" data-aos="fade-up" data-aos-delay="100">
-            <div class="count-box">
-              <i class="bi bi-journal-richtext"></i>
-              <span data-purecounter-start="0" data-purecounter-end="{{ $facts->projects_number }}" data-purecounter-duration="1" class="purecounter"></span>
-              <p><strong>{{ $facts->projects_title }}</strong></p>
-            </div>
-          </div>
-
-          <div class="col-lg-3 col-md-6 d-md-flex align-items-md-stretch" data-aos="fade-up" data-aos-delay="200">
-            <div class="count-box">
-              <i class="bi bi-headset"></i>
-              <span data-purecounter-start="0" data-purecounter-end="{{ $facts->hours_number }}" data-purecounter-duration="1" class="purecounter"></span>
-              <p><strong>{{ $facts->hours_title }}</strong></p>
-            </div>
-          </div>
-
-          <div class="col-lg-3 col-md-6 d-md-flex align-items-md-stretch" data-aos="fade-up" data-aos-delay="300">
-            <div class="count-box">
-              <i class="bi bi-people"></i>
-              <span data-purecounter-start="0" data-purecounter-end="{{ $facts->workers_number }}" data-purecounter-duration="1" class="purecounter"></span>
-              <p><strong>{{ $facts->workers_title }}</strong></p>
-            </div>
-          </div>
-
-        </div>
-
-      </div>
-    </section><!-- End Facts Section -->
+      </section><!-- End Facts Section -->
+      @endif
 
     <!-- ======= Skills Section ======= -->
+    @if ($visibilities->skill)
     <section id="skills" class="skills section-bg">
       <div class="container">
 
@@ -215,8 +221,11 @@
         </div>
       </div>
     </section><!-- End Skills Section -->
+    @endif
+   
 
     <!-- ======= Resume Section ======= -->
+    @if ($visibilities->resume)
     <section id="resume" class="resume">
       <div class="container">
 
@@ -226,236 +235,248 @@
         </div>
 
         <div class="row">
-          <div class="col-lg-6" data-aos="fade-up">
+          @if ($visibilities->education)
+            <div class="col-lg-6" data-aos="fade-up">
 
-            {{-- <h3 class="resume-title">Sumary</h3>
-            <div class="resume-item pb-0">
-              <h4>Alex Smith</h4>
-              <p><em>Innovative and deadline-driven Graphic Designer with 3+ years of experience designing and developing user-centered digital/print marketing material from initial concept to final, polished deliverable.</em></p>
-              <ul>
-                <li>Portland par 127,Orlando, FL</li>
-                <li>(123) 456-7891</li>
-                <li>alice.barkley@example.com</li>
-              </ul>
-            </div> --}}
+              {{-- <h3 class="resume-title">Sumary</h3>
+              <div class="resume-item pb-0">
+                <h4>Alex Smith</h4>
+                <p><em>Innovative and deadline-driven Graphic Designer with 3+ years of experience designing and developing user-centered digital/print marketing material from initial concept to final, polished deliverable.</em></p>
+                <ul>
+                  <li>Portland par 127,Orlando, FL</li>
+                  <li>(123) 456-7891</li>
+                  <li>alice.barkley@example.com</li>
+                </ul>
+              </div> --}}
 
-            <h3 class="resume-title">Education</h3>
-            @foreach ( $educations as $education )
-              <div class="resume-item">
-                <h4>{{ $education->education_title }}</h4>
-                <h5>{{ $education->education_date }}</h5>
-                <p><em>{{ $education->education_location }}</em></p>
-                <p>{{ $education->education_description }}</p>
-              </div>
-            @endforeach
-          </div>
-
-          <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
-            <h3 class="resume-title">Professional Experience</h3>
-
-            @foreach ($experiences as $experience )
-            <div class="resume-item">
-              <h4>{{ $experience->experience_title }}</h4>
-              <h5>{{ $experience->experience_date }}</h5>
-              <p><em>{{ $experience->experience_location }} </em></p>
-              <ul>
-                @foreach ($experience->descriptions as $description)
-                  <li>{{ $description->experience_description_text }}</li>
-                @endforeach
-              </ul>
+              <h3 class="resume-title">Education</h3>
+              @foreach ( $educations as $education )
+                <div class="resume-item">
+                  <h4>{{ $education->education_title }}</h4>
+                  <h5>{{ $education->education_date }}</h5>
+                  <p><em>{{ $education->education_location }}</em></p>
+                  <p>{{ $education->education_description }}</p>
+                </div>
+              @endforeach
             </div>
-            @endforeach
-            
-          </div>
-        </div>
+          @endif
+          
+          @if ($visibilities->experience)
+            <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
+              <h3 class="resume-title">Professional Experience</h3>
 
+              @foreach ($experiences as $experience )
+              <div class="resume-item">
+                <h4>{{ $experience->experience_title }}</h4>
+                <h5>{{ $experience->experience_date }}</h5>
+                <p><em>{{ $experience->experience_location }} </em></p>
+                <ul>
+                  @foreach ($experience->descriptions as $description)
+                    <li>{{ $description->experience_description_text }}</li>
+                  @endforeach
+                </ul>
+              </div>
+              @endforeach
+              
+            </div>
+          @endif         
+        </div>
       </div>
     </section><!-- End Resume Section -->
+    @endif
 
 <!-- ======= Portfolio Section ======= -->
-<section id="portfolio" class="portfolio section-bg">
-  <div class="container">
+    @if ($visibilities->portfolio)
+      <section id="portfolio" class="portfolio section-bg">
+        <div class="container">
 
-    <div class="section-title">
-      <h2>Portfolio</h2>
-      <p>{{ $owner->portfolio_text }}</p>
-    </div>
+          <div class="section-title">
+            <h2>Portfolio</h2>
+            <p>{{ $owner->portfolio_text }}</p>
+          </div>
 
-    <div class="row" data-aos="fade-up">
-      <div class="col-lg-12 d-flex justify-content-center">
-        <ul id="portfolio-flters">
-          <li data-filter="*" class="filter-active">All</li>
-          @foreach ($categories as $category)
-            <li data-filter=".filter-{{ $category }}">{{ $category }}</li>
-          @endforeach       
-        </ul>
-      </div>
-    </div>
-
-    <div class="row portfolio-container" data-aos="fade-up" data-aos-delay="100">
-      @foreach ($portfolios as $portfolio )
-        <div class="col-lg-4 col-md-6 portfolio-item @foreach( explode(',', $portfolio->portfolio_category) as $category) filter-{{ $category }}@endforeach">
-          <div class="portfolio-wrap">
-            <img src="{{ $portfolio->portfolio_image_link }}" class="img-fluid" alt="{{ $portfolio->portfolio_title }}">
-            <div class="portfolio-links">
-              <a href="{{ $portfolio->portfolio_image_link }}" data-gallery="portfolioGallery" class="portfolio-lightbox" title="{{ $portfolio->portfolio_title }} - {{ $portfolio->portfolio_description }}"><i class="bx bx-plus"></i></a>
-              <a href="{{ $portfolio->portfolio_link }}" title="See link"><i class="bx bx-link"></i></a>
+          <div class="row" data-aos="fade-up">
+            <div class="col-lg-12 d-flex justify-content-center">
+              <ul id="portfolio-flters">
+                <li data-filter="*" class="filter-active">All</li>
+                @foreach ($categories as $category)
+                  <li data-filter=".filter-{{ $category }}">{{ $category }}</li>
+                @endforeach       
+              </ul>
             </div>
           </div>
+
+          <div class="row portfolio-container" data-aos="fade-up" data-aos-delay="100">
+            @foreach ($portfolios as $portfolio )
+              <div class="col-lg-4 col-md-6 portfolio-item @foreach( explode(',', $portfolio->portfolio_category) as $category) filter-{{ $category }}@endforeach">
+                <div class="portfolio-wrap">
+                  <img src="{{ $portfolio->portfolio_image_link }}" class="img-fluid" alt="{{ $portfolio->portfolio_title }}">
+                  <div class="portfolio-links">
+                    <a href="{{ $portfolio->portfolio_image_link }}" data-gallery="portfolioGallery" class="portfolio-lightbox" title="{{ $portfolio->portfolio_title }} - {{ $portfolio->portfolio_description }}"><i class="bx bx-plus"></i></a>
+                    <a href="{{ $portfolio->portfolio_link }}" title="See link"><i class="bx bx-link"></i></a>
+                  </div>
+                </div>
+              </div>
+            @endforeach
+          </div>
         </div>
-      @endforeach
-    </div>
-  </div>
-</section><!-- End Portfolio Section -->
+      </section><!-- End Portfolio Section -->
+    @endif
 
     <!-- ======= Services Section ======= -->
-    <section id="services" class="services">
-      <div class="container">
+    @if ($visibilities->service)
+      <section id="services" class="services">
+        <div class="container">
 
-        <div class="section-title">
-          <h2>Services</h2>
-          <p>{{ $owner->services_text }}</p>
+          <div class="section-title">
+            <h2>Services</h2>
+            <p>{{ $owner->services_text }}</p>
+          </div>
+
+          <div class="row">
+            <div class="col-lg-4 col-md-6 icon-box" data-aos="fade-up">
+              <div class="icon"><i class="bi bi-briefcase"></i></div>
+              <h4 class="title"><a href="">Lorem Ipsum</a></h4>
+              <p class="description">Voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident</p>
+            </div>
+            <div class="col-lg-4 col-md-6 icon-box" data-aos="fade-up" data-aos-delay="100">
+              <div class="icon"><i class="bi bi-card-checklist"></i></div>
+              <h4 class="title"><a href="">Dolor Sitema</a></h4>
+              <p class="description">Minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat tarad limino ata</p>
+            </div>
+            <div class="col-lg-4 col-md-6 icon-box" data-aos="fade-up" data-aos-delay="200">
+              <div class="icon"><i class="bi bi-bar-chart"></i></div>
+              <h4 class="title"><a href="">Sed ut perspiciatis</a></h4>
+              <p class="description">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur</p>
+            </div>
+            <div class="col-lg-4 col-md-6 icon-box" data-aos="fade-up" data-aos-delay="300">
+              <div class="icon"><i class="bi bi-binoculars"></i></div>
+              <h4 class="title"><a href="">Magni Dolores</a></h4>
+              <p class="description">Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
+            </div>
+            <div class="col-lg-4 col-md-6 icon-box" data-aos="fade-up" data-aos-delay="400">
+              <div class="icon"><i class="bi bi-brightness-high"></i></div>
+              <h4 class="title"><a href="">Nemo Enim</a></h4>
+              <p class="description">At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque</p>
+            </div>
+            <div class="col-lg-4 col-md-6 icon-box" data-aos="fade-up" data-aos-delay="500">
+              <div class="icon"><i class="bi bi-calendar4-week"></i></div>
+              <h4 class="title"><a href="">Eiusmod Tempor</a></h4>
+              <p class="description">Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi</p>
+            </div>
+          </div>
         </div>
-
-        <div class="row">
-          <div class="col-lg-4 col-md-6 icon-box" data-aos="fade-up">
-            <div class="icon"><i class="bi bi-briefcase"></i></div>
-            <h4 class="title"><a href="">Lorem Ipsum</a></h4>
-            <p class="description">Voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident</p>
-          </div>
-          <div class="col-lg-4 col-md-6 icon-box" data-aos="fade-up" data-aos-delay="100">
-            <div class="icon"><i class="bi bi-card-checklist"></i></div>
-            <h4 class="title"><a href="">Dolor Sitema</a></h4>
-            <p class="description">Minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat tarad limino ata</p>
-          </div>
-          <div class="col-lg-4 col-md-6 icon-box" data-aos="fade-up" data-aos-delay="200">
-            <div class="icon"><i class="bi bi-bar-chart"></i></div>
-            <h4 class="title"><a href="">Sed ut perspiciatis</a></h4>
-            <p class="description">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur</p>
-          </div>
-          <div class="col-lg-4 col-md-6 icon-box" data-aos="fade-up" data-aos-delay="300">
-            <div class="icon"><i class="bi bi-binoculars"></i></div>
-            <h4 class="title"><a href="">Magni Dolores</a></h4>
-            <p class="description">Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
-          </div>
-          <div class="col-lg-4 col-md-6 icon-box" data-aos="fade-up" data-aos-delay="400">
-            <div class="icon"><i class="bi bi-brightness-high"></i></div>
-            <h4 class="title"><a href="">Nemo Enim</a></h4>
-            <p class="description">At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque</p>
-          </div>
-          <div class="col-lg-4 col-md-6 icon-box" data-aos="fade-up" data-aos-delay="500">
-            <div class="icon"><i class="bi bi-calendar4-week"></i></div>
-            <h4 class="title"><a href="">Eiusmod Tempor</a></h4>
-            <p class="description">Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi</p>
-          </div>
-        </div>
-
-      </div>
-    </section><!-- End Services Section -->
-
+      </section><!-- End Services Section -->
+    @endif
+  
     <!-- ======= Testimonials Section ======= -->
-    <section id="testimonials" class="testimonials section-bg">
-      <div class="container">
+    @if ($visibilities->testimonial)
+      <section id="testimonials" class="testimonials section-bg">
+        <div class="container">
 
-        <div class="section-title">
-          <h2>Testimonials</h2>
-          <p>{{ $owner->testimonials_text }}</p>
-        </div>
-
-        <div class="testimonials-slider swiper" data-aos="fade-up" data-aos-delay="100">
-          <div class="swiper-wrapper">
-
-            @foreach ($testimonials as $testimonial )
-            <div class="swiper-slide">
-              <div class="testimonial-item" data-aos="fade-up">
-                <p>
-                  <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-                  {{ $testimonial->testimonial_text }}
-                  <i class="bx bxs-quote-alt-right quote-icon-right"></i>
-                </p>
-                <img src="{{ $testimonial->testimonial_image_url }}" class="testimonial-img" alt="">
-                <h3>{{ $testimonial->testimonial_name }}</h3>
-                <h4>{{ $testimonial->testimonial_job }}</h4>
-              </div>
-            </div><!-- End testimonial item -->
-            @endforeach
-      
+          <div class="section-title">
+            <h2>Testimonials</h2>
+            <p>{{ $owner->testimonials_text }}</p>
           </div>
-          <div class="swiper-pagination"></div>
+
+          <div class="testimonials-slider swiper" data-aos="fade-up" data-aos-delay="100">
+            <div class="swiper-wrapper">
+
+              @foreach ($testimonials as $testimonial )
+              <div class="swiper-slide">
+                <div class="testimonial-item" data-aos="fade-up">
+                  <p>
+                    <i class="bx bxs-quote-alt-left quote-icon-left"></i>
+                    {{ $testimonial->testimonial_text }}
+                    <i class="bx bxs-quote-alt-right quote-icon-right"></i>
+                  </p>
+                  <img src="{{ $testimonial->testimonial_image_url }}" class="testimonial-img" alt="">
+                  <h3>{{ $testimonial->testimonial_name }}</h3>
+                  <h4>{{ $testimonial->testimonial_job }}</h4>
+                </div>
+              </div><!-- End testimonial item -->
+              @endforeach
+        
+            </div>
+            <div class="swiper-pagination"></div>
+          </div>
+
         </div>
-
-      </div>
-    </section><!-- End Testimonials Section -->
-
+      </section><!-- End Testimonials Section -->
+    @endif
+    
     <!-- ======= Contact Section ======= -->
-    <section id="contact" class="contact">
-      <div class="container">
+    @if ($visibilities->contact)
+      <section id="contact" class="contact">
+        <div class="container">
 
-        <div class="section-title">
-          <h2>Contact</h2>
-          <p>{{ $owner->contact_text }}</p>
-        </div>
+          <div class="section-title">
+            <h2>Contact</h2>
+            <p>{{ $owner->contact_text }}</p>
+          </div>
 
-        <div class="row" data-aos="fade-in">
+          <div class="row" data-aos="fade-in">
 
-          <div class="col-lg-5 d-flex align-items-stretch">
-            <div class="info">
-              <div class="address">
-                <i class="bi bi-geo-alt"></i>
-                <h4>Location:</h4>
-                <p>{{ $owner->address }}</p>
+            <div class="col-lg-5 d-flex align-items-stretch">
+              <div class="info">
+                <div class="address">
+                  <i class="bi bi-geo-alt"></i>
+                  <h4>Location:</h4>
+                  <p>{{ $owner->address }}</p>
+                </div>
+
+                <div class="email">
+                  <i class="bi bi-envelope"></i>
+                  <h4>Email:</h4>
+                  <p><a href="mailto:{{ $owner->email }}">{{ $owner->email }}</a></p>
+                </div>
+
+                <div class="phone">
+                  <i class="bi bi-phone"></i>
+                  <h4>Call:</h4>
+                  <p><a href="tel:{{ $owner->phone }}">{{ $owner->phone }}</a></p>
+                </div>
+
+                <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12097.433213460943!2d-74.0062269!3d40.7101282!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xb89d1fe6bc499443!2sDowntown+Conference+Center!5e0!3m2!1smk!2sbg!4v1539943755621" frameborder="0" style="border:0; width: 100%; height: 290px;" allowfullscreen></iframe>
               </div>
 
-              <div class="email">
-                <i class="bi bi-envelope"></i>
-                <h4>Email:</h4>
-                <p><a href="mailto:{{ $owner->email }}">{{ $owner->email }}</a></p>
-              </div>
+            </div>
 
-              <div class="phone">
-                <i class="bi bi-phone"></i>
-                <h4>Call:</h4>
-                <p><a href="tel:{{ $owner->phone }}">{{ $owner->phone }}</a></p>
-              </div>
-
-              <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12097.433213460943!2d-74.0062269!3d40.7101282!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xb89d1fe6bc499443!2sDowntown+Conference+Center!5e0!3m2!1smk!2sbg!4v1539943755621" frameborder="0" style="border:0; width: 100%; height: 290px;" allowfullscreen></iframe>
+            <div class="col-lg-7 mt-5 mt-lg-0 d-flex align-items-stretch">
+              <form action="forms/contact.php" method="post" role="form" class="php-email-form">
+                <div class="row">
+                  <div class="form-group col-md-6">
+                    <label for="name">Your Name</label>
+                    <input type="text" name="name" class="form-control" id="name" required>
+                  </div>
+                  <div class="form-group col-md-6">
+                    <label for="name">Your Email</label>
+                    <input type="email" class="form-control" name="email" id="email" required>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="name">Subject</label>
+                  <input type="text" class="form-control" name="subject" id="subject" required>
+                </div>
+                <div class="form-group">
+                  <label for="name">Message</label>
+                  <textarea class="form-control" name="message" rows="10" required></textarea>
+                </div>
+                <div class="my-3">
+                  <div class="loading">Loading</div>
+                  <div class="error-message"></div>
+                  <div class="sent-message">Your message has been sent. Thank you!</div>
+                </div>
+                <div class="text-center"><button type="submit">Send Message</button></div>
+              </form>
             </div>
 
           </div>
 
-          <div class="col-lg-7 mt-5 mt-lg-0 d-flex align-items-stretch">
-            <form action="forms/contact.php" method="post" role="form" class="php-email-form">
-              <div class="row">
-                <div class="form-group col-md-6">
-                  <label for="name">Your Name</label>
-                  <input type="text" name="name" class="form-control" id="name" required>
-                </div>
-                <div class="form-group col-md-6">
-                  <label for="name">Your Email</label>
-                  <input type="email" class="form-control" name="email" id="email" required>
-                </div>
-              </div>
-              <div class="form-group">
-                <label for="name">Subject</label>
-                <input type="text" class="form-control" name="subject" id="subject" required>
-              </div>
-              <div class="form-group">
-                <label for="name">Message</label>
-                <textarea class="form-control" name="message" rows="10" required></textarea>
-              </div>
-              <div class="my-3">
-                <div class="loading">Loading</div>
-                <div class="error-message"></div>
-                <div class="sent-message">Your message has been sent. Thank you!</div>
-              </div>
-              <div class="text-center"><button type="submit">Send Message</button></div>
-            </form>
-          </div>
-
         </div>
-
-      </div>
-    </section><!-- End Contact Section -->
+      </section><!-- End Contact Section -->
+    @endif
+    
 
   </main><!-- End #main -->
 

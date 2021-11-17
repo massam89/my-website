@@ -10,6 +10,7 @@ use App\Models\Education;
 use App\Models\Experience;
 use App\Models\Portfolio;
 use App\Models\Testimonial;
+use App\Models\Visibility;
 
 class Landing extends Controller
 {
@@ -22,6 +23,7 @@ class Landing extends Controller
         $experiences = Experience::all();
         $portfolios = Portfolio::all();
         $testimonials = Testimonial::all();
+        $visibilities = Visibility::all()->first();
 
         $categoreis = [];
         foreach ($portfolios as $portfolio) {
@@ -43,7 +45,8 @@ class Landing extends Controller
                 'experiences' => $experiences,
                 'portfolios' => $portfolios,
                 'categories' => $categoreis,
-                'testimonials' => $testimonials
+                'testimonials' => $testimonials,
+                'visibilities' => $visibilities
             ]);
         }
         
