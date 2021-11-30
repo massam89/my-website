@@ -55,11 +55,11 @@
         <img src="{{ $owner->avatar_url }}" alt="" class="img-fluid rounded-circle">
         <h1 class="text-light"><a href="index.html">{{ $owner->name }}</a></h1>
         <div class="social-links mt-3 text-center">
-          <a href="{{ $owner->twitter }}" class="twitter"><i class="bx bxl-twitter"></i></a>
-          <a href="{{ $owner->facebook }}" class="facebook"><i class="bx bxl-facebook"></i></a>
-          <a href="{{ $owner->instagram }}" class="instagram"><i class="bx bxl-instagram"></i></a>
-          <a href="{{ $owner->linkedin }}" class="linkedin"><i class="bx bxl-linkedin"></i></a>
-          <a href="{{ $owner->github }}" class="github"><i class="bx bxl-github"></i></a>
+          @isset($owner->twitter)<a href="{{ $owner->twitter }}" class="twitter"><i class="bx bxl-twitter"></i></a>@endisset
+          @isset($owner->facebook)<a href="{{ $owner->facebook }}" class="facebook"><i class="bx bxl-facebook"></i></a>@endisset
+          @isset($owner->instagram)<a href="{{ $owner->instagram }}" class="instagram"><i class="bx bxl-instagram"></i></a>@endisset
+          @isset($owner->linkedin)<a href="{{ $owner->linkedin }}" class="linkedin"><i class="bx bxl-linkedin"></i></a>@endisset
+          @isset($owner->github)<a href="{{ $owner->github }}" class="github"><i class="bx bxl-github"></i></a>@endisset
         </div>
       </div>
 
