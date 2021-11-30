@@ -43,6 +43,7 @@ class CreateOwnerTable extends Migration
             $table->string('avatar_url')->nullable();
             $table->string('bg_url')->nullable();
             $table->string('favicon_url')->nullable();    
+            $table->string('resume_url')->nullable();    
             $table->timestamps();
         });
     }

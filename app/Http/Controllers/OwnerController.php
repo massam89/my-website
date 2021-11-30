@@ -25,6 +25,7 @@ class OwnerController extends Controller
         $avatarExt = '';
         $bgExt = '';
         $favExt = '';
+        $resumeExt = '';
 
         $owner = Owner::all()->first();
         
@@ -50,6 +51,14 @@ class OwnerController extends Controller
             $favicon = 'assets/img/owner/favicon.' . $favExt;
         } else {
             $favicon = $owner ? $owner->favicon_url : null;
+        }
+        
+        if(isset($request->resume_url)){
+            $resumeExt = $request->resume_url->extension();
+            $request->resume_url->move(public_path('assets/img/owner'), 'resume.' . $resumeExt); 
+            $resume = 'assets/img/owner/resume.' . $resumeExt;
+        } else {
+            $resume = $owner ? $owner->resume_url : null;
         }
         
         if(isset($owner)){
@@ -82,7 +91,8 @@ class OwnerController extends Controller
                 'contact_text' => $request->input('contact_text'),
                 'avatar_url' => $avatar, 
                 'bg_url' => $bg,
-                'favicon_url' => $favicon     
+                'favicon_url' => $favicon,
+                'resume_url' => $resume
             ]);
         } else {
             Owner::create([
@@ -114,8 +124,8 @@ class OwnerController extends Controller
                 'contact_text' => $request->input('contact_text'),
                 'avatar_url' => $avatar, 
                 'bg_url' => $bg,
-                'favicon_url' => $favicon
-                
+                'favicon_url' => $favicon,
+                'resume_url' => $resume
             ]);
         }
 

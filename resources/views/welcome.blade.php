@@ -124,6 +124,7 @@
                 </div>
               </div>
               <p>{{ $owner->about_text3 }}</p>
+              <div class="text-center mt-5"><a target="_blank" href="{{ $owner->resume_url }}" class="btn btn-primary text-white">Download resume</a></div>
             </div>
           </div>
 

@@ -251,6 +251,17 @@
                             </div>
                         </div>
 
+                        <div class="form-group row">
+                            <label for="resume_url" class="col-md-4 col-form-label text-md-right">{{ __('Resume') }}</label>
+
+                            <div class="col-md-6 d-flex">
+                                <input id="resume_url" type="file" class="form-control" name="resume_url" >
+                                @isset($owner, $owner->resume_url)
+                                  <a class="btn" target="_blank" href="{{ $owner->resume_url }}">Show</a>
+                                @endisset
+                            </div>
+                        </div>
+
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">
                                 <button type="submit" class="btn btn-primary">
