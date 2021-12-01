@@ -6,9 +6,12 @@
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
   <title>Main | {{ $owner->name }}</title>
-  <meta content="" name="description">
-  <meta content="" name="keywords">
-
+  <meta content="My name is {{ $owner->name }} and my job is {{ $owner->expertises }}" name="description">
+  <meta content="{{ $owner->name }}, {{ $owner->expertises }}, about, portfolio, service, contact, resume, cv, social media, facts, education, experience " name="keywords">
+  <meta name="author" content="{{ $owner->name }}">
+  <meta name="page-topic" content="Resume">
+  <meta name="page-type" content="Resume">
+  <meta name="audience" content="Everyone">
   <!-- Favicons -->
   <link href="{{ $owner->favicon_url }}" rel="icon">
   <link href="{{ $owner->favicon_url }}" rel="apple-touch-icon">
