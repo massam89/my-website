@@ -239,7 +239,28 @@
         </div>
 
         <div class="row">
-          @if ($visibilities->education)
+          
+          @if ($visibilities->experience)
+            <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
+              <h3 class="resume-title">Professional Experience</h3>
+
+              @foreach ($experiences as $experience )
+              <div class="resume-item">
+                <h4>{{ $experience->experience_title }}</h4>
+                <h5>{{ $experience->experience_date }}</h5>
+                <p><em>{{ $experience->experience_location }} </em></p>
+                <ul>
+                  @foreach ($experience->descriptions as $description)
+                    <li>{{ $description->experience_description_text }}</li>
+                  @endforeach
+                </ul>
+              </div>
+              @endforeach
+              
+            </div>
+          @endif 
+
+           @if ($visibilities->education)
             <div class="col-lg-6" data-aos="fade-up">
 
               {{-- <h3 class="resume-title">Sumary</h3>
@@ -263,27 +284,7 @@
                 </div>
               @endforeach
             </div>
-          @endif
-          
-          @if ($visibilities->experience)
-            <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
-              <h3 class="resume-title">Professional Experience</h3>
-
-              @foreach ($experiences as $experience )
-              <div class="resume-item">
-                <h4>{{ $experience->experience_title }}</h4>
-                <h5>{{ $experience->experience_date }}</h5>
-                <p><em>{{ $experience->experience_location }} </em></p>
-                <ul>
-                  @foreach ($experience->descriptions as $description)
-                    <li>{{ $description->experience_description_text }}</li>
-                  @endforeach
-                </ul>
-              </div>
-              @endforeach
-              
-            </div>
-          @endif         
+          @endif        
         </div>
       </div>
     </section><!-- End Resume Section -->
