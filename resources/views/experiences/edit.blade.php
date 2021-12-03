@@ -49,16 +49,14 @@
         
                                     <div class="col-md-6">
                                         <div id="targetEl">
-                                            <textarea class="form-control" name="experience_description[]" required autocomplete="experience_description" autofocus>{{ $experience->descriptions[count($experience->descriptions) -1 ]->experience_description_text }}</textarea>
-                                        </div>
-
-                                        @for ($i = 0; $i < count($experience->descriptions) - 1; $i++)
-                                        <div>
-                                            <textarea class="form-control elBox" name="experience_description[]" required autocomplete="experience_description" autofocus>{{ $experience->descriptions[$i]->experience_description_text }}</textarea>
-                                            <span class="closeBtn" style="color:red;position: relative;left:-15px;top:-60px;cursor: pointer;">X</span>
-                                        </div>
+                                            <textarea class="form-control" name="experience_description[]" required autocomplete="experience_description" autofocus>{{ $experience->descriptions[0]->experience_description_text }}</textarea>
+                                            @for ($i = 1; $i < count($experience->descriptions); $i++)
+                                            <div>
+                                                <textarea class="form-control elBox" name="experience_description[]" required autocomplete="experience_description" autofocus>{{ $experience->descriptions[$i]->experience_description_text }}</textarea>
+                                                <span class="closeBtn" style="color:red;position: relative;left:-15px;top:-60px;cursor: pointer;">X</span>
+                                            </div>
                                          @endfor
-
+                                        </div>
                                     </div>
 
                                     <button id="btn-add" class="btn btn-info mx-auto d-block mt-3">Add more description</button>
