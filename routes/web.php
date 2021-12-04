@@ -64,7 +64,7 @@ Route::get('messages', [MessageController::class, 'index'])->name('messages.inde
 
 Route::get('/clear', function() {
     Artisan::call('cache:clear');
-    return '<h1>Cache facade value cleared</h1>';
+    return view('cacheClear');
 });
 
 Route::get('{any}', function(){
