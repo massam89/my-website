@@ -16,6 +16,7 @@ use App\Http\Controllers\SkillController;
 use App\Http\Controllers\TestimonialController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\VisibilityController;
+use Illuminate\Support\Facades\Artisan;
 
 /*
 |--------------------------------------------------------------------------
@@ -60,6 +61,11 @@ Route::post('/user/change-password', [ChangePasswordController::class, 'change_p
 
 Route::post('contactForm', [FormController::class, 'getContactForm'])->name('get-contact-form');
 Route::get('messages', [MessageController::class, 'index'])->name('messages.index');
+
+Route::get('/clear', function() {
+    Artisan::call('cache:clear');
+    return '<h1>Cache facade value cleared</h1>';
+});
 
 Route::get('{any}', function(){
     return redirect('/');
