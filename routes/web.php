@@ -64,7 +64,9 @@ Route::get('messages', [MessageController::class, 'index'])->name('messages.inde
 
 Route::get('/clear', function() {
     Artisan::call('cache:clear');
-    return view('cacheClear');
+    return 'ok';
+    // return view('cacheClear');
+
 });
 
 Route::get('{any}', function(){
