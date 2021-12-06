@@ -11,36 +11,19 @@ use App\Models\Experience;
 use App\Models\Portfolio;
 use App\Models\Testimonial;
 use App\Models\Visibility;
-use Illuminate\Support\Facades\Cache;
 
 class Landing extends Controller
 {
     public function index() {
 
-        $owner = Cache::rememberForever('owner', function () {
-            return Owner::all()->first();
-        });
-        $facts = Cache::rememberForever('facts', function () {
-            return Facts::all()->first();
-        });
-        $skills = Cache::rememberForever('skills', function () {
-            return Skill::all();
-        });
-        $educations = Cache::rememberForever('educations', function () {
-            return Education::all();
-        });
-        $experiences = Cache::rememberForever('experiences', function () {
-            return Experience::with('descriptions')->get();
-        });
-        $portfolios = Cache::rememberForever('portfolios', function () {
-            return Portfolio::all();
-        });
-        $testimonials = Cache::rememberForever('testimonials', function () {
-            return Testimonial::all();
-        });
-        $visibilities = Cache::rememberForever('visibilities', function () {
-            return Visibility::all()->first();
-        });
+        $owner = Owner::all()->first();
+        $facts = Facts::all()->first();
+        $skills = Skill::all();
+        $educations = Education::all();
+        $experiences = Experience::all();
+        $portfolios = Portfolio::all();
+        $testimonials = Testimonial::all();
+        $visibilities = Visibility::all()->first();
 
         $categoreis = [];
         foreach ($portfolios as $portfolio) {

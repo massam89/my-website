@@ -62,12 +62,12 @@ Route::post('/user/change-password', [ChangePasswordController::class, 'change_p
 Route::post('contactForm', [FormController::class, 'getContactForm'])->name('get-contact-form');
 Route::get('messages', [MessageController::class, 'index'])->name('messages.index');
 
-Route::get('/clear', function() {
-    Artisan::call('cache:clear');
-    return 'ok';
-    // return view('cacheClear');
+// Route::get('/clear', function() {
+//     Artisan::call('cache:clear');
+//     return 'ok';
+//     // return view('cacheClear');
 
-});
+// });
 
 Route::get('{any}', function(){
     return redirect('/');
