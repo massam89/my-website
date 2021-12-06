@@ -80,7 +80,7 @@
   </header><!-- End Header -->
 
   <!-- ======= Hero Section ======= -->
-  <section style="background: url('{{ $owner->bg_url }}') top center; background-size: cover" id="hero" class="d-flex flex-column justify-content-center align-items-center">
+  <section style="background-image: url('{{ $owner->bg_url }}'); background-size: cover" id="hero" class="d-flex flex-column justify-content-center align-items-center">
     <div class="hero-container" data-aos="fade-in">
       <h1>{{ $owner->name }}</h1>
       <p>I'm <span class="typed" data-typed-items="{{ $owner->expertises }}"></span></p>
@@ -88,8 +88,6 @@
   </section><!-- End Hero -->
 
   <main id="main">
-
-
 <!-- ======= About Section ======= -->
     @if ($visibilities->about) 
       <section id="about" class="about">
