@@ -17,7 +17,7 @@ use App\Http\Controllers\TestimonialController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\VisibilityController;
 use Illuminate\Support\Facades\Artisan;
-
+use Litespeed\LSCache\LSCache;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -63,7 +63,7 @@ Route::post('contactForm', [FormController::class, 'getContactForm'])->name('get
 Route::get('messages', [MessageController::class, 'index'])->name('messages.index');
 
 Route::get('/clear', function() {
-    Artisan::call('cache:clear');
+    LSCache::purgeAll();
     return 'ok';
     // return view('cacheClear');
 

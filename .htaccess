@@ -2,8 +2,8 @@
    CacheLookup on
 </IfModule>
 
-RewriteEngine On
-RewriteRule .* - [E=Cache-Vary:Authorization]
+//RewriteEngine On
+//RewriteRule .* - [E=Cache-Vary:Authorization]
 
 <IFModule mod.rewrite.c>
 RewriteEngine On
