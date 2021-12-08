@@ -29,7 +29,7 @@ use Illuminate\Support\Facades\Artisan;
 |
 */
 
-Route::get('/', [Landing::class, 'index']);
+Route::get('/', [Landing::class, 'index'])->middleware('lscache:public');
 
 Auth::routes(['verify' => true, 'register' => false]);
 
