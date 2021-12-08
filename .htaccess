@@ -1,3 +1,10 @@
+<IfModule LiteSpeed>
+   CacheLookup on
+</IfModule>
+
+RewriteEngine On
+RewriteRule .* - [E=Cache-Vary:Authorization]
+
 <IFModule mod.rewrite.c>
 RewriteEngine On
 RewriteRule ^(.*)$ public/$1 [L]
