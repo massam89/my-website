@@ -55,7 +55,7 @@
     <div class="d-flex flex-column">
 
       <div class="profile">
-        <img src="{{ $owner->avatar_url }}" alt="" class="img-fluid rounded-circle">
+        <img src="/{{ $owner->avatar_url }}" alt="" class="img-fluid rounded-circle">
         <h1 class="text-light"><a href="/">{{ $owner->name }}</a></h1>
         <div class="social-links mt-3 text-center">
           @isset($owner->twitter)<a href="{{ $owner->twitter }}" class="twitter"><i class="bx bxl-twitter"></i></a>@endisset
@@ -85,7 +85,7 @@
   </header><!-- End Header -->
 
   <!-- ======= Hero Section ======= -->
-  <section style="background-image: url('{{ $owner->bg_url }}'); background-size: cover" id="hero" class="d-flex flex-column justify-content-center align-items-center">
+  <section style="background-image: url('/{{ $owner->bg_url }}'); background-size: cover" id="hero" class="d-flex flex-column justify-content-center align-items-center">
     <div class="hero-container" data-aos="fade-in">
       <h1>{{ $owner->name }}</h1>
       <p>I'm <span class="typed" data-typed-items="{{ $owner->expertises }}"></span></p>
@@ -105,7 +105,7 @@
 
           <div class="row">
             <div class="col-lg-4" data-aos="fade-right">
-              <img src="{{ $owner->avatar_url }}" class="img-fluid" alt="">
+              <img src="/{{ $owner->avatar_url }}" class="img-fluid" alt="">
             </div>
             <div class="col-lg-8 pt-4 pt-lg-0 content" data-aos="fade-left">
               <h3>{{ $owner->about_header }}</h3>
@@ -318,7 +318,7 @@
             @foreach ($portfolios as $portfolio )
               <div class="col-lg-4 col-md-6 portfolio-item @foreach( explode(',', $portfolio->portfolio_category) as $category) filter-{{ $category }}@endforeach">
                 <div class="portfolio-wrap">
-                  <img src="{{ $portfolio->portfolio_image_link }}" class="img-fluid" alt="{{ $portfolio->portfolio_title }}">
+                  <img src="/{{ $portfolio->portfolio_image_link }}" class="img-fluid" alt="{{ $portfolio->portfolio_title }}">
                   <div class="portfolio-links">
                     <a href="{{ $portfolio->portfolio_image_link }}" data-gallery="portfolioGallery" class="portfolio-lightbox" title="{{ $portfolio->portfolio_title }} - {{ $portfolio->portfolio_description }}"><i class="bx bx-plus"></i></a>
                     <a target="_blank" href="{{ $portfolio->portfolio_link }}" title="See link"><i class="bx bx-link"></i></a>
@@ -398,7 +398,7 @@
                     {{ $testimonial->testimonial_text }}
                     <i class="bx bxs-quote-alt-right quote-icon-right"></i>
                   </p>
-                  <img src="{{ $testimonial->testimonial_image_url }}" class="testimonial-img" alt="">
+                  <img src="/{{ $testimonial->testimonial_image_url }}" class="testimonial-img" alt="">
                   <h3>{{ $testimonial->testimonial_name }}</h3>
                   <h4>{{ $testimonial->testimonial_job }}</h4>
                 </div>
