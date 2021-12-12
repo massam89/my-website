@@ -64,8 +64,7 @@ Route::get('messages', [MessageController::class, 'index'])->name('messages.inde
 
 Route::get('/clear', function() {
     LSCache::purgeAll();
-    return 'ok';
-    // return view('cacheClear');
+    return view('cacheClear');
 
 });
 
