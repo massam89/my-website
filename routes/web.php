@@ -28,8 +28,8 @@ use Litespeed\LSCache\LSCache;
 |
 */
 
-Route::get('/',fn() => redirect('/en'));
-Route::get('/{slug}', [Landing::class, 'index'])->middleware('lscache:max-age=84400;public');
+Route::get('/',fn() => redirect('/lang/en'));
+Route::get('/lang/{slug}', [Landing::class, 'index'])->middleware('lscache:max-age=84400;public');
 
 Auth::routes(['verify' => true, 'register' => false]);
 
