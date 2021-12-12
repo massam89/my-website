@@ -56,13 +56,18 @@
 
       <div class="profile">
         <img src="{{ $owner->avatar_url }}" alt="" class="img-fluid rounded-circle">
-        <h1 class="text-light"><a href="index.html">{{ $owner->name }}</a></h1>
+        <h1 class="text-light"><a href="/">{{ $owner->name }}</a></h1>
         <div class="social-links mt-3 text-center">
           @isset($owner->twitter)<a href="{{ $owner->twitter }}" class="twitter"><i class="bx bxl-twitter"></i></a>@endisset
           @isset($owner->facebook)<a href="{{ $owner->facebook }}" class="facebook"><i class="bx bxl-facebook"></i></a>@endisset
           @isset($owner->instagram)<a href="{{ $owner->instagram }}" class="instagram"><i class="bx bxl-instagram"></i></a>@endisset
           @isset($owner->linkedin)<a href="{{ $owner->linkedin }}" class="linkedin"><i class="bx bxl-linkedin"></i></a>@endisset
           @isset($owner->github)<a href="{{ $owner->github }}" class="github"><i class="bx bxl-github"></i></a>@endisset
+        </div>
+        <div class="text-center mt-3 h6">
+          <a href="/">English</a>
+           / 
+          <a href="/fa">فارسی</a>
         </div>
       </div>
 
@@ -75,7 +80,7 @@
           @if($visibilities->service)<li><a href="#services" class="nav-link scrollto"><i class="bx bx-server"></i> <span>Services</span></a></li>@endif
           @if($visibilities->contact)<li><a href="#contact" class="nav-link scrollto"><i class="bx bx-envelope"></i> <span>Contact</span></a></li>@endif
         </ul>
-      </nav><!-- .nav-menu -->
+      </nav><!-- .nav-menu -->   
     </div>
   </header><!-- End Header -->
 
