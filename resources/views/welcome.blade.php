@@ -67,7 +67,7 @@
         <div class="text-center mt-3 h6">
           <a href="/">English</a>
            / 
-          <a href="/lang/fa">فارسی</a>
+          <a href="/lang/fa">Farsi</a>
         </div>
       </div>
 
