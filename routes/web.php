@@ -16,7 +16,6 @@ use App\Http\Controllers\SkillController;
 use App\Http\Controllers\TestimonialController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\VisibilityController;
-use Illuminate\Support\Facades\Artisan;
 use Litespeed\LSCache\LSCache;
 /*
 |--------------------------------------------------------------------------
@@ -29,7 +28,7 @@ use Litespeed\LSCache\LSCache;
 |
 */
 
-Route::get('/',function(){ return redirect('/en');});
+Route::get('/',fn() => redirect('/en'));
 Route::get('/{slug}', [Landing::class, 'index'])->middleware('lscache:max-age=84400;public');
 
 Auth::routes(['verify' => true, 'register' => false]);
