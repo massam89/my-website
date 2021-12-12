@@ -13,8 +13,8 @@
   <meta name="page-type" content="Resume">
   <meta name="audience" content="Everyone">
   <!-- Favicons -->
-  <link href="{{ $owner->favicon_url }}" rel="icon">
-  <link href="{{ $owner->favicon_url }}" rel="apple-touch-icon">
+  <link href="/{{ $owner->favicon_url }}" rel="icon">
+  <link href="/{{ $owner->favicon_url }}" rel="apple-touch-icon">
 
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
@@ -130,7 +130,7 @@
                 </div>
               </div>
               <p>{{ $owner->about_text3 }}</p>
-              <div class="text-center mt-5"><a target="_blank" href="{{ $owner->resume_url }}" class="btn btn-primary text-white">Download resume</a></div>
+              <div class="text-center mt-5"><a target="_blank" href="/{{ $owner->resume_url }}" class="btn btn-primary text-white">Download resume</a></div>
             </div>
           </div>
 
@@ -320,8 +320,8 @@
                 <div class="portfolio-wrap">
                   <img src="/{{ $portfolio->portfolio_image_link }}" class="img-fluid" alt="{{ $portfolio->portfolio_title }}">
                   <div class="portfolio-links">
-                    <a href="{{ $portfolio->portfolio_image_link }}" data-gallery="portfolioGallery" class="portfolio-lightbox" title="{{ $portfolio->portfolio_title }} - {{ $portfolio->portfolio_description }}"><i class="bx bx-plus"></i></a>
-                    <a target="_blank" href="{{ $portfolio->portfolio_link }}" title="See link"><i class="bx bx-link"></i></a>
+                    <a href="/{{ $portfolio->portfolio_image_link }}" data-gallery="portfolioGallery" class="portfolio-lightbox" title="{{ $portfolio->portfolio_title }} - {{ $portfolio->portfolio_description }}"><i class="bx bx-plus"></i></a>
+                    <a target="_blank" href="/{{ $portfolio->portfolio_link }}" title="See link"><i class="bx bx-link"></i></a>
                   </div>
                 </div>
               </div>
@@ -451,7 +451,7 @@
             </div>
 
             <div class="col-lg-7 mt-5 mt-lg-0 d-flex align-items-stretch">
-              <form action="contactForm" method="post" role="form" class="php-email-form">
+              <form action="/contactForm" method="post" role="form" class="php-email-form">
                 @csrf
                 <div class="row">
                   <div class="form-group col-md-6">
