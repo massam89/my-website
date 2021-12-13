@@ -29,11 +29,12 @@ use Litespeed\LSCache\LSCache;
 */
 
 Route::get('/',fn() => redirect('/lang/en'));
-Route::get('/lang/{slug}', [Landing::class, 'index'])->middleware('lscache:max-age=84400;public');
+Route::get('/lang/{lang}', [Landing::class, 'index'])->middleware('lscache:max-age=84400;public');
 
 Auth::routes(['verify' => true, 'register' => false]);
 
-Route::get('/home', [HomeController::class, 'index'])->name('home');
+Route::get('/home',fn() => redirect('/home/en'));
+Route::get('/home/{lang}', [HomeController::class, 'index'])->name('home');
 
 Route::get('/owner', [OwnerController::class, 'index'])->name('owner');
 Route::post('/owner', [OwnerController::class, 'store'])->name('owner.store');

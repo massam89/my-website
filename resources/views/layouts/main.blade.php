@@ -28,13 +28,18 @@
         <div id="wrapper">
 
             <!-- Sidebar -->
-            <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
+            
+            
+            <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+                <span class="text-light m-2 mx-auto"><a class="text-decoration-none" style="color: white" href="{{ route('home', 'en') }}">English</a> / <a class="text-decoration-none" style="color: white" href="{{ route('home', 'fa') }}">Farsi</a></span>
+                <hr class="sidebar-divider m-0">
                 <!-- Nav Item - Dashboard -->
                 <li class="nav-item active">
-                    <a class="nav-link" href="{{ route('home') }}">
+                    <a class="nav-link" href="{{ route('home', $lang) }}">
                         <i class="fas fa-fw fa-tachometer-alt"></i>
-                        <span>Dashboard</span></a>
+                        <span>Dashboard</span>
+                    </a>   
                 </li>
 
                 {{-- <!-- Divider -->
@@ -240,10 +245,11 @@
 
             <!-- Sidebar -->
             <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion text-right" id="accordionSidebar">
-
+                <span class="text-light m-2 mx-auto"><a class="text-decoration-none" style="color: white" href="{{ route('home', 'en') }}">انگلیسی</a> / <a class="text-decoration-none" style="color: white" href="{{ route('home', 'fa') }}">فارسی</a></span>
+                <hr class="sidebar-divider m-0">
                 <!-- Nav Item - Dashboard -->
                 <li class="nav-item active">
-                    <a class="nav-link" href="{{ route('home') }}">
+                    <a class="nav-link" href="{{ route('home', $lang) }}">
                         <i class="fas fa-fw fa-tachometer-alt"></i>
                         <span>داشبورد</span></a>
                 </li>

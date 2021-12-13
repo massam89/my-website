@@ -22,13 +22,14 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function index()
+    public function index($lang)
     {
+       
         $owner = Owner::all()->first();
-
+      
         return view('home', [
             'owner' => $owner,
-            'lang' => 'en' 
+            'lang' => $lang
         ]);
     }
 }

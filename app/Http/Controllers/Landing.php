@@ -34,7 +34,7 @@ class Landing extends Controller
         $categoreis = array_unique($categoreis);
 
         if(isset($owner->name)){
-            switch($request->slug) {
+            switch($request->lang) {
                 case 'en':
                         return view('welcome', [
                             'owner' => $owner,
@@ -46,7 +46,7 @@ class Landing extends Controller
                             'categories' => $categoreis,
                             'testimonials' => $testimonials,
                             'visibilities' => $visibilities,
-                            'lang' => $request->slug
+                            'lang' => $request->lang
                         ]);
     
                 case 'fa':
@@ -60,7 +60,7 @@ class Landing extends Controller
                             'categories' => $categoreis,
                             'testimonials' => $testimonials,
                             'visibilities' => $visibilities,
-                            'lang' => $request->slug
+                            'lang' => $request->lang
                     ]);
     
                 default:
