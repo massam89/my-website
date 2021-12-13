@@ -26,6 +26,9 @@ class HomeController extends Controller
     {
         $owner = Owner::all()->first();
 
-        return view('home')->with('owner', $owner);
+        return view('home', [
+            'owner' => $owner,
+            'lang' => 'en' 
+        ]);
     }
 }

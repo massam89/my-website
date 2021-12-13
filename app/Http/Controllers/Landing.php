@@ -15,47 +15,59 @@ use App\Models\Visibility;
 class Landing extends Controller
 {
     public function index(Request $request) {
+        $owner = Owner::all()->first();
+        $facts = Facts::all()->first();
+        $skills = Skill::all();
+        $educations = Education::all();
+        $experiences = Experience::with('descriptions')->get();
+        $portfolios = Portfolio::all();
+        $testimonials = Testimonial::all();
+        $visibilities = Visibility::all()->first();
 
-        switch($request->slug)
-        {
-            case 'en':
-                $owner = Owner::all()->first();
-                $facts = Facts::all()->first();
-                $skills = Skill::all();
-                $educations = Education::all();
-                $experiences = Experience::with('descriptions')->get();
-                $portfolios = Portfolio::all();
-                $testimonials = Testimonial::all();
-                $visibilities = Visibility::all()->first();
-        
-                $categoreis = [];
-                foreach ($portfolios as $portfolio) {
-                    $category = explode(',', $portfolio->portfolio_category);
-                    foreach ($category as $item){
-                        array_push( $categoreis, $item);
-                    }
-                }
-                $categoreis = array_unique($categoreis);
-        
-                if(isset($owner)) {
+        $categoreis = [];
+        foreach ($portfolios as $portfolio) {
+            $category = explode(',', $portfolio->portfolio_category);
+            foreach ($category as $item){
+                array_push( $categoreis, $item);
+            }
+        }
+        $categoreis = array_unique($categoreis);
+
+        if(isset($owner->name)){
+            switch($request->slug) {
+                case 'en':
+                        return view('welcome', [
+                            'owner' => $owner,
+                            'facts' => $facts,
+                            'skills' => $skills,
+                            'educations' => $educations,
+                            'experiences' => $experiences,
+                            'portfolios' => $portfolios,
+                            'categories' => $categoreis,
+                            'testimonials' => $testimonials,
+                            'visibilities' => $visibilities,
+                            'lang' => $request->slug
+                        ]);
+    
+                case 'fa':
                     return view('welcome', [
-                        'owner' => $owner,
-                        'facts' => $facts,
-                        'skills' => $skills,
-                        'educations' => $educations,
-                        'experiences' => $experiences,
-                        'portfolios' => $portfolios,
-                        'categories' => $categoreis,
-                        'testimonials' => $testimonials,
-                        'visibilities' => $visibilities
+                            'owner' => $owner,
+                            'facts' => $facts,
+                            'skills' => $skills,
+                            'educations' => $educations,
+                            'experiences' => $experiences,
+                            'portfolios' => $portfolios,
+                            'categories' => $categoreis,
+                            'testimonials' => $testimonials,
+                            'visibilities' => $visibilities,
+                            'lang' => $request->slug
                     ]);
-                }
-
-            case 'fa':
-                return 'farsi website';
-
-            default:
-              return view('defaultWelcome');  
+    
+                default:
+                  return  redirect('/');
+            }
+        }else{
+            return view('defaultWelcome');
         }
     }
 }

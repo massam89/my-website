@@ -15,7 +15,7 @@
                             <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Name') }}</label>
 
                             <div class="col-md-6">
-                                <input id="name" type="text" class="form-control" name="name" value="@if(isset($owner)){{ $owner->name }}@endif" required autocomplete="name" autofocus>
+                                <input id="name" type="text" class="form-control" name="name" value="@if(isset($owner)){{ $owner->name }}@endif"  autocomplete="name" autofocus>
                             </div>
                         </div>
 
@@ -23,7 +23,7 @@
                             <label for="expertises" class="col-md-4 col-form-label text-md-right">{{ __('Expertises') }}</label>
 
                             <div class="col-md-6">
-                                <input id="expertises" type="text" class="form-control" name="expertises" value="@if(isset($owner)){{ $owner->expertises }}@endif" required autocomplete="expertises" autofocus>
+                                <input id="expertises" type="text" class="form-control" name="expertises" value="@if(isset($owner)){{ $owner->expertises }}@endif"  autocomplete="expertises" autofocus>
                             </div>
                         </div>
 
@@ -31,7 +31,7 @@
                             <label for="birthdate" class="col-md-4 col-form-label text-md-right">{{ __('Date of Birth') }}</label>
 
                             <div class="col-md-6">
-                                <input id="birthdate" type="date" class="form-control" name="birthdate" value="@if(isset($owner)){{ $owner->birthdate }}@endif" required autocomplete="birthdate" autofocus>
+                                <input id="birthdate" type="date" class="form-control" name="birthdate" value="@if(isset($owner)){{ $owner->birthdate }}@endif"  autocomplete="birthdate" autofocus>
                             </div>
                         </div>
 
@@ -39,7 +39,7 @@
                             <label for="website" class="col-md-4 col-form-label text-md-right">{{ __('Website') }}</label>
 
                             <div class="col-md-6">
-                                <input id="website" type="url" class="form-control" name="website" value="@if(isset($owner)){{ $owner->website }}@endif" required autocomplete="website" autofocus>
+                                <input id="website" type="url" class="form-control" name="website" value="@if(isset($owner)){{ $owner->website }}@endif"  autocomplete="website" autofocus>
                             </div>
                         </div>
 
@@ -47,7 +47,7 @@
                             <label for="phone" class="col-md-4 col-form-label text-md-right">{{ __('Phone') }}</label>
 
                             <div class="col-md-6">
-                                <input id="phone" type="phone" class="form-control" name="phone" value="@if(isset($owner)){{ $owner->phone }}@endif" required autocomplete="phone" autofocus>
+                                <input id="phone" type="phone" class="form-control" name="phone" value="@if(isset($owner)){{ $owner->phone }}@endif"  autocomplete="phone" autofocus>
                             </div>
                         </div>
 
@@ -55,7 +55,7 @@
                             <label for="city" class="col-md-4 col-form-label text-md-right">{{ __('City') }}</label>
 
                             <div class="col-md-6">
-                                <input id="city" type="text" class="form-control" name="city" value="@if(isset($owner)){{ $owner->city }}@endif" required autocomplete="city" autofocus>
+                                <input id="city" type="text" class="form-control" name="city" value="@if(isset($owner)){{ $owner->city }}@endif"  autocomplete="city" autofocus>
                             </div>
                         </div>
 
@@ -63,7 +63,7 @@
                             <label for="degree" class="col-md-4 col-form-label text-md-right">{{ __('Degree') }}</label>
 
                             <div class="col-md-6">
-                                <input id="degree" type="text" class="form-control" name="degree" value="@if(isset($owner)){{ $owner->degree }}@endif" required autocomplete="degree" autofocus>
+                                <input id="degree" type="text" class="form-control" name="degree" value="@if(isset($owner)){{ $owner->degree }}@endif"  autocomplete="degree" autofocus>
                             </div>
                         </div>
 
@@ -71,7 +71,7 @@
                             <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail') }}</label>
 
                             <div class="col-md-6">
-                                <input id="email" type="email" class="form-control" name="email" value="@if(isset($owner)){{ $owner->email }}@endif" required autocomplete="email">
+                                <input id="email" type="email" class="form-control" name="email" value="@if(isset($owner)){{ $owner->email }}@endif"  autocomplete="email">
                             </div>
                         </div>
 
@@ -79,7 +79,7 @@
                             <label for="address" class="col-md-4 col-form-label text-md-right">{{ __('Address') }}</label>
 
                             <div class="col-md-6">
-                                <input id="address" type="text" class="form-control" name="address" value="@if(isset($owner)){{ $owner->address }}@endif" required autocomplete="address" autofocus>                       
+                                <input id="address" type="text" class="form-control" name="address" value="@if(isset($owner)){{ $owner->address }}@endif"  autocomplete="address" autofocus>                       
                             </div>
                         </div>
 
