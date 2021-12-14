@@ -15,6 +15,7 @@ use App\Models\Visibility;
 class Landing extends Controller
 {
     public function index(Request $request) {
+
         $owner = Owner::all()->first();
         $facts = Facts::all()->first();
         $skills = Skill::all();
@@ -49,7 +50,7 @@ class Landing extends Controller
                             'lang' => $request->lang
                         ]);
     
-                case 'fa':
+                case 'pe':
                     return view('welcome', [
                             'owner' => $owner,
                             'facts' => $facts,

@@ -28,16 +28,15 @@ use Litespeed\LSCache\LSCache;
 |
 */
 
-Route::get('/',fn() => redirect('/lang/en'));
-Route::get('/lang/{lang}', [Landing::class, 'index'])->middleware('lscache:max-age=84400;public');
-
 Auth::routes(['verify' => true, 'register' => false]);
 
-Route::get('/home',fn() => redirect('/home/en'));
-Route::get('/home/{lang}', [HomeController::class, 'index'])->name('home');
+Route::get('/',fn() => redirect('/en'));
+Route::get('/{lang}', [Landing::class, 'index'])->middleware('lscache:max-age=84400;public');
 
-Route::get('/owner', [OwnerController::class, 'index'])->name('owner');
-Route::post('/owner', [OwnerController::class, 'store'])->name('owner.store');
+Route::get('/{lang}/home', [HomeController::class, 'index'])->name('home');
+
+Route::get('/{lang}/owner', [OwnerController::class, 'index'])->name('owner');
+Route::put('/{lang}/owner', [OwnerController::class, 'store'])->name('owner.store');
 
 Route::get('/user', [UserController::class, 'index'])->name('user');
 Route::post('/user', [UserController::class, 'update'])->name('user.update');
@@ -45,8 +44,8 @@ Route::post('/user', [UserController::class, 'update'])->name('user.update');
 Route::get('/facts', [FactsController::class, 'index'])->name('facts');
 Route::post('/facts', [FactsController::class, 'update'])->name('facts.update');
 
-Route::get('visibility', [VisibilityController::class, 'index'])->name('visibility.index');
-Route::post('visibility', [VisibilityController::class, 'update'])->name('visibility.update');
+Route::get('/visibility', [VisibilityController::class, 'index'])->name('visibility.index');
+Route::post('/visibility', [VisibilityController::class, 'update'])->name('visibility.update');
 
 Route::resource('/skills', SkillController::class);
 
@@ -56,12 +55,12 @@ Route::resource('/experience', ExperienceController::class);
 
 Route::resource('/portfolio', PortfolioController::class);
 
-Route::resource('testimonial', TestimonialController::class);
+Route::resource('/testimonial', TestimonialController::class);
 
 Route::post('/user/change-password', [ChangePasswordController::class, 'change_password'])->name('users.change.passoword');
 
-Route::post('contactForm', [FormController::class, 'getContactForm'])->name('get-contact-form');
-Route::get('messages', [MessageController::class, 'index'])->name('messages.index');
+Route::post('/contactForm', [FormController::class, 'getContactForm'])->name('get-contact-form');
+Route::get('/messages', [MessageController::class, 'index'])->name('messages.index');
 
 Route::get('/clear', function() {
     LSCache::purgeAll();

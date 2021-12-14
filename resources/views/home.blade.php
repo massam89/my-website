@@ -2,11 +2,11 @@
 
 @if ($lang == 'en')
     @section('content')
-    @if (session('message'))
+    @isset($message)
         <div class="alert alert-success">
-            {{ session('message') }}
+            {{ $message }}
         </div>
-    @endif
+    @endisset
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-8">
@@ -32,11 +32,11 @@
 
 @if ($lang == 'fa')
     @section('content')
-    @if (session('message'))
-        <div class="alert alert-success">
-            {{ session('message') }}
-        </div>
-    @endif
+    @isset($message)
+    <div class="alert alert-success">
+        {{ $message }}
+    </div>
+@endisset
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-8">

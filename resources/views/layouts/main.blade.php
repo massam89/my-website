@@ -59,7 +59,7 @@
 
                 <!-- Nav Item - Pages Collapse Menu -->
                 <li class="nav-item">
-                    <a class="nav-link collapsed" href="{{ route('owner.store') }}">
+                    <a class="nav-link collapsed" href="{{ route('owner', 'en') }}">
                         <i class="fas fa-user"></i>
                         <span>Main data</span>
                     </a>
@@ -249,7 +249,7 @@
                 <hr class="sidebar-divider m-0">
                 <!-- Nav Item - Dashboard -->
                 <li class="nav-item active">
-                    <a class="nav-link" href="{{ route('home', $lang) }}">
+                    <a class="nav-link" href="{{ route('home', 'fa') }}">
                         <i class="fas fa-fw fa-tachometer-alt"></i>
                         <span>داشبورد</span></a>
                 </li>
@@ -271,7 +271,7 @@
 
                 <!-- Nav Item - Pages Collapse Menu -->
                 <li class="nav-item">
-                    <a class="nav-link collapsed" href="{{ route('owner.store') }}">
+                    <a class="nav-link collapsed" href="{{ route('owner', 'fa') }}">
                         <i class="fas fa-user"></i>
                         <span>اطلاعات اصلی</span>
                     </a>

@@ -68,7 +68,7 @@
         <div class="text-center mt-3 h6">
           <a href="/">English</a>
            / 
-          <a href="/lang/fa">Farsi</a>
+          <a href="/pe">Farsi</a>
         </div>
       </div>
 
@@ -529,7 +529,7 @@
 
 
 
-@if ($lang == 'fa')
+@if ($lang == 'pe')
 <!DOCTYPE html>
 <html lang="fa" dir="rtl" >
 
@@ -591,19 +591,17 @@
         <div class="text-center mt-3 h6">
           <a href="/">انگلیسی</a>
            / 
-          <a href="/lang/fa">فارسی</a>
+          <a href="/pe">فارسی</a>
         </div>
       </div>
 
       <nav id="navbar" class="nav-menu navbar">
         <ul>
-          <li><a href="#hero" class="nav-link scrollto active"><i class="bx bx-home"></i> <span>خانه</span></a></li>
-          <li><a href="#about" class="nav-link scrollto"><i class="bx bx-user"></i> <span>درباره من</span></a></li>
-          <li><a href="#resume" class="nav-link scrollto"><i class="bx bx-file-blank"></i><span>رزومه</span></a></li>
-          <li><a href="#portfolio" class="nav-link scrollto"><i class="bx bx-book-content"></i> <span>نمونه کار</span></a></li>
-          <li><a href="#services" class="nav-link scrollto"><i class="bx bx-server"></i> <span>خدمات</span></a></li>
-          <li><a href="#contact" class="nav-link scrollto"><i class="bx bx-envelope"></i> <span>ارتباط با من</span></a></li>
-        </ul>
+          @if($visibilities->about)<li><a href="#about" class="nav-link scrollto"><i class="bx bx-user"></i> <span> درباره من </span></a></li>@endif
+          @if($visibilities->resume)<li><a href="#resume" class="nav-link scrollto"><i class="bx bx-file-blank"></i> <span> رزومه </span></a></li>@endif
+          @if($visibilities->portfolio)<li><a href="#portfolio" class="nav-link scrollto"><i class="bx bx-book-content"></i> <span> نمونه کار</span></a></li>@endif
+          @if($visibilities->service)<li><a href="#services" class="nav-link scrollto"><i class="bx bx-server"></i> <span> خدمات</span></a></li>@endif
+          @if($visibilities->contact)<li><a href="#contact" class="nav-link scrollto"><i class="bx bx-envelope"></i> <span> ارتباط با من</span></a></li>@endif        </ul>
       </nav><!-- .nav-menu -->
     </div>
   </header><!-- End Header -->
@@ -611,8 +609,8 @@
   <!-- ======= Hero Section ======= -->
   <section style="background-image: url('/{{ $owner->bg_url }}'); background-size: cover" id="hero" class="d-flex flex-column justify-content-center align-items-center">
     <div class="hero-container" data-aos="fade-in">
-      <h1>مهلا فدایی</h1>
-      <p> من <span class="typed" data-typed-items="طراح هستم, توسعه‌دهنده‌ وب هستم, فریلنسر هستم, عکاس هستم"></span></p>
+      <h1>{{ $owner->name_fa }}</h1>
+      <p class="mt-4"><span class="typed" data-typed-items="{{ $owner->expertises_fa }}"></span></p>
     </div>
   </section><!-- End Hero -->
 
@@ -624,7 +622,7 @@
 
         <div class="section-title">
           <h2>درباره من</h2>
-          <p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و</p>
+          <p>{{ $owner->about_text1_fa }}</p>
         </div>
 
         <div class="row">
@@ -632,29 +630,29 @@
             <img src="/{{ $owner->avatar_url }}" class="img-fluid" alt="">
           </div>
           <div class="col-lg-8 pt-4 pt-lg-0 content" data-aos="fade-right">
-            <h3>طراح رابط کاربری و توسعه‌دهنده وب</h3>
+            <h3>{{ $owner->about_header_fa }}</h3>
             <p class="fst-italic">
-              لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و.
+              {{ $owner->about_text2_fa }}
             </p>
             <div class="row">
               <div class="col-lg-6">
                 <ul>
-                  <li><i class="bi bi-chevron-left"></i> <strong> تاریخ تولد : </strong> <span> <script>document.write(getPersianNumbers('1'))</script>فروردین <script>document.write(getPersianNumbers('1370'))</script></span></li>
+                  <li><i class="bi bi-chevron-left"></i> <strong> تاریخ تولد : </strong> <span> {{ $owner->birthdate }} </span></li>
                   <li><i class="bi bi-chevron-left"></i> <strong> وب سایت: </strong> <span>{{ $owner->website }}</span></li>
-                  <li><i class="bi bi-chevron-left"></i> <strong> تلفن: </strong> <span>{{ $owner->phone }}</span></li>
-                  <li><i class="bi bi-chevron-left"></i> <strong> شهر:</strong> <span>تهران، ایران</span></li>
+                  <li><i class="bi bi-chevron-left"></i> <strong> تلفن: </strong> <span>{{ convert($owner->phone) }}</span></li>
+                  <li><i class="bi bi-chevron-left"></i> <strong> شهر:</strong> <span>{{ $owner->city_fa }}</span></li>
                 </ul>
               </div>
               <div class="col-lg-6">
                 <ul>
                   <li><i class="bi bi-chevron-left"></i> <strong>سن:</strong> <span>{{ date("Y") - date('Y', strtotime($owner->birthdate)) }}</span></li>
-                  <li><i class="bi bi-chevron-left"></i> <strong>مدرک:</strong> <span>کارشناسی ارشد</span></li>
+                  <li><i class="bi bi-chevron-left"></i> <strong>مدرک:</strong> <span>{{ $owner->degree_fa }}</span></li>
                   <li><i class="bi bi-chevron-left"></i> <strong>ایمیل:</strong> <span>{{ $owner->email }}</span></li>
                 </ul>
               </div>
             </div>
             <p>
-              کتابهای زیادی در شصت و سه درصد گذشته، حال و آینده شناخت فراوان جامعه و متخصصان را می طلبد تا با نرم افزارها شناخت بیشتری را برای طراحان رایانه ای علی الخصوص طراحان خلاقی و فرهنگ پیشرو در زبان فارسی ایجاد کرد. در این صورت می توان امید داشت که تمام و دشواری موجود در ارائه راهکارها و شرایط سخت تایپ به پایان رسد وزمان مورد نیاز شامل حروفچینی دستاوردهای اصلی و جوابگوی سوالات پیوسته اهل دنیای موجود طراحی اساسا مورد استفاده قرار گیرد.
+              {{ $owner->about_text3_fa }}
             </p>
           </div>
         </div>
@@ -1143,7 +1141,7 @@
         <!-- You can delete the links only if you purchased the pro version. -->
         <!-- Licensing information: https://bootstrapmade.com/license/ -->
         <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/iportfolio-bootstrap-portfolio-websites-template/ -->
-        طراحی از  <a href="https://bootstrapmade.com/">بوت‌استرپ‌مید</a>, <a href="https://masoudsam.com/">مسعود سام</a>
+        طراحی از  <a href="https://bootstrapmade.com/">بوت‌استرپ‌مید</a>، <a href="https://masoudsam.com/">مسعود سام</a>
       </div>
     </div>
   </footer><!-- End  Footer -->
