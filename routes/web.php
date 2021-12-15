@@ -31,7 +31,7 @@ use Litespeed\LSCache\LSCache;
 Auth::routes(['verify' => true, 'register' => false]);
 
 Route::get('/',fn() => redirect('/en'));
-Route::get('/{lang}', [Landing::class, 'index'])->middleware('lscache:max-age=84400;public');
+Route::get('/{lang}', [Landing::class, 'index'])->middleware('lscache:max-age=422000;public');
 
 Route::get('/{lang}/home', [HomeController::class, 'index'])->name('home');
 
@@ -41,8 +41,8 @@ Route::put('/{lang}/owner', [OwnerController::class, 'store'])->name('owner.stor
 Route::get('/user', [UserController::class, 'index'])->name('user');
 Route::post('/user', [UserController::class, 'update'])->name('user.update');
 
-Route::get('/facts', [FactsController::class, 'index'])->name('facts');
-Route::post('/facts', [FactsController::class, 'update'])->name('facts.update');
+Route::get('/{lang}/facts', [FactsController::class, 'index'])->name('facts');
+Route::post('/{lang}/facts', [FactsController::class, 'update'])->name('facts.update');
 
 Route::get('/visibility', [VisibilityController::class, 'index'])->name('visibility.index');
 Route::post('/visibility', [VisibilityController::class, 'update'])->name('visibility.update');

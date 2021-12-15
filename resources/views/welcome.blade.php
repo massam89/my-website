@@ -637,15 +637,15 @@
             <div class="row">
               <div class="col-lg-6">
                 <ul>
-                  <li><i class="bi bi-chevron-left"></i> <strong> تاریخ تولد : </strong> <span> {{ $owner->birthdate }} </span></li>
+                  <li><i class="bi bi-chevron-left"></i> <strong> تاریخ تولد : </strong> <span> {!! engNumToPerNum(gregorian_to_jalali(date('Y', strtotime($owner->birthdate)), date('m', strtotime($owner->birthdate)), date('d', strtotime($owner->birthdate)), '/')) !!} </span></li>
                   <li><i class="bi bi-chevron-left"></i> <strong> وب سایت: </strong> <span>{{ $owner->website }}</span></li>
-                  <li><i class="bi bi-chevron-left"></i> <strong> تلفن: </strong> <span>{{ convert($owner->phone) }}</span></li>
+                  <li><i class="bi bi-chevron-left"></i> <strong> تلفن: </strong> <span>{!! engNumToPerNum($owner->phone) !!}</span></li>
                   <li><i class="bi bi-chevron-left"></i> <strong> شهر:</strong> <span>{{ $owner->city_fa }}</span></li>
                 </ul>
               </div>
               <div class="col-lg-6">
                 <ul>
-                  <li><i class="bi bi-chevron-left"></i> <strong>سن:</strong> <span>{{ date("Y") - date('Y', strtotime($owner->birthdate)) }}</span></li>
+                  <li><i class="bi bi-chevron-left"></i> <strong>سن:</strong> <span>{!! engNumToPerNum(strval(date("Y") - date('Y', strtotime($owner->birthdate)))) !!}</span></li>
                   <li><i class="bi bi-chevron-left"></i> <strong>مدرک:</strong> <span>{{ $owner->degree_fa }}</span></li>
                   <li><i class="bi bi-chevron-left"></i> <strong>ایمیل:</strong> <span>{{ $owner->email }}</span></li>
                 </ul>
@@ -665,8 +665,8 @@
       <div class="container">
 
         <div class="section-title">
-          <h2>حقایق</h2>
-          <p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که</p>
+          <h2>واقعیت ها</h2>
+          <p>{{ $owner->facts_text_fa }}</p>
         </div>
 
         <div class="row no-gutters">
@@ -674,32 +674,32 @@
           <div class="col-lg-3 col-md-6 d-md-flex align-items-md-stretch" data-aos="fade-up">
             <div class="count-box">
               <i class="bi bi-emoji-smile"></i>
-              <span data-purecounter-start="0" data-purecounter-end="232" data-purecounter-duration="1" class="purecounter"></span>
-              <p><strong> مشتریان </strong>لورم ایپسون </p>
+              <span data-purecounter-start="0" data-purecounter-end="{{ $facts->clients_number_fa }}" data-purecounter-duration="1" class="purecounter"></span>
+              <p><strong> {{ $facts->clients_title_fa }} </strong></p>
             </div>
           </div>
 
           <div class="col-lg-3 col-md-6 d-md-flex align-items-md-stretch" data-aos="fade-up" data-aos-delay="100">
             <div class="count-box">
               <i class="bi bi-journal-richtext"></i>
-              <span data-purecounter-start="0" data-purecounter-end="521" data-purecounter-duration="1" class="purecounter"></span>
-              <p><strong> پروژه </strong> لورم ایپسون </p>
+              <span data-purecounter-start="0" data-purecounter-end="{{ $facts->projects_number_fa }}" data-purecounter-duration="1" class="purecounter"></span>
+              <p><strong> {{ $facts->projects_title_fa }} </strong></p>
             </div>
           </div>
 
           <div class="col-lg-3 col-md-6 d-md-flex align-items-md-stretch" data-aos="fade-up" data-aos-delay="200">
             <div class="count-box">
               <i class="bi bi-headset"></i>
-              <span data-purecounter-start="0" data-purecounter-end="1453" data-purecounter-duration="1" class="purecounter"></span>
-              <p><strong>ساعات پشتیبانی</strong> لورم ایپسون</p>
+              <span data-purecounter-start="0" data-purecounter-end="{{ $facts->hours_number_fa }}" data-purecounter-duration="1" class="purecounter"></span>
+              <p><strong>{{ $facts->hours_title_fa }}</strong></p>
             </div>
           </div>
 
           <div class="col-lg-3 col-md-6 d-md-flex align-items-md-stretch" data-aos="fade-up" data-aos-delay="300">
             <div class="count-box">
               <i class="bi bi-people"></i>
-              <span data-purecounter-start="0" data-purecounter-end="32" data-purecounter-duration="1" class="purecounter"></span>
-              <p><strong>سخت کوشان</strong> لورم ایپسون</p>
+              <span data-purecounter-start="0" data-purecounter-end="{{ $facts->workers_number_fa }}" data-purecounter-duration="1" class="purecounter"></span>
+              <p><strong>{{ $facts->workers_title_fa }}</strong></p>
             </div>
           </div>
 
@@ -714,7 +714,7 @@
 
         <div class="section-title">
           <h2>مهارت ها</h2>
-          <p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که</p>
+          <p>{{ $owner->skills_text_fa }}</p>
         </div>
 
         <div class="row skills-content">
@@ -755,7 +755,7 @@
 
         <div class="section-title">
           <h2>رزومه</h2>
-          <p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که</p>
+          <p>{{ $owner->resume_text_fa }}</p>
         </div>
 
         <div class="row">
@@ -811,7 +811,7 @@
 
         <div class="section-title">
           <h2>نمونه کار</h2>
-          <p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که</p>
+          <p>{{ $owner->portfolio_text_fa }}</p>
         </div>
 
         <div class="row" data-aos="fade-up">
@@ -928,7 +928,7 @@
 
         <div class="section-title">
           <h2>خدمات</h2>
-          <p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که</p>
+          <p>{{ $owner->services_text_fa }}</p>
         </div>
 
         <div class="row">
@@ -978,8 +978,8 @@
       <div class="container">
 
         <div class="section-title">
-          <h2>تجربه مشتریان</h2>
-          <p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که</p>
+          <h2>نظرات دیگران</h2>
+          <p>{{ $owner->testimonials_text_fa }}</p>
         </div>
 
         <div class="testimonials-slider swiper" data-aos="fade-up" data-aos-delay="100">
@@ -1063,7 +1063,7 @@
 
         <div class="section-title">
           <h2>ارتباط با من </h2>
-          <p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که</p>
+          <p>{{ $owner->contact_text_fa }}</p>
         </div>
 
         <div class="row" data-aos="fade-in">
@@ -1085,10 +1085,10 @@
               <div class="phone">
                 <i class="bi bi-phone"></i>
                 <h4>تلفن:</h4>
-                <p><a href="tel:{{ $owner->phone }}">{{ $owner->phone }}</a></p>
+                <p><a href="tel:{{ $owner->phone }}">{!! engNumToPerNum($owner->phone)!!}</a></p>
               </div>
 
-              <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12097.433213460943!2d-74.0062269!3d40.7101282!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xb89d1fe6bc499443!2sDowntown+Conference+Center!5e0!3m2!1smk!2sbg!4v1539943755621" frameborder="0" style="border:0; width: 100%; height: 290px;" allowfullscreen></iframe>
+              {{-- <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12097.433213460943!2d-74.0062269!3d40.7101282!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xb89d1fe6bc499443!2sDowntown+Conference+Center!5e0!3m2!1smk!2sbg!4v1539943755621" frameborder="0" style="border:0; width: 100%; height: 290px;" allowfullscreen></iframe> --}}
             </div>
 
           </div>

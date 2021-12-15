@@ -64,7 +64,7 @@
                         <span>Main data</span>
                     </a>
 
-                    <a class="nav-link collapsed" href="{{ route('facts') }}">
+                    <a class="nav-link collapsed" href="{{ route('facts', 'en') }}">
                         <i class="fas fa-sort-numeric-up-alt"></i>
                         <span>Facts</span>
                     </a>
@@ -276,7 +276,7 @@
                         <span>اطلاعات اصلی</span>
                     </a>
 
-                    <a class="nav-link collapsed" href="{{ route('facts') }}">
+                    <a class="nav-link collapsed" href="{{ route('facts', 'fa') }}">
                         <i class="fas fa-sort-numeric-up-alt"></i>
                         <span>حقایق</span>
                     </a>
@@ -363,7 +363,7 @@
                                 <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
                                     aria-labelledby="userDropdown"> 
                                     
-                                    <a class="dropdown-item" href="/">
+                                    <a class="dropdown-item" href="/pe">
                                         
                                         <i class="fa fa-globe fa-sm fa-fw mr-2 text-gray-400"></i>
                                         {{ __('نمایش سایت') }}
