@@ -215,6 +215,14 @@
                             </div>
                         </div>
 
+                        <div class="form-group row">
+                            <label for="xing" class="col-md-4 col-form-label text-md-right">{{ __('xing') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="xing" type="url" class="form-control" name="xing" value="@if(isset($owner)){{ $owner->xing }}@endif" autocomplete="xing" autofocus>
+                            </div>
+                        </div>
+
                         <h5 class="m-2">Upload files</h5>
 
                         <div class="form-group row">

@@ -29,6 +29,7 @@ class CreateOwnerTable extends Migration
             $table->string('instagram')->nullable();
             $table->string('linkedin')->nullable();
             $table->string('github')->nullable();
+            $table->string('xing')->nullable();
             $table->mediumText('about_text1')->nullable();
             $table->string('about_header')->nullable();
             $table->mediumText('about_text2')->nullable();
