@@ -368,7 +368,7 @@
                                         <i class="fa fa-globe fa-sm fa-fw mr-2 text-gray-400"></i>
                                         {{ __('نمایش سایت') }}
                                     </a>
-                                    <a class="dropdown-item" href="{{ route('user') }}">
+                                    <a class="dropdown-item" href="{{ route('user', $lang) }}">
                                         
                                         <i class="fas fa-user-circle fa-sm fa-fw mr-2 text-gray-400"></i>
                                         {{ __('کاربر') }}
