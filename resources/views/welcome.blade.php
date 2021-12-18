@@ -55,8 +55,8 @@
     <div class="d-flex flex-column">
 
       <div class="profile">
-        <img src="{{ $owner->avatar_url }}" alt="" class="img-fluid rounded-circle">
-        <h1 class="text-light"><a href="index.html">{{ $owner->name }}</a></h1>
+        {{-- <img src="{{ $owner->avatar_url }}" alt="" class="img-fluid rounded-circle"> --}}
+        <h1 class="text-light mt-4"><a href="index.html">{{ $owner->name }}</a></h1>
         <div class="social-links mt-3 text-center">
           @isset($owner->twitter)<a href="{{ $owner->twitter }}" class="twitter"><i class="bx bxl-twitter"></i></a>@endisset
           @isset($owner->facebook)<a href="{{ $owner->facebook }}" class="facebook"><i class="bx bxl-facebook"></i></a>@endisset
@@ -110,17 +110,9 @@
               <div class="row">
                 <div class="col-lg-6">
                   <ul>
-                    <li><i class="bi bi-chevron-right"></i> <strong>Birthday:</strong> <span>{{ $owner->birthdate }}</span></li>
-                    <li><i class="bi bi-chevron-right"></i> <strong>Website:</strong> <span>{{ $owner->website }}</span></li>
-                    <li><i class="bi bi-chevron-right"></i> <strong>Phone:</strong> <span>{{ $owner->phone }}</span></li>
-                    <li><i class="bi bi-chevron-right"></i> <strong>City:</strong> <span>{{ $owner->city }}</span></li>
-                  </ul>
-                </div>
-                <div class="col-lg-6">
-                  <ul>
-                    <li><i class="bi bi-chevron-right"></i> <strong>Age:</strong> <span>{{ date("Y") - date('Y', strtotime($owner->birthdate)) }}</span></li>
-                    <li><i class="bi bi-chevron-right"></i> <strong>Degree:</strong> <span>{{ $owner->degree }}</span></li>
-                    <li><i class="bi bi-chevron-right"></i> <strong>Email:</strong> <span>{{ $owner->email }}</span></li>
+                    <li><i class="bx bx-phone bx-md"></i> <strong><a href="tel:{{ $owner->phone }}">{{ $owner->phone }}</a></strong></li>
+                    <li><i class="bx bx-current-location bx-md"></i><strong><a href="#">{{ $owner->city }}</a></strong></li>
+                    <li><i class="bx bx-mail-send bx-md"></i> <strong><a href="mailto:{{ $owner->email }}">{{ $owner->email }}</a></strong> </li>
                   </ul>
                 </div>
               </div>
