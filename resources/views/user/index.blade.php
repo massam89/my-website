@@ -15,7 +15,7 @@
                         </div>
         
                         <div class="card-body">
-                            <form method="POST" action="{{ route('user.update') }}">
+                            <form method="POST" action="{{ route('user.update', $lang) }}">
                                 @csrf
                                 <div class="form-group row">
                                     <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Name') }}</label>
@@ -63,7 +63,7 @@
                         <div class="card-header">{{ __('Change password') }}</div>
         
                         <div class="card-body">
-                            <form method="POST" action="{{ route('users.change.passoword') }}">
+                            <form method="POST" action="{{ route('users.change.passoword', $lang) }}">
                                 @csrf
 
                                 <div class="form-group row">

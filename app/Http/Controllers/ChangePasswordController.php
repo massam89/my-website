@@ -21,6 +21,8 @@ class ChangePasswordController extends Controller
             'password' => Hash::make($request->password)
         ]);
 
-        return redirect()->route('home')->with('message', 'User\'s password successfully edited! ');
+        return view('home',[
+            'lang' => $request->lang
+        ]);
     }
 }

@@ -38,8 +38,8 @@ Route::get('/{lang}/home', [HomeController::class, 'index'])->name('home');
 Route::get('/{lang}/owner', [OwnerController::class, 'index'])->name('owner');
 Route::put('/{lang}/owner', [OwnerController::class, 'store'])->name('owner.store');
 
-Route::get('/user', [UserController::class, 'index'])->name('user');
-Route::post('/user', [UserController::class, 'update'])->name('user.update');
+Route::get('/{lang}/user', [UserController::class, 'index'])->name('user');
+Route::post('/{lang}/user', [UserController::class, 'update'])->name('user.update');
 
 Route::get('/{lang}/facts', [FactsController::class, 'index'])->name('facts');
 Route::post('/{lang}/facts', [FactsController::class, 'update'])->name('facts.update');
@@ -57,7 +57,7 @@ Route::resource('/portfolio', PortfolioController::class);
 
 Route::resource('/testimonial', TestimonialController::class);
 
-Route::post('/user/change-password', [ChangePasswordController::class, 'change_password'])->name('users.change.passoword');
+Route::post('/{lang}/user/change-password', [ChangePasswordController::class, 'change_password'])->name('users.change.passoword');
 
 Route::post('/contactForm', [FormController::class, 'getContactForm'])->name('get-contact-form');
 Route::get('/messages', [MessageController::class, 'index'])->name('messages.index');

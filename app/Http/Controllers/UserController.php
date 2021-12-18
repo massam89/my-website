@@ -7,11 +7,14 @@ use App\Models\User;
 
 class UserController extends Controller
 {
-    public function index() 
+    public function index(Request $request) 
     {
         $user = User::all()->first();
 
-        return view('user.index')->with('user', $user);
+        return view('user.index', [
+            'user' => $user,
+            'lang' => $request->lang
+        ]);
     }
 
     public function update(Request $request) 
@@ -23,6 +26,9 @@ class UserController extends Controller
             'email' => $request->email
         ]);
 
-        return redirect()->route('home')->with('message', 'User updated succesfully');
+        return view('home',[
+            'message' => 'User updated succesfully',
+            'lang' => $request->lang
+        ]);
     }
 }
