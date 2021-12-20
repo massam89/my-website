@@ -69,12 +69,12 @@
         {{-- <img src="{{ $owner->avatar_url }}" alt="" class="img-fluid rounded-circle">
         <h1 class="text-light mt-4"><a href="index.html">{{ $owner->name }}</a></h1> --}}
         <div class="social-links mt-3 text-center">
-          @isset($owner->twitter)<a href="{{ $owner->twitter }}" class="twitter"><i class="bx bxl-twitter"></i></a>@endisset
-          @isset($owner->facebook)<a href="{{ $owner->facebook }}" class="facebook"><i class="bx bxl-facebook"></i></a>@endisset
-          @isset($owner->instagram)<a href="{{ $owner->instagram }}" class="instagram"><i class="bx bxl-instagram"></i></a>@endisset
-          @isset($owner->linkedin)<a href="{{ $owner->linkedin }}" class="linkedin"><i class="bx bxl-linkedin"></i></a>@endisset
-          @isset($owner->github)<a href="{{ $owner->github }}" class="github"><i class="bx bxl-github"></i></a>@endisset
-          @isset($owner->xing)<a href="{{ $owner->xing }}" class="github"><svg class="svg-icon" style="width: 1em; height: 1em;vertical-align: middle;fill: currentColor;overflow: hidden;" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg"><path d="M753.92 85.333333c-18.346667 0-26.453333 11.52-32.853333 23.466667 0 0-265.386667 470.186667-273.066667 485.546667l174.08 320.853333c5.973333 11.093333 15.36 23.466667 34.133333 23.466667h122.88c7.68 0 13.226667-2.986667 16.213334-7.68 3.413333-5.546667 3.413333-12.373333 0-19.2l-173.653334-317.866667 272.64-481.706667a20.48 20.48 0 0 0 0.426667-19.2 19.541333 19.541333 0 0 0-16.64-7.68M236.8 253.866667c-7.253333 0-13.653333 2.133333-16.64 7.68-3.413333 5.546667-2.986667 11.946667 0.853333 18.773333l82.773334 145.066667-130.56 230.4c-2.56 6.826667-2.56 13.653333 0 19.2 2.986667 5.12 8.533333 7.68 15.786666 7.68h123.306667c18.346667 0 27.306667-11.946667 33.706667-23.466667 0 0 127.573333-225.706667 132.693333-234.666667L394.24 277.333333c-5.973333-11.093333-15.36-23.466667-34.56-23.466666" fill="" /></svg></a>@endisset
+          @isset($owner->twitter)<a target="_blank" href="{{ $owner->twitter }}" class="twitter"><i class="bx bxl-twitter"></i></a>@endisset
+          @isset($owner->facebook)<a target="_blank" href="{{ $owner->facebook }}" class="facebook"><i class="bx bxl-facebook"></i></a>@endisset
+          @isset($owner->instagram)<a target="_blank" href="{{ $owner->instagram }}" class="instagram"><i class="bx bxl-instagram"></i></a>@endisset
+          @isset($owner->linkedin)<a target="_blank" href="{{ $owner->linkedin }}" class="linkedin"><i class="bx bxl-linkedin"></i></a>@endisset
+          @isset($owner->github)<a target="_blank" href="{{ $owner->github }}" class="github"><i class="bx bxl-github"></i></a>@endisset
+          @isset($owner->xing)<a target="_blank" href="{{ $owner->xing }}" class="github"><svg class="svg-icon" style="width: 1em; height: 1em;vertical-align: middle;fill: currentColor;overflow: hidden;" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg"><path d="M753.92 85.333333c-18.346667 0-26.453333 11.52-32.853333 23.466667 0 0-265.386667 470.186667-273.066667 485.546667l174.08 320.853333c5.973333 11.093333 15.36 23.466667 34.133333 23.466667h122.88c7.68 0 13.226667-2.986667 16.213334-7.68 3.413333-5.546667 3.413333-12.373333 0-19.2l-173.653334-317.866667 272.64-481.706667a20.48 20.48 0 0 0 0.426667-19.2 19.541333 19.541333 0 0 0-16.64-7.68M236.8 253.866667c-7.253333 0-13.653333 2.133333-16.64 7.68-3.413333 5.546667-2.986667 11.946667 0.853333 18.773333l82.773334 145.066667-130.56 230.4c-2.56 6.826667-2.56 13.653333 0 19.2 2.986667 5.12 8.533333 7.68 15.786666 7.68h123.306667c18.346667 0 27.306667-11.946667 33.706667-23.466667 0 0 127.573333-225.706667 132.693333-234.666667L394.24 277.333333c-5.973333-11.093333-15.36-23.466667-34.56-23.466666" fill="" /></svg></a>@endisset
         </div>
       </div>
     </div>
@@ -84,8 +84,9 @@
   <section style="background-image: url('{{ $owner->bg_url }}'); background-size: cover" id="hero" class="d-flex flex-column justify-content-center align-items-center">
     <div class="hero-container" data-aos="fade-in">
       <h1>{{ $owner->name }}</h1>
-      <p>I'm <span class="typed" data-typed-items="{{ $owner->expertises }}"></span></p>
     </div>
+    
+       <p><span class="typed" data-typed-items="{{ $owner->expertises }}"></span></p>  
   </section><!-- End Hero -->
 
   <main id="main">
@@ -108,18 +109,17 @@
               <p class="fst-italic">
                 {{ $owner->about_text2 }}
               </p>
-              <div class="row">
+              {{-- <div class="row">
                 <div class="col-lg-6">
                   <ul>
                     <li><i class="bx bx-phone bx-md"></i> <strong><a href="tel:{{ $owner->phone }}">{{ $owner->phone }}</a></strong></li>
                     <li><i class="bx bx-current-location bx-md"></i><strong><a href="#">{{ $owner->city }}</a></strong></li>
                     <li><i class="bx bx-mail-send bx-md"></i> <strong><a href="mailto:{{ $owner->email }}">{{ $owner->email }}</a></strong> </li>
-                    
                   </ul>
                 </div>
-              </div>
+              </div> --}}
               <p>{{ $owner->about_text3 }}</p>
-              <div class="text-center mt-5"><a target="_blank" href="{{ $owner->resume_url }}" class="btn btn-primary text-white">Download resume</a></div>
+              {{-- <div class="text-center mt-5"><a target="_blank" href="{{ $owner->resume_url }}" class="btn btn-primary text-white">Download resume</a></div> --}}
             </div>
           </div>
 
@@ -417,16 +417,19 @@
             <div class="col-lg-5 d-flex align-items-stretch">
               <div class="info">
                 <div class="address">
+                  <i class="bx bx-current-location bx-sm"></i>
                   <i class="bi bi-geo-alt"></i>
                   <p class="pt-2"><strong><a href="#">{{ $owner->address }}</a></strong></p>
                 </div>
 
                 <div class="email">
+                  <i class="bx bx-mail-send bx-sm"></i>
                   <i class="bi bi-envelope"></i>
                   <p class="pt-2"><strong><a href="mailto:{{ $owner->email }}">{{ $owner->email }}</a></strong></p>
                 </div>
 
                 <div class="phone">
+                  <i class="bx bx-phone bx-sm"></i>
                   <i class="bi bi-phone"></i>
                   <p class="pt-2"><strong><a href="tel:{{ $owner->phone }}">{{ $owner->phone }}</a></strong></p>
                 </div>
@@ -508,5 +511,4 @@
   <script src="assets/js/main.js"></script>
 
 </body>
-
 </html>
