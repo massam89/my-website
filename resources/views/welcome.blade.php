@@ -322,7 +322,7 @@
                   <img src="/{{ $portfolio->portfolio_image_link }}" class="img-fluid" alt="{{ $portfolio->portfolio_title }}">
                   <div class="portfolio-links">
                     <a href="/{{ $portfolio->portfolio_image_link }}" data-gallery="portfolioGallery" class="portfolio-lightbox" title="{{ $portfolio->portfolio_title }} - {{ $portfolio->portfolio_description }}"><i class="bx bx-plus"></i></a>
-                    <a target="_blank" href="/{{ $portfolio->portfolio_link }}" title="See link"><i class="bx bx-link"></i></a>
+                    <a target="_blank" href="{{ $portfolio->portfolio_link }}" title="See link"><i class="bx bx-link"></i></a>
                   </div>
                 </div>
               </div>
