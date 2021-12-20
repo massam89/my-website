@@ -48,7 +48,7 @@
         
                                     <div class="col-md-6">
                                         <div id="targetEl">
-                                            <textarea class="form-control" name="experience_description[]" required autocomplete="experience_description" autofocus></textarea>
+                                            <textarea class="form-control" name="experience_description[]" autocomplete="experience_description" autofocus></textarea>
                                         </div>
                                            
                                     </div>

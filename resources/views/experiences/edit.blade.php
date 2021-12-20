@@ -49,13 +49,16 @@
         
                                     <div class="col-md-6">
                                         <div id="targetEl">
-                                            <textarea class="form-control" name="experience_description[]" required autocomplete="experience_description" autofocus>{{ $experience->descriptions[0]->experience_description_text }}</textarea>
-                                            @for ($i = 1; $i < count($experience->descriptions); $i++)
-                                            <div>
-                                                <textarea class="form-control elBox" name="experience_description[]" required autocomplete="experience_description" autofocus>{{ $experience->descriptions[$i]->experience_description_text }}</textarea>
-                                                <span class="closeBtn" style="color:red;position: relative;left:-15px;top:-60px;cursor: pointer;">X</span>
-                                            </div>
-                                         @endfor
+                                            <textarea class="form-control" name="experience_description[]" required autocomplete="experience_description" autofocus>{{ isset($experience->descriptions[0]) ? $experience->descriptions[0]->experience_description_text : '' }}</textarea>
+                                            @isset($experience->descriptions)
+                                                @for ($i = 1; $i < count($experience->descriptions); $i++)
+                                                    <div>
+                                                        <textarea class="form-control elBox" name="experience_description[]" required autocomplete="experience_description" autofocus>{{ $experience->descriptions[$i]->experience_description_text }}</textarea>
+                                                        <span class="closeBtn" style="color:red;position: relative;left:-15px;top:-60px;cursor: pointer;">X</span>
+                                                    </div>
+                                                 @endfor
+                                            @endisset
+                                            
                                         </div>
                                     </div>
 
