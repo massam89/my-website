@@ -69,27 +69,27 @@
                         <span>Facts</span>
                     </a>
 
-                    <a class="nav-link collapsed" href="{{ route('skills.index') }}">
+                    <a class="nav-link collapsed" href="{{ route('skills.index', $lang) }}">
                         <i class="fas fa-hard-hat"></i>
                         <span>Skills</span>
                     </a>
 
-                    <a class="nav-link collapsed" href="{{ route('education.index') }}">
+                    <a class="nav-link collapsed" href="{{ route('education.index', $lang) }}">
                         <i class="fas fa-user-graduate"></i>
                         <span>Educations</span>
                     </a>
 
-                    <a class="nav-link collapsed" href="{{ route('experience.index') }}">
+                    <a class="nav-link collapsed" href="{{ route('experience.index', $lang) }}">
                         <i class="fas fa-user-md"></i>
                         <span>Experiences</span>
                     </a>
 
-                    <a class="nav-link collapsed" href="{{ route('portfolio.index') }}">
+                    <a class="nav-link collapsed" href="{{ route('portfolio.index', $lang) }}">
                         <i class="fas fa-copy"></i>
                         <span>Portfolio</span>
                     </a>
 
-                    <a class="nav-link collapsed" href="{{ route('testimonial.index') }}">
+                    <a class="nav-link collapsed" href="{{ route('testimonial.index', $lang) }}">
                         <i class="fas fa-users"></i>
                         <span>Testimonials</span>
                     </a>
@@ -99,7 +99,7 @@
                         <span>Visibility setting</span>
                     </a>
 
-                    <a class="nav-link collapsed" href="{{ route('messages.index') }}">
+                    <a class="nav-link collapsed" href="{{ route('messages.index', $lang) }}">
                         <i class="fas fa-inbox"></i>
                         <span>Messages</span>
                     </a>
@@ -281,27 +281,27 @@
                         <span>حقایق</span>
                     </a>
 
-                    <a class="nav-link collapsed" href="{{ route('skills.index') }}">
+                    <a class="nav-link collapsed" href="{{ route('skills.index', $lang) }}">
                         <i class="fas fa-hard-hat"></i>
                         <span>مهارت ها</span>
                     </a>
 
-                    <a class="nav-link collapsed" href="{{ route('education.index') }}">
+                    <a class="nav-link collapsed" href="{{ route('education.index', $lang) }}">
                         <i class="fas fa-user-graduate"></i>
                         <span>تحصیلات</span>
                     </a>
 
-                    <a class="nav-link collapsed" href="{{ route('experience.index') }}">
+                    <a class="nav-link collapsed" href="{{ route('experience.index', $lang) }}">
                         <i class="fas fa-user-md"></i>
                         <span>تجربیات</span>
                     </a>
 
-                    <a class="nav-link collapsed" href="{{ route('portfolio.index') }}">
+                    <a class="nav-link collapsed" href="{{ route('portfolio.index', $lang) }}">
                         <i class="fas fa-copy"></i>
                         <span>نمونه کارها</span>
                     </a>
 
-                    <a class="nav-link collapsed" href="{{ route('testimonial.index') }}">
+                    <a class="nav-link collapsed" href="{{ route('testimonial.index', $lang) }}">
                         <i class="fas fa-users"></i>
                         <span>نظرات دیگران</span>
                     </a>
@@ -311,7 +311,7 @@
                         <span>تنظیمات نمایش</span>
                     </a>
 
-                    <a class="nav-link collapsed" href="{{ route('messages.index') }}">
+                    <a class="nav-link collapsed" href="{{ route('messages.index', $lang) }}">
                         <i class="fas fa-inbox"></i>
                         <span>پیام ها</span>
                     </a>

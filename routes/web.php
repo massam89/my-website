@@ -60,7 +60,7 @@ Route::resource('/testimonial', TestimonialController::class);
 Route::post('/{lang}/user/change-password', [ChangePasswordController::class, 'change_password'])->name('users.change.passoword');
 
 Route::post('/contactForm', [FormController::class, 'getContactForm'])->name('get-contact-form');
-Route::get('/messages', [MessageController::class, 'index'])->name('messages.index');
+Route::get('/{lang}/messages', [MessageController::class, 'index'])->name('messages.index');
 
 Route::get('/clear', function() {
     LSCache::purgeAll();

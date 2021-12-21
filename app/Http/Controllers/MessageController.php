@@ -12,10 +12,13 @@ class MessageController extends Controller
         $this->middleware('auth');
     }
 
-    public function index()
+    public function index(Request $request)
     {
         $messages = Message::orderBy('created_at', 'DESC')->paginate(5);
 
-        return view('messages.index')->with('messages', $messages);
+        return view('messages.index', [
+            'messages'=> $messages,
+            'lang' => $request->lang
+        ]);
     }
 }
