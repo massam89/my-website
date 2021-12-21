@@ -416,20 +416,17 @@
 
             <div class="col-lg-5 d-flex align-items-stretch">
               <div class="info">
-                <div class="address">
-                  <i class="bx bx-current-location bx-sm"></i>
+                <div class="address"> 
                   <i class="bi bi-geo-alt"></i>
                   <p class="pt-2"><strong><a href="#">{{ $owner->address }}</a></strong></p>
                 </div>
 
                 <div class="email">
-                  <i class="bx bx-mail-send bx-sm"></i>
                   <i class="bi bi-envelope"></i>
                   <p class="pt-2"><strong><a href="mailto:{{ $owner->email }}">{{ $owner->email }}</a></strong></p>
                 </div>
 
                 <div class="phone">
-                  <i class="bx bx-phone bx-sm"></i>
                   <i class="bi bi-phone"></i>
                   <p class="pt-2"><strong><a href="tel:{{ $owner->phone }}">{{ $owner->phone }}</a></strong></p>
                 </div>
