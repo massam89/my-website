@@ -7,17 +7,20 @@ use App\Models\Visibility;
 
 class VisibilityController extends Controller
 {
-    public function index() 
+    public function index(Request $request) 
     {
         $visibilities = Visibility::all()->first();
 
-        return view('visibility.index')->with('visibilities', $visibilities);
+        return view('visibility.index', [
+            'visibilities'=> $visibilities,
+            'lang' => $request->lang
+        ]);
     }
 
     public function update(Request $request)
     {
         $visibilities = Visibility::all()->first();
-
+  
         ($request->about == 'on') ? $visibilities->update(['about' => true]) : $visibilities->update(['about' => false]);
         ($request->fact == 'on') ? $visibilities->update(['fact' => true]) : $visibilities->update(['fact' => false]);
         ($request->skill == 'on') ? $visibilities->update(['skill' => true]) : $visibilities->update(['skill' => false]);
@@ -31,6 +34,10 @@ class VisibilityController extends Controller
 
 
 
-        return redirect()->route('home')->with('message', 'Visibilities have updated!');
+        return view('home', [
+            'message'=> $request->lang == 'en' ? 'Visibilities have updated!' : 'تنظیمات نمایش بروز شد',
+            'lang' => $request->lang
+        ]);
+       
     }
 }

@@ -59,12 +59,12 @@
 
                 <!-- Nav Item - Pages Collapse Menu -->
                 <li class="nav-item">
-                    <a class="nav-link collapsed" href="{{ route('owner', 'en') }}">
+                    <a class="nav-link collapsed" href="{{ route('owner', $lang) }}">
                         <i class="fas fa-user"></i>
                         <span>Main data</span>
                     </a>
 
-                    <a class="nav-link collapsed" href="{{ route('facts', 'en') }}">
+                    <a class="nav-link collapsed" href="{{ route('facts', $lang) }}">
                         <i class="fas fa-sort-numeric-up-alt"></i>
                         <span>Facts</span>
                     </a>
@@ -94,7 +94,7 @@
                         <span>Testimonials</span>
                     </a>
 
-                    <a class="nav-link collapsed" href="{{ route('visibility.index') }}">
+                    <a class="nav-link collapsed" href="{{ route('visibility.index', $lang) }}">
                         <i class="fas fa-eye-slash"></i>
                         <span>Visibility setting</span>
                     </a>
@@ -249,7 +249,7 @@
                 <hr class="sidebar-divider m-0">
                 <!-- Nav Item - Dashboard -->
                 <li class="nav-item active">
-                    <a class="nav-link" href="{{ route('home', 'fa') }}">
+                    <a class="nav-link" href="{{ route('home', $lang) }}">
                         <i class="fas fa-fw fa-tachometer-alt"></i>
                         <span>داشبورد</span></a>
                 </li>
@@ -271,12 +271,12 @@
 
                 <!-- Nav Item - Pages Collapse Menu -->
                 <li class="nav-item">
-                    <a class="nav-link collapsed" href="{{ route('owner', 'fa') }}">
+                    <a class="nav-link collapsed" href="{{ route('owner', $lang) }}">
                         <i class="fas fa-user"></i>
                         <span>اطلاعات اصلی</span>
                     </a>
 
-                    <a class="nav-link collapsed" href="{{ route('facts', 'fa') }}">
+                    <a class="nav-link collapsed" href="{{ route('facts', $lang) }}">
                         <i class="fas fa-sort-numeric-up-alt"></i>
                         <span>حقایق</span>
                     </a>
@@ -306,7 +306,7 @@
                         <span>نظرات دیگران</span>
                     </a>
 
-                    <a class="nav-link collapsed" href="{{ route('visibility.index') }}">
+                    <a class="nav-link collapsed" href="{{ route('visibility.index', $lang) }}">
                         <i class="fas fa-eye-slash"></i>
                         <span>تنظیمات نمایش</span>
                     </a>

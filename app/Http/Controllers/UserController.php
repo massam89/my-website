@@ -22,12 +22,13 @@ class UserController extends Controller
         $user = User::all()->first();
 
         $user->update([
-            'name' => $request->name,
+            'name' => isset($request->name) ? $request->name : $user->name,
+            'name_fa' => isset($request->name_fa) ? $request->name_fa : $user->name_fa,
             'email' => $request->email
         ]);
 
         return view('home',[
-            'message' => 'User updated succesfully',
+            'message' => $request->lang == 'en' ? 'User updated succesfully' : 'بروزرسانی کاربر با موفقیت انجام شد',
             'lang' => $request->lang
         ]);
     }

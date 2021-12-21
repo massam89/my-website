@@ -44,8 +44,8 @@ Route::post('/{lang}/user', [UserController::class, 'update'])->name('user.updat
 Route::get('/{lang}/facts', [FactsController::class, 'index'])->name('facts');
 Route::post('/{lang}/facts', [FactsController::class, 'update'])->name('facts.update');
 
-Route::get('/visibility', [VisibilityController::class, 'index'])->name('visibility.index');
-Route::post('/visibility', [VisibilityController::class, 'update'])->name('visibility.update');
+Route::get('/{lang}/visibility', [VisibilityController::class, 'index'])->name('visibility.index');
+Route::post('/{lang}/visibility', [VisibilityController::class, 'update'])->name('visibility.update');
 
 Route::resource('/skills', SkillController::class);
 
