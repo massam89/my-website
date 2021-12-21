@@ -61,6 +61,7 @@
           @if($visibilities->resume)<li><a href="#resume" class="nav-link scrollto"><i class="bx bx-file-blank"></i> <span>Resume</span></a></li>@endif
           @if($visibilities->portfolio)<li><a href="#portfolio" class="nav-link scrollto"><i class="bx bx-book-content"></i> <span>Portfolio</span></a></li>@endif
           @if($visibilities->service)<li><a href="#services" class="nav-link scrollto"><i class="bx bx-server"></i> <span>Services</span></a></li>@endif
+          @if($visibilities->testimonial)<li><a href="#testimonials" class="nav-link scrollto"><i class="bx bx-group"></i> <span>Testimonials</span></a></li>@endif
           @if($visibilities->contact)<li><a href="#contact" class="nav-link scrollto"><i class="bx bx-envelope"></i> <span>Contact</span></a></li>@endif
         </ul>
       </nav><!-- .nav-menu -->
