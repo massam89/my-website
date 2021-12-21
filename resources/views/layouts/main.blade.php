@@ -74,22 +74,22 @@
                         <span>Skills</span>
                     </a>
 
-                    <a class="nav-link collapsed" href="{{ route('education.index', $lang) }}">
+                    <a class="nav-link collapsed" href="{{ route('education.index') }}">
                         <i class="fas fa-user-graduate"></i>
                         <span>Educations</span>
                     </a>
 
-                    <a class="nav-link collapsed" href="{{ route('experience.index', $lang) }}">
+                    <a class="nav-link collapsed" href="{{ route('experience.index') }}">
                         <i class="fas fa-user-md"></i>
                         <span>Experiences</span>
                     </a>
 
-                    <a class="nav-link collapsed" href="{{ route('portfolio.index', $lang) }}">
+                    <a class="nav-link collapsed" href="{{ route('portfolio.index') }}">
                         <i class="fas fa-copy"></i>
                         <span>Portfolio</span>
                     </a>
 
-                    <a class="nav-link collapsed" href="{{ route('testimonial.index', $lang) }}">
+                    <a class="nav-link collapsed" href="{{ route('testimonial.index') }}">
                         <i class="fas fa-users"></i>
                         <span>Testimonials</span>
                     </a>

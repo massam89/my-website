@@ -19,13 +19,16 @@ class SkillController extends Controller
      */
     public function index(Request $request)
     {
-        $skills = Skill::all();
+        $skills = Skill::where('lang', $request->lang)->get();
 
         if($request->has('search')) {
-            $skills = Skill::where('skill_name', 'like', "%{$request->search}%")->get();
+            $skills = Skill::where('lang', $request->lang)->where('skill_name', 'like', "%{$request->search}%")->get();
         }
 
-        return view('skills.index')->with('skills', $skills);
+        return view('skills.index', [
+            'skills' => $skills,
+            'lang' => $request->lang
+        ]);
     }
 
     /**
@@ -33,9 +36,9 @@ class SkillController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
-        return view('skills.create');
+        return view('skills.create', ['lang' => $request->lang]);
     }
 
     /**
@@ -48,10 +51,13 @@ class SkillController extends Controller
     {
         Skill::create([
             'skill_name' => $request->skill_name,
-            'skill_percentage' => $request->skill_percentage
+            'skill_percentage' => $request->skill_percentage,
+            'lang' => $request->lang
         ]);
 
-        return redirect()->route('skills.index')->with('message', 'Skill has been created!');
+        return redirect()->route('skills.index',[ 
+            'lang' => $request->lang
+        ]);
     }
 
     /**
@@ -71,11 +77,14 @@ class SkillController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit($lang, $id)
     {
         $skill = Skill::where('id', $id)->get()->first();
         
-        return view('skills.edit')->with('skill', $skill);
+        return view('skills.edit', [
+            'skill'=> $skill,
+            'lang' => $lang
+        ]);
     }
 
     /**
@@ -85,16 +94,20 @@ class SkillController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, $lang, $id)
     {
         $skill = Skill::where('id', $id)->get()->first();
 
         $skill->update([
             'skill_name' => $request->skill_name,
-            'skill_percentage' => $request->skill_percentage
+            'skill_percentage' => $request->skill_percentage,
+            'lang' => $lang
         ]);
 
-        return redirect()->route('skills.index')->with('message', 'Skill has been updated!');
+        return redirect()->route('skills.index', [
+            'message' => 'Skill has been updated!',
+            'lang' => $lang
+        ]);
     }
 
     /**
@@ -103,12 +116,15 @@ class SkillController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($lang, $id)
     {
         $skill = Skill::where('id', $id)->get()->first();
 
         $skill->delete();
 
-        return redirect()->route('skills.index')->with('message', 'Skill has been deleted!');
+        return redirect()->route('skills.index',[
+            'message' => 'Skill has been deleted!',
+            'lang' => $lang
+        ]);
     }
 }
