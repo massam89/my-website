@@ -259,7 +259,7 @@
                             </div>
                         </div>
 
-                        <div class="form-group row">
+                        {{-- <div class="form-group row">
                             <label for="resume_url" class="col-md-4 col-form-label text-md-right">{{ __('Resume') }}</label>
 
                             <div class="col-md-6 d-flex">
@@ -268,7 +268,7 @@
                                   <a class="btn" target="_blank" href="{{ $owner->resume_url }}">Show</a>
                                 @endisset
                             </div>
-                        </div>
+                        </div> --}}
 
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">
