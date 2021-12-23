@@ -108,7 +108,7 @@
             </div>
             <div class="col-lg-8 pt-4 pt-lg-0 content" data-aos="fade-left">
               <h3>{{ $owner->about_header }}</h3>
-              <p class="fst-italic">
+              <p>
                 {{ $owner->about_text2 }}
               </p>
               {{-- <div class="row">
@@ -121,6 +121,7 @@
                 </div>
               </div> --}}
               <p>{{ $owner->about_text3 }}</p>
+              <p>{{ $owner->facts_text }}</p>
               {{-- <div class="text-center mt-5"><a target="_blank" href="{{ $owner->resume_url }}" class="btn btn-primary text-white">Download resume</a></div> --}}
             </div>
           </div>
@@ -136,7 +137,7 @@
   
           <div class="section-title">
             <h2>Facts</h2>
-            <p>{{ $owner->facts_text }}</p>
+            {{-- <p>{{ $owner->facts_text }}</p> --}}
           </div>
   
           <div class="row no-gutters">

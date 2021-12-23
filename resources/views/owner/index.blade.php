@@ -118,7 +118,7 @@
                         </div>
 
                         <div class="form-group row">
-                            <label for="facts_text" class="col-md-4 col-form-label text-md-right">{{ __('Facts section - text') }}</label>
+                            <label for="facts_text" class="col-md-4 col-form-label text-md-right">{{ __('About section - forth text') }}</label>
 
                             <div class="col-md-6">
                                 <textarea id="facts_text" class="form-control" name="facts_text" autocomplete="facts_text" autofocus>@if(isset($owner)){{ $owner->facts_text }}@endif</textarea>                       
