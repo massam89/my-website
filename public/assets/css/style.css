@@ -226,7 +226,7 @@ h1, h2, h3, h4, h5, h6 {
   margin-bottom: 50px;
   font-size: 26px;
   font-family: "Poppins", sans-serif;
-  line-height: 200%;
+  /* line-height: 200%; */
 }
 #hero p span {
   color: #fff;
@@ -239,10 +239,10 @@ h1, h2, h3, h4, h5, h6 {
     background-attachment: fixed;
   }
 
-  #hero p {
+  /* #hero p {
     width: 700px;
     margin-left: 200px ;
-  }
+  } */
 }
 @media (max-width: 768px) {
   #hero h1 {
@@ -254,9 +254,9 @@ h1, h2, h3, h4, h5, h6 {
     line-height: 24px;
     margin-bottom: 30px;
   }
-  #hero p {
+  /* #hero p {
     margin: 10px;
-  }
+  } */
 }
 
 /*--------------------------------------------------------------

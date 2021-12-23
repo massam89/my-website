@@ -85,9 +85,10 @@
   <section style="background-image: url('{{ $owner->bg_url }}'); background-size: cover" id="hero" class="d-flex flex-column justify-content-center align-items-center">
     <div class="hero-container" data-aos="fade-in">
       <h1>{{ $owner->name }}</h1>
+      <p><span class="typed" data-typed-items="{{ $owner->expertises }}"></span></p> 
     </div>
     
-       <p><span class="typed" data-typed-items="{{ $owner->expertises }}"></span></p>  
+        
   </section><!-- End Hero -->
 
   <main id="main">
