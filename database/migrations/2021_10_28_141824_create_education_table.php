@@ -19,6 +19,7 @@ class CreateEducationTable extends Migration
             $table->string('education_date');
             $table->string('education_location');
             $table->string('education_description');
+            $table->string('lang');
             $table->timestamps();
         });
     }

@@ -74,7 +74,7 @@
                         <span>Skills</span>
                     </a>
 
-                    <a class="nav-link collapsed" href="{{ route('education.index') }}">
+                    <a class="nav-link collapsed" href="{{ route('education.index', $lang) }}">
                         <i class="fas fa-user-graduate"></i>
                         <span>Educations</span>
                     </a>

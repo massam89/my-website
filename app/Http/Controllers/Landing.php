@@ -19,7 +19,7 @@ class Landing extends Controller
         $owner = Owner::all()->first();
         $facts = Facts::all()->first();
         $skills = Skill::where('lang', $request->lang)->get(); 
-        $educations = Education::all();
+        $educations = Education::where('lang', $request->lang)->get();
         $experiences = Experience::with('descriptions')->get();
         $portfolios = Portfolio::all();
         $testimonials = Testimonial::all();
@@ -49,7 +49,6 @@ class Landing extends Controller
             ]);
         }else{
             return view('defaultWelcome');
-        }
-            
+        }       
     }
 }

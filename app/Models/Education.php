@@ -9,5 +9,5 @@ class Education extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['education_title', 'education_date', 'education_location', 'education_description'];
+    protected $fillable = ['education_title', 'education_date', 'education_location', 'education_description', 'lang'];
 }

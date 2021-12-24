@@ -19,13 +19,17 @@ class EducationController extends Controller
      */
     public function index(Request $request)
     {
-        $educations = Education::all();
+        
+        $educations = Education::where('lang', $request->lang)->get();
 
         if($request->has('search')) {
-            $educations = Education::where('education_title', 'like', "%{$request->search}%")->get();
+            $educations = Education::where('lang', $request->lang)->where('education_title', 'like', "%{$request->search}%")->get();
         }
 
-        return view('education.index')->with('educations', $educations);
+        return view('education.index', [
+            'educations'=> $educations,
+            'lang' => $request->lang
+        ]);
     }
 
     /**
@@ -33,9 +37,9 @@ class EducationController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create($lang)
     {
-        return view('education.create');
+        return view('education.create', [ 'lang' => $lang]);
     }
 
     /**
@@ -50,10 +54,13 @@ class EducationController extends Controller
             'education_title' => $request->education_title,
             'education_date' => $request->education_date,
             'education_location' => $request->education_location,
-            'education_description' => $request->education_description
+            'education_description' => $request->education_description,
+            'lang' => $request->lang
         ]);
 
-        return redirect()->route('education.index')->with('message', 'Education has been created!');
+        return redirect()->route('education.index', [
+            'lang' => $request->lang
+        ])->with('message', $request->lang == 'en' ? 'Education has been created!' : 'تحصیلات جدید ایجاد شد');
     }
 
     /**
@@ -73,11 +80,14 @@ class EducationController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit($lang, $id)
     {
         $education = Education::where('id', $id)->get()->first();
         
-        return view('education.edit')->with('education', $education);
+        return view('education.edit',[
+            'education' => $education,
+            'lang' => $lang
+        ]);
     }
 
     /**
@@ -87,7 +97,7 @@ class EducationController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, $lang, $id)
     {
         $education = Education::where('id', $id)->get()->first();
 
@@ -95,10 +105,11 @@ class EducationController extends Controller
             'education_title' => $request->education_title,
             'education_date' => $request->education_date,
             'education_location' => $request->education_location,
-            'education_description' => $request->education_description
+            'education_description' => $request->education_description,
+            'lang' => $lang
         ]);
 
-        return redirect()->route('education.index')->with('message', 'Education has been updated!');
+        return redirect()->route('education.index', ['lang' => $lang])->with('message', $lang == 'en' ? 'Education has been updated!' : 'تحصیلات بروز شد');
     }
 
     /**
@@ -107,12 +118,12 @@ class EducationController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($lang, $id)
     {
         $education = Education::where('id', $id)->get()->first();
 
         $education->delete();
 
-        return redirect()->route('education.index')->with('message', 'Education has been deleted!');
+        return redirect()->route('education.index', ['lang' => $lang])->with('message', $lang == 'en' ? 'Education has been deleted!' : 'تحصیلات حذف شد');
     }
 }

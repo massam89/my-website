@@ -724,7 +724,7 @@
           @if ($i % 2 != 0)
           <div class="col-lg-6" data-aos="fade-up">
              <div class="progress">
-               <span class="skill">{{ $skills[$i]->skill_name }} <i class="val">{{ $skills[$i]->skill_percentage }}%</i></span>
+               <span class="skill">{{ $skills[$i]->skill_name }} <i class="val">{!! engNumToPerNum(strval($skills[$i]->skill_percentage)) !!}%</i></span>
                <div class="progress-bar-wrap">
                  <div class="progress-bar" role="progressbar" aria-valuenow="{{ $skills[$i]->skill_percentage }}" aria-valuemin="0" aria-valuemax="100"></div>
                </div>
@@ -735,7 +735,7 @@
           @if ($i % 2 == 0)   
            <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
              <div class="progress">
-               <span class="skill">{{ $skills[$i]->skill_name }}<i class="val">{{ $skills[$i]->skill_percentage }}%</i></span>
+               <span class="skill">{{ $skills[$i]->skill_name }}<i class="val">{!! engNumToPerNum(strval($skills[$i]->skill_percentage)) !!}%</i></span>
                <div class="progress-bar-wrap">
                  <div class="progress-bar" role="progressbar" aria-valuenow="{{ $skills[$i]->skill_percentage }}" aria-valuemin="0" aria-valuemax="100"></div>
                </div>
@@ -749,61 +749,67 @@
       </div>
     </section><!-- End Skills Section -->
 
-    <!-- ======= Resume Section ======= -->
-    <section id="resume" class="resume">
-      <div class="container">
+   <!-- ======= Resume Section ======= -->
+   @if ($visibilities->resume)
+   <section id="resume" class="resume">
+     <div class="container">
 
-        <div class="section-title">
-          <h2>رزومه</h2>
-          <p>{{ $owner->resume_text_fa }}</p>
-        </div>
+       <div class="section-title">
+         <h2>رزومه</h2>
+         <p>{{ $owner->resume_text_fa }}</p>
+       </div>
 
-        <div class="row">
-          <div class="col-lg-6" data-aos="fade-up">
+       <div class="row">
+         
+         @if ($visibilities->experience)
+           <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
+             <h3 class="resume-title">تجربیات</h3>
 
-            <h3 class="resume-title">تحصیلات</h3>
-            <div class="resume-item">
-              <h4>کارشناس ارشد گرافیک</h4>
-              <h5><span><script>document.write(getPersianNumbers('2018'))</script></span></h5>
-              <p><em>دانشگاه هنر تهران،ایران</em></p>
-              <p>لورم ایپسوم متن ساختگی با تولید سادگی راحامه و مجله در ستون و سطرآنچنان که</p>
-            </div>
-            <div class="resume-item">
-              <h4>کارشناسی هنرهای زیبا</h4>
-              <h5><span><script>document.write(getPersianNumbers('2019'))</script></span></h5>
-              <p><em>دانشگاه هنر تهران،ایران</em></p>
-              <p>لورم ایپسوم متن ساختگی با تولید سادگت چاپ و با استفاده ا سطرآنچنان که</p>
-            </div>
-          </div>
-          <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
-            <h3 class="resume-title">سابقه کار حرفه‌ای</h3>
-            <div class="resume-item">
-              <h4> گرافیست ارشد</h4>
-              <h5><span><script>document.write(getPersianNumbers('2020'))</script></span></h5>
-              <p><em>تهران،ایران </em></p>
-              <ul>
-                <li>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است.</li>
-                <li>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است.</li>
-                <li>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است.</li>
-                <li>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است.</li>
-              </ul>
-            </div>
-            <div class="resume-item">
-              <h4>کارشناس طراحی گرافیک</h4>
-              <h5><span><script>document.write(getPersianNumbers('2019'))</script></span></h5>
-              <p><em>تهران،ایران</em></p>
-              <ul>
-                <li>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است.</li>
-                <li>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است.</li>
-                <li>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است.</li>
-                <li>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است.</li>
-              </ul>
-            </div>
-          </div>
-        </div>
+             @foreach ($experiences as $experience )
+             <div class="resume-item">
+               <h4>{{ $experience->experience_title }}</h4>
+               <h5>{{ $experience->experience_date }}</h5>
+               <p><em>{{ $experience->experience_location }} </em></p>
+               <ul>
+                 @foreach ($experience->descriptions as $description)
+                   <li>{{ $description->experience_description_text }}</li>
+                 @endforeach
+               </ul>
+             </div>
+             @endforeach
+             
+           </div>
+         @endif 
 
-      </div>
-    </section><!-- End Resume Section -->
+          @if ($visibilities->education)
+           <div class="col-lg-6" data-aos="fade-up">
+
+             {{-- <h3 class="resume-title">Sumary</h3>
+             <div class="resume-item pb-0">
+               <h4>Alex Smith</h4>
+               <p><em>Innovative and deadline-driven Graphic Designer with 3+ years of experience designing and developing user-centered digital/print marketing material from initial concept to final, polished deliverable.</em></p>
+               <ul>
+                 <li>Portland par 127,Orlando, FL</li>
+                 <li>(123) 456-7891</li>
+                 <li>alice.barkley@example.com</li>
+               </ul>
+             </div> --}}
+
+             <h3 class="resume-title">تحصیلات</h3>
+             @foreach ( $educations as $education )
+               <div class="resume-item">
+                 <h4>{{ $education->education_title }}</h4>
+                 <h5>{!! engNumToPerNum($education->education_date) !!}</h5>
+                 <p><em>{{ $education->education_location }}</em></p>
+                 <p>{{ $education->education_description }}</p>
+               </div>
+             @endforeach
+           </div>
+         @endif        
+       </div>
+     </div>
+   </section><!-- End Resume Section -->
+   @endif
 
     <!-- ======= Portfolio Section ======= -->
     <section id="portfolio" class="portfolio section-bg">

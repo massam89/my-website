@@ -57,7 +57,7 @@ class SkillController extends Controller
 
         return redirect()->route('skills.index',[ 
             'lang' => $request->lang
-        ]);
+        ])->with('message', 'Skill has been created!');
     }
 
     /**

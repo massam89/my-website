@@ -30,7 +30,7 @@ use Litespeed\LSCache\LSCache;
 
 Auth::routes(['verify' => true, 'register' => false]);
 
-Route::get('/',fn() => redirect('/en'));
+Route::redirect('/', '/en');
 Route::get('/{lang}', [Landing::class, 'index'])->middleware('lscache:max-age=422000;public');
 
 Route::get('/{lang}/home', [HomeController::class, 'index'])->name('home');
@@ -49,7 +49,7 @@ Route::post('/{lang}/visibility', [VisibilityController::class, 'update'])->name
 
 Route::resource('/{lang}/skills', SkillController::class);
 
-Route::resource('/education', EducationController::class);
+Route::resource('/{lang}/education', EducationController::class);
 
 Route::resource('/experience', ExperienceController::class);
 
