@@ -18,7 +18,7 @@ class Landing extends Controller
 
         $owner = Owner::all()->first();
         $facts = Facts::all()->first();
-        $skills = Skill::all();
+        $skills = Skill::where('lang', $request->lang)->get(); 
         $educations = Education::all();
         $experiences = Experience::with('descriptions')->get();
         $portfolios = Portfolio::all();
@@ -34,41 +34,22 @@ class Landing extends Controller
         }
         $categoreis = array_unique($categoreis);
 
-        if(isset($owner->name)){
-            switch($request->lang) {
-                case 'en':
-                        return view('welcome', [
-                            'owner' => $owner,
-                            'facts' => $facts,
-                            'skills' => $skills,
-                            'educations' => $educations,
-                            'experiences' => $experiences,
-                            'portfolios' => $portfolios,
-                            'categories' => $categoreis,
-                            'testimonials' => $testimonials,
-                            'visibilities' => $visibilities,
-                            'lang' => $request->lang
-                        ]);
-    
-                case 'pe':
-                    return view('welcome', [
-                            'owner' => $owner,
-                            'facts' => $facts,
-                            'skills' => $skills,
-                            'educations' => $educations,
-                            'experiences' => $experiences,
-                            'portfolios' => $portfolios,
-                            'categories' => $categoreis,
-                            'testimonials' => $testimonials,
-                            'visibilities' => $visibilities,
-                            'lang' => $request->lang
-                    ]);
-    
-                default:
-                  return  redirect('/');
-            }
+        if(isset($owner->name)) {
+            return view('welcome', [
+                'owner' => $owner,
+                'facts' => $facts,
+                'skills' => $skills,
+                'educations' => $educations,
+                'experiences' => $experiences,
+                'portfolios' => $portfolios,
+                'categories' => $categoreis,
+                'testimonials' => $testimonials,
+                'visibilities' => $visibilities,
+                'lang' => $request->lang
+            ]);
         }else{
             return view('defaultWelcome');
         }
+            
     }
 }

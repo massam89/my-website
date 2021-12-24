@@ -68,7 +68,7 @@
         <div class="text-center mt-3 h6">
           <a href="/">English</a>
            / 
-          <a href="/pe">Farsi</a>
+          <a href="/fa">Farsi</a>
         </div>
       </div>
 
@@ -529,7 +529,7 @@
 
 
 
-@if ($lang == 'pe')
+@if ($lang == 'fa')
 <!DOCTYPE html>
 <html lang="fa" dir="rtl" >
 
@@ -549,18 +549,18 @@
   <link href="/{{ $owner->favicon_url }}" rel="apple-touch-icon">
 
   <!-- Vendor CSS Files -->
-  <link href="/fa/assets/vendor/aos/aos.css" rel="stylesheet">
-  <link href="/fa/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <link href="/fa/assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-  <link href="/fa/assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
-  <link href="/fa/assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
-  <link href="/fa/assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+  <link href="/farsi/assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="/farsi/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="/farsi/assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="/farsi/assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link href="/farsi/assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="/farsi/assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
 
   <!-- Template Main CSS File -->
-  <link href="/fa/assets/css/style.css" rel="stylesheet">
+  <link href="/farsi/assets/css/style.css" rel="stylesheet">
 
   <!-- Script-->
-  <script src="/fa/assets/js/latinToPersianNum.js"></script>
+  <script src="/farsi/assets/js/latinToPersianNum.js"></script>
   <!-- =======================================================
   * Template Name: iPortfolio - v3.6.0
   * Template URL: https://bootstrapmade.com/iportfolio-bootstrap-portfolio-websites-template/
@@ -580,7 +580,7 @@
 
       <div class="profile">
         <img src="/{{ $owner->avatar_url }}" alt="" class="img-fluid rounded-circle">
-        <h1 class="text-light"><a href="/">جان</a></h1>
+        <h1 class="text-light"><a href="/">{{ $owner->name_fa }}</a></h1>
         <div class="social-links mt-3 text-center">
           @isset($owner->twitter)<a href="{{ $owner->twitter }}" class="twitter"><i class="bx bxl-twitter"></i></a>@endisset
           @isset($owner->facebook)<a href="{{ $owner->facebook }}" class="facebook"><i class="bx bxl-facebook"></i></a>@endisset
@@ -591,7 +591,7 @@
         <div class="text-center mt-3 h6">
           <a href="/">انگلیسی</a>
            / 
-          <a href="/pe">فارسی</a>
+          <a href="/fa">فارسی</a>
         </div>
       </div>
 
@@ -829,9 +829,9 @@
 
           <div class="col-lg-4 col-md-6 portfolio-item filter-app">
             <div class="portfolio-wrap">
-              <img src="/fa/assets/img/portfolio/portfolio-1.jpg" class="img-fluid" alt="">
+              <img src="/farsi/assets/img/portfolio/portfolio-1.jpg" class="img-fluid" alt="">
               <div class="portfolio-links">
-                <a href="/fa/assets/img/portfolio/portfolio-1.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="App 1"><i class="bx bx-plus"></i></a>
+                <a href="/farsi/assets/img/portfolio/portfolio-1.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="App 1"><i class="bx bx-plus"></i></a>
                 <a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
               </div>
             </div>
@@ -839,9 +839,9 @@
 
           <div class="col-lg-4 col-md-6 portfolio-item filter-web">
             <div class="portfolio-wrap">
-              <img src="/fa/assets/img/portfolio/portfolio-2.jpg" class="img-fluid" alt="">
+              <img src="/farsi/assets/img/portfolio/portfolio-2.jpg" class="img-fluid" alt="">
               <div class="portfolio-links">
-                <a href="/fa/assets/img/portfolio/portfolio-2.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Web 3"><i class="bx bx-plus"></i></a>
+                <a href="/farsi/assets/img/portfolio/portfolio-2.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Web 3"><i class="bx bx-plus"></i></a>
                 <a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
               </div>
             </div>
@@ -849,9 +849,9 @@
 
           <div class="col-lg-4 col-md-6 portfolio-item filter-app">
             <div class="portfolio-wrap">
-              <img src="/fa/assets/img/portfolio/portfolio-3.jpg" class="img-fluid" alt="">
+              <img src="/farsi/assets/img/portfolio/portfolio-3.jpg" class="img-fluid" alt="">
               <div class="portfolio-links">
-                <a href="/fa/assets/img/portfolio/portfolio-3.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="App 2"><i class="bx bx-plus"></i></a>
+                <a href="/farsi/assets/img/portfolio/portfolio-3.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="App 2"><i class="bx bx-plus"></i></a>
                 <a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
               </div>
             </div>
@@ -859,9 +859,9 @@
 
           <div class="col-lg-4 col-md-6 portfolio-item filter-card">
             <div class="portfolio-wrap">
-              <img src="/fa/assets/img/portfolio/portfolio-4.jpg" class="img-fluid" alt="">
+              <img src="/farsi/assets/img/portfolio/portfolio-4.jpg" class="img-fluid" alt="">
               <div class="portfolio-links">
-                <a href="/fa/assets/img/portfolio/portfolio-4.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Card 2"><i class="bx bx-plus"></i></a>
+                <a href="/farsi/assets/img/portfolio/portfolio-4.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Card 2"><i class="bx bx-plus"></i></a>
                 <a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
               </div>
             </div>
@@ -869,9 +869,9 @@
 
           <div class="col-lg-4 col-md-6 portfolio-item filter-web">
             <div class="portfolio-wrap">
-              <img src="/fa/assets/img/portfolio/portfolio-5.jpg" class="img-fluid" alt="">
+              <img src="/farsi/assets/img/portfolio/portfolio-5.jpg" class="img-fluid" alt="">
               <div class="portfolio-links">
-                <a href="/fa/assets/img/portfolio/portfolio-5.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Web 2"><i class="bx bx-plus"></i></a>
+                <a href="/farsi/assets/img/portfolio/portfolio-5.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Web 2"><i class="bx bx-plus"></i></a>
                 <a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
               </div>
             </div>
@@ -879,9 +879,9 @@
 
           <div class="col-lg-4 col-md-6 portfolio-item filter-app">
             <div class="portfolio-wrap">
-              <img src="/fa/assets/img/portfolio/portfolio-6.jpg" class="img-fluid" alt="">
+              <img src="/farsi/assets/img/portfolio/portfolio-6.jpg" class="img-fluid" alt="">
               <div class="portfolio-links">
-                <a href="/fa/assets/img/portfolio/portfolio-6.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="App 3"><i class="bx bx-plus"></i></a>
+                <a href="/farsi/assets/img/portfolio/portfolio-6.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="App 3"><i class="bx bx-plus"></i></a>
                 <a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
               </div>
             </div>
@@ -889,9 +889,9 @@
 
           <div class="col-lg-4 col-md-6 portfolio-item filter-card">
             <div class="portfolio-wrap">
-              <img src="/fa/assets/img/portfolio/portfolio-7.jpg" class="img-fluid" alt="">
+              <img src="/farsi/assets/img/portfolio/portfolio-7.jpg" class="img-fluid" alt="">
               <div class="portfolio-links">
-                <a href="/fa/assets/img/portfolio/portfolio-7.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Card 1"><i class="bx bx-plus"></i></a>
+                <a href="/farsi/assets/img/portfolio/portfolio-7.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Card 1"><i class="bx bx-plus"></i></a>
                 <a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
               </div>
             </div>
@@ -899,9 +899,9 @@
 
           <div class="col-lg-4 col-md-6 portfolio-item filter-card">
             <div class="portfolio-wrap">
-              <img src="/fa/assets/img/portfolio/portfolio-8.jpg" class="img-fluid" alt="">
+              <img src="/farsi/assets/img/portfolio/portfolio-8.jpg" class="img-fluid" alt="">
               <div class="portfolio-links">
-                <a href="/fa/assets/img/portfolio/portfolio-8.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Card 3"><i class="bx bx-plus"></i></a>
+                <a href="/farsi/assets/img/portfolio/portfolio-8.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Card 3"><i class="bx bx-plus"></i></a>
                 <a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
               </div>
             </div>
@@ -909,9 +909,9 @@
 
           <div class="col-lg-4 col-md-6 portfolio-item filter-web">
             <div class="portfolio-wrap">
-              <img src="/fa/assets/img/portfolio/portfolio-9.jpg" class="img-fluid" alt="">
+              <img src="/farsi/assets/img/portfolio/portfolio-9.jpg" class="img-fluid" alt="">
               <div class="portfolio-links">
-                <a href="/fa/assets/img/portfolio/portfolio-9.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Web 3"><i class="bx bx-plus"></i></a>
+                <a href="/farsi/assets/img/portfolio/portfolio-9.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Web 3"><i class="bx bx-plus"></i></a>
                 <a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
               </div>
             </div>
@@ -1149,18 +1149,18 @@
   <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 
   <!-- Vendor JS Files -->
-  <script src="/fa/assets/vendor/aos/aos.js"></script>
-  <script src="/fa/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="/fa/assets/vendor/glightbox/js/glightbox.min.js"></script>
-  <script src="/fa/assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
-  <script src="/fa/assets/vendor/php-email-form/validate.js"></script>
-  <script src="/fa/assets/vendor/purecounter/purecounter.js"></script>
-  <script src="/fa/assets/vendor/swiper/swiper-bundle.min.js"></script>
-  <script src="/fa/assets/vendor/typed.js/typed.min.js"></script>
-  <script src="/fa/assets/vendor/waypoints/noframework.waypoints.js"></script>
+  <script src="/farsi/assets/vendor/aos/aos.js"></script>
+  <script src="/farsi/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="/farsi/assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="/farsi/assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+  <script src="/farsi/assets/vendor/php-email-form/validate.js"></script>
+  <script src="/farsi/assets/vendor/purecounter/purecounter.js"></script>
+  <script src="/farsi/assets/vendor/swiper/swiper-bundle.min.js"></script>
+  <script src="/farsi/assets/vendor/typed.js/typed.min.js"></script>
+  <script src="/farsi/assets/vendor/waypoints/noframework.waypoints.js"></script>
   
   <!-- Template Main JS File -->
-  <script src="/fa/assets/js/main.js"></script>
+  <script src="/farsi/assets/js/main.js"></script>
 
 </body>
 
