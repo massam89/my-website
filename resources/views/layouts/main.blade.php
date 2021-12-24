@@ -79,17 +79,17 @@
                         <span>Educations</span>
                     </a>
 
-                    <a class="nav-link collapsed" href="{{ route('experience.index') }}">
+                    <a class="nav-link collapsed" href="{{ route('experience.index', $lang) }}">
                         <i class="fas fa-user-md"></i>
                         <span>Experiences</span>
                     </a>
 
-                    <a class="nav-link collapsed" href="{{ route('portfolio.index') }}">
+                    <a class="nav-link collapsed" href="{{ route('portfolio.index', $lang) }}">
                         <i class="fas fa-copy"></i>
                         <span>Portfolio</span>
                     </a>
 
-                    <a class="nav-link collapsed" href="{{ route('testimonial.index') }}">
+                    <a class="nav-link collapsed" href="{{ route('testimonial.index', $lang) }}">
                         <i class="fas fa-users"></i>
                         <span>Testimonials</span>
                     </a>

@@ -51,11 +51,11 @@ Route::resource('/{lang}/skills', SkillController::class);
 
 Route::resource('/{lang}/education', EducationController::class);
 
-Route::resource('/experience', ExperienceController::class);
+Route::resource('/{lang}/experience', ExperienceController::class);
 
-Route::resource('/portfolio', PortfolioController::class);
+Route::resource('/{lang}/portfolio', PortfolioController::class);
 
-Route::resource('/testimonial', TestimonialController::class);
+Route::resource('/{lang}/testimonial', TestimonialController::class);
 
 Route::post('/{lang}/user/change-password', [ChangePasswordController::class, 'change_password'])->name('users.change.passoword');
 

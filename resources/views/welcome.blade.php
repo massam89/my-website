@@ -537,7 +537,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>نمونه رزومه</title>
+  <title>صفحه اصلی | {{ $owner->name_fa }}</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
   <meta name="author" content="">
@@ -768,7 +768,7 @@
              @foreach ($experiences as $experience )
              <div class="resume-item">
                <h4>{{ $experience->experience_title }}</h4>
-               <h5>{{ $experience->experience_date }}</h5>
+               <h5>{!! engNumToPerNum($experience->experience_date) !!}</h5>
                <p><em>{{ $experience->experience_location }} </em></p>
                <ul>
                  @foreach ($experience->descriptions as $description)

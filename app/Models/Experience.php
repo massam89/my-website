@@ -9,7 +9,7 @@ class Experience extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['experience_title', 'experience_date', 'experience_location'];
+    protected $fillable = ['experience_title', 'experience_date', 'experience_location', 'lang'];
 
     public function descriptions(){
         return $this->hasMany(Experience_description::class);

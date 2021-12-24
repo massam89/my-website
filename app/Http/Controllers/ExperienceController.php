@@ -20,15 +20,16 @@ class ExperienceController extends Controller
      */
     public function index(Request $request)
     {
-        $experiences = Experience::all();
+        $experiences = Experience::where('lang', $request->lang)->get();
 
         if($request->has('search')) {
-            $experiences = Experience::where('experience_title', 'like', "%{$request->search}%")->get();
+            $experiences = Experience::where('lang', $request->lang)->where('experience_title', 'like', "%{$request->search}%")->get();
         }
 
-        return view('experiences.index')->with('experiences', $experiences);
-
-
+        return view('experiences.index', [
+            'experiences'=> $experiences,
+            'lang' => $request->lang
+        ]);
     }
 
     /**
@@ -36,9 +37,9 @@ class ExperienceController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create($lang)
     {
-        return view('experiences.create');
+        return view('experiences.create', ['lang' => $lang]);
     }
 
     /**
@@ -53,7 +54,8 @@ class ExperienceController extends Controller
         $experience = Experience::create([
             'experience_title' => $request->experience_title,
             'experience_date' =>$request->experience_date,
-            'experience_location' =>$request->experience_location
+            'experience_location' =>$request->experience_location,
+            'lang' => $request->lang
         ]);
 
         foreach($request->experience_description as $description) {
@@ -66,7 +68,7 @@ class ExperienceController extends Controller
             }   
         };
 
-        return redirect()->route('experience.index')->with('message', 'Experience has been created!');
+        return redirect()->route('experience.index', ['lang' => $request->lang])->with('message', $request->lang == 'en' ? 'Experience has been created!' : 'تجربه جدید اضافه شد');
     }
 
     /**
@@ -86,11 +88,14 @@ class ExperienceController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit($lang, $id)
     {
         $experience = Experience::where('id', $id)->get()->first();
      
-        return view('experiences.edit')->with('experience', $experience);
+        return view('experiences.edit',[
+            'experience' => $experience,
+            'lang' => $lang
+        ]);
     }
 
     /**
@@ -100,7 +105,7 @@ class ExperienceController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, $lang, $id)
     {
 
         $experience = Experience::where('id', $id)->get()->first();
@@ -108,7 +113,8 @@ class ExperienceController extends Controller
         $experience->update([
             'experience_title' => $request->experience_title,
             'experience_date' =>$request->experience_date,
-            'experience_location' =>$request->experience_location
+            'experience_location' =>$request->experience_location,
+            'lang' => $request->lang
         ]);
 
         $descriptions= Experience_description::where('experience_id', $id)->get();
@@ -127,7 +133,7 @@ class ExperienceController extends Controller
             }   
         };
 
-        return redirect()->route('experience.index')->with('message', 'Experience has been updated!');
+        return redirect()->route('experience.index', $lang)->with('message', $request->lang == 'en' ? 'Experience has been updated!' : 'تجربه بروز شد');
     }
 
     /**
@@ -136,12 +142,12 @@ class ExperienceController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($lang, $id)
     {
         $experience = Experience::where('id', $id)->get()->first();
 
         $experience->delete();
 
-        return redirect()->route('experience.index')->with('message', 'Experience has been deleted!');
+        return redirect()->route('experience.index', $lang)->with('message', $lang == 'en' ? 'Experience has been deleted!' : 'تجربه حذف شد');
     }
 }

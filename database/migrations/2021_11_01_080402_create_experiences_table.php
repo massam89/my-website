@@ -18,6 +18,7 @@ class CreateExperiencesTable extends Migration
             $table->string('experience_title');
             $table->string('experience_date');
             $table->string('experience_location');
+            $table->string('lang');
             $table->timestamps();
         });
     }
