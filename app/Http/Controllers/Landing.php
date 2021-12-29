@@ -21,7 +21,7 @@ class Landing extends Controller
         $skills = Skill::where('lang', $request->lang)->get(); 
         $educations = Education::where('lang', $request->lang)->get();
         $experiences = Experience::where('lang', $request->lang)->with('descriptions')->get();
-        $portfolios = Portfolio::all();
+        $portfolios = Portfolio::where('lang', $request->lang)->get();
         $testimonials = Testimonial::all();
         $visibilities = Visibility::all()->first();
 

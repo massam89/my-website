@@ -20,13 +20,16 @@ class PortfolioController extends Controller
      */
     public function index(Request $request)
     {
-        $portfolios = Portfolio::all();
+        $portfolios = Portfolio::where('lang', $request->lang)->get();
 
         if($request->has('search')) {
-            $portfolios = Portfolio::where('portfolio_title', 'like', "%{$request->search}%")->get();
+            $portfolios = Portfolio::where('lang', $request->lang)->where('portfolio_title', 'like', "%{$request->search}%")->get();
         }
 
-        return view('portfolio.index')->with('portfolios', $portfolios);
+        return view('portfolio.index', [
+            'portfolios' => $portfolios,
+            'lang' => $request->lang
+        ]);
     }
 
     /**
@@ -34,9 +37,9 @@ class PortfolioController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create($lang)
     {
-        return view('portfolio.create');
+        return view('portfolio.create', ['lang' => $lang]);
     }
 
     /**
@@ -55,8 +58,8 @@ class PortfolioController extends Controller
 
             $portfolioExt = $request->portfolio_image_link->extension('');
 
-            $request->portfolio_image_link->move(public_path('assets/img/owner/portfolio/'), $randnum . '.' . $portfolioExt); 
-            $portfolio = 'assets/img/owner/portfolio/'. $randnum . '.' . $portfolioExt;
+            $request->portfolio_image_link->move(public_path('/assets/img/owner/portfolio/'), $randnum . '.' . $portfolioExt); 
+            $portfolio = '/assets/img/owner/portfolio/'. $randnum . '.' . $portfolioExt;
         } else {
             $portfolio = null;
         }
@@ -66,10 +69,11 @@ class PortfolioController extends Controller
             'portfolio_category' => $request->portfolio_category,
             'portfolio_link' => $request->portfolio_link,
             'portfolio_description' => $request->portfolio_description,
-            'portfolio_image_link' => $portfolio
+            'portfolio_image_link' => $portfolio,
+            'lang' => $request->lang
         ]);
 
-        return redirect()->route('portfolio.index')->with('message', 'Portfolio has been created!');
+        return redirect()->route('portfolio.index', ['lang' => $request->lang])->with('message', $request->lang == 'en' ? 'Portfolio has been created!' : 'نمونه کار جدید ایجاد شد');
     }
 
     /**
@@ -89,11 +93,14 @@ class PortfolioController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit($lang, $id)
     {
         $portfolio = Portfolio::where('id', $id)->get()->first();
         
-        return view('portfolio.edit')->with('portfolio', $portfolio);
+        return view('portfolio.edit', [
+            'portfolio'=> $portfolio,
+            'lang' => $lang
+        ]);
     }
 
     /**
@@ -103,7 +110,7 @@ class PortfolioController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, $lang, $id)
     {
         $portfolioExt = '';
         $portfolio1 = Portfolio::where('id', $id)->get()->first();
@@ -112,8 +119,8 @@ class PortfolioController extends Controller
 
             $randnum = uniqid();
             $portfolioExt = $request->portfolio_image_link->extension('');
-            $request->portfolio_image_link->move(public_path('assets/img/owner/portfolio/'), $randnum . '.' . $portfolioExt); 
-            $portfolio = 'assets/img/owner/portfolio/'. $randnum . '.' . $portfolioExt;
+            $request->portfolio_image_link->move(public_path('/assets/img/owner/portfolio/'), $randnum . '.' . $portfolioExt); 
+            $portfolio = '/assets/img/owner/portfolio/'. $randnum . '.' . $portfolioExt;
         } else {
             $portfolio = $portfolio1->portfolio_image_link;
         }
@@ -123,10 +130,11 @@ class PortfolioController extends Controller
             'portfolio_category' => $request->portfolio_category,
             'portfolio_link' => $request->portfolio_link,
             'portfolio_description' => $request->portfolio_description,
-            'portfolio_image_link' => $portfolio
+            'portfolio_image_link' => $portfolio,
+            'lang' => $lang
         ]);
 
-        return redirect()->route('portfolio.index')->with('message', 'Portfolio has been updated!');
+        return redirect()->route('portfolio.index', ['lang' => $lang])->with('message', $lang == 'en' ? 'Portfolio has been updated!' : 'نمونه کار بروز شد');
     }
 
     /**
@@ -135,12 +143,12 @@ class PortfolioController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($lang, $id)
     {
         $portfolio = Portfolio::where('id', $id)->get()->first();
 
         $portfolio->delete();
 
-        return redirect()->route('portfolio.index')->with('message', 'Portfolio has been deleted!');
+        return redirect()->route('portfolio.index', ['lang' => $lang])->with('message', $lang == 'en' ? 'Portfolio has been deleted!' : 'نمونه کار حذف شد');
     }
 }

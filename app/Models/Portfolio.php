@@ -9,5 +9,5 @@ class Portfolio extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['portfolio_title', 'portfolio_description', 'portfolio_link', 'portfolio_category', 'portfolio_image_link'];
+    protected $fillable = ['portfolio_title', 'portfolio_description', 'portfolio_link', 'portfolio_category', 'portfolio_image_link', 'lang'];
 }
