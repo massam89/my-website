@@ -399,7 +399,7 @@
                       {{ $testimonial->testimonial_text }}
                       <i class="bx bxs-quote-alt-right quote-icon-right"></i>
                     </p>
-                    <img src="/{{ $testimonial->testimonial_image_url }}" class="testimonial-img" alt="">
+                    <img src="{{ $testimonial->testimonial_image_url }}" class="testimonial-img" alt="">
                     <h3>{{ $testimonial->testimonial_name }}</h3>
                     <h4>{{ $testimonial->testimonial_job }}</h4>
                   </div>
@@ -909,71 +909,21 @@
           <div class="testimonials-slider swiper" data-aos="fade-up" data-aos-delay="100">
             <div class="swiper-wrapper">
 
+              @foreach ($testimonials as $testimonial )
               <div class="swiper-slide">
                 <div class="testimonial-item" data-aos="fade-up">
                   <p>
-                    <i class="bx bxs-quote-alt-right quote-icon-right"></i>
-                    لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است.لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است
                     <i class="bx bxs-quote-alt-left quote-icon-left"></i>
+                    {{ $testimonial->testimonial_text }}
+                    <i class="bx bxs-quote-alt-right quote-icon-right"></i>
                   </p>
-                  <img src="/fa/assets/img/testimonials/testimonials-1.jpg" class="testimonial-img" alt="">
-                  <h3>مسعود سام</h3>
-                  <h4>Ceo &amp; Founder</h4>
+                  <img src="{{ $testimonial->testimonial_image_url }}" class="testimonial-img" alt="">
+                  <h3>{{ $testimonial->testimonial_name }}</h3>
+                  <h4>{{ $testimonial->testimonial_job }}</h4>
                 </div>
               </div><!-- End testimonial item -->
-
-              <div class="swiper-slide">
-                <div class="testimonial-item" data-aos="fade-up" data-aos-delay="100">
-                  <p>
-                    <i class="bx bxs-quote-alt-right quote-icon-right"></i>
-                    لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است.لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک اس
-                    <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-                  </p>
-                  <img src="/fa/assets/img/testimonials/testimonials-2.jpg" class="testimonial-img" alt="">
-                  <h3>سارا ایرانمنش</h3>
-                  <h4>دیزاینر</h4>
-                </div>
-              </div><!-- End testimonial item -->
-
-              <div class="swiper-slide">
-                <div class="testimonial-item" data-aos="fade-up" data-aos-delay="200">
-                  <p>
-                    <i class="bx bxs-quote-alt-right quote-icon-right"></i>
-                    لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است.لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک اس
-                    <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-                  </p>
-                  <img src="/fa/assets/img/testimonials/testimonials-3.jpg" class="testimonial-img" alt="">
-                  <h3>مریم مقدس</h3>
-                  <h4>فروشنده</h4>
-                </div>
-              </div><!-- End testimonial item -->
-
-              <div class="swiper-slide">
-                <div class="testimonial-item" data-aos="fade-up" data-aos-delay="300">
-                  <p>
-                    <i class="bx bxs-quote-alt-right quote-icon-right"></i>
-                    لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است.لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک اس
-                    <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-                  </p>
-                  <img src="/fa/assets/img/testimonials/testimonials-4.jpg" class="testimonial-img" alt="">
-                  <h3>علی نجفی</h3>
-                  <h4>عکاس</h4>
-                </div>
-              </div><!-- End testimonial item -->
-
-              <div class="swiper-slide">
-                <div class="testimonial-item" data-aos="fade-up" data-aos-delay="400">
-                  <p>
-                    <i class="bx bxs-quote-alt-right quote-icon-right"></i>
-                    لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است.لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک اس
-                    <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-                  </p>
-                  <img src="/fa/assets/img/testimonials/testimonials-5.jpg" class="testimonial-img" alt="">
-                  <h3>اسکارلت جوهانسون</h3>
-                  <h4>بازیگر</h4>
-                </div>
-              </div><!-- End testimonial item -->
-
+              @endforeach
+        
             </div>
             <div class="swiper-pagination"></div>
           </div>

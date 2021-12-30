@@ -19,13 +19,16 @@ class TestimonialController extends Controller
      */
    public function index(Request $request)
     {
-        $testimonials = Testimonial::all();
+        $testimonials = Testimonial::where('lang', $request->lang)->get();
 
         if($request->has('search')) {
-            $testimonials = Testimonial::where('testimonial_text', 'like', "%{$request->search}%")->get();
+            $testimonials = Testimonial::where('lang', $request->lang)->where('testimonial_text', 'like', "%{$request->search}%")->get();
         }
 
-        return view('testimonial.index')->with('testimonials', $testimonials);
+        return view('testimonial.index', [
+            'testimonials'=> $testimonials,
+            'lang' => $request->lang
+        ]);
     }
 
     /**
@@ -33,9 +36,9 @@ class TestimonialController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create($lang)
     {
-        return view('testimonial.create');
+        return view('testimonial.create', ['lang' => $lang]);
     }
 
     /**
@@ -54,8 +57,8 @@ class TestimonialController extends Controller
 
             $testimonialExt = $request->testimonial_image_url->extension('');
 
-            $request->testimonial_image_url->move(public_path('assets/img/owner/testimonial/'), $randnum . '.' . $testimonialExt); 
-            $testimonial = 'assets/img/owner/testimonial/'. $randnum . '.' . $testimonialExt;
+            $request->testimonial_image_url->move(public_path('/assets/img/owner/testimonial/'), $randnum . '.' . $testimonialExt); 
+            $testimonial = '/assets/img/owner/testimonial/'. $randnum . '.' . $testimonialExt;
         } else {
             $testimonial = null;
         }
@@ -64,10 +67,11 @@ class TestimonialController extends Controller
             'testimonial_image_url' => $testimonial,
             'testimonial_text' => $request->testimonial_text,
             'testimonial_name' => $request->testimonial_name,
-            'testimonial_job' => $request->testimonial_job       
+            'testimonial_job' => $request->testimonial_job,
+            'lang' => $request->lang       
         ]);
 
-        return redirect()->route('testimonial.index')->with('message', 'Testimonial has been created!');
+        return redirect()->route('testimonial.index', ['lang' => $request->lang])->with('message', $request->lang == 'en' ? 'Testimonial has been created!' : 'نظر جدید ثبت شد');
     }
 
     /**
@@ -87,11 +91,14 @@ class TestimonialController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit($lang, $id)
     {
         $testimonial = Testimonial::where('id', $id)->get()->first();
         
-        return view('testimonial.edit')->with('testimonial', $testimonial);
+        return view('testimonial.edit', [
+            'testimonial'=> $testimonial,
+            'lang' => $lang
+        ]);
     }
 
     /**
@@ -101,7 +108,7 @@ class TestimonialController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, $lang, $id)
     {
         $testimonialExt = '';
         $testimonial1 = Testimonial::where('id', $id)->get()->first();
@@ -110,8 +117,8 @@ class TestimonialController extends Controller
 
             $randnum = uniqid();
             $testimonialExt = $request->testimonial_image_url->extension('');
-            $request->testimonial_image_url->move(public_path('assets/img/owner/testimonial/'), $randnum . '.' . $testimonialExt); 
-            $testimonial = 'assets/img/owner/testimonial/'. $randnum . '.' . $testimonialExt;
+            $request->testimonial_image_url->move(public_path('/assets/img/owner/testimonial/'), $randnum . '.' . $testimonialExt); 
+            $testimonial = '/assets/img/owner/testimonial/'. $randnum . '.' . $testimonialExt;
         } else {
             $testimonial = $testimonial1->testimonial_image_url;
         }
@@ -120,10 +127,11 @@ class TestimonialController extends Controller
             'testimonial_image_url' => $testimonial,
             'testimonial_text' => $request->testimonial_text,
             'testimonial_name' => $request->testimonial_name,
-            'testimonial_job' => $request->testimonial_job   
+            'testimonial_job' => $request->testimonial_job,
+            'lang' => $lang
         ]);
 
-        return redirect()->route('testimonial.index')->with('message', 'Testimonial has been updated!');
+        return redirect()->route('testimonial.index', $lang)->with('message',  $request->lang == 'en' ? 'Testimonial has been updated!' : 'نظر بروز شد');
     }
 
     /**
@@ -132,12 +140,12 @@ class TestimonialController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($lang, $id)
     {
         $testimonial = Testimonial::where('id', $id)->get()->first();
 
         $testimonial->delete();
 
-        return redirect()->route('testimonial.index')->with('message', 'Testimonial has been deleted!');
+        return redirect()->route('testimonial.index', $lang)->with('message',  $lang == 'en' ? 'Testimonial has been deleted!' : 'نظر حذف شد');
     }
 }
