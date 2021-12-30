@@ -596,6 +596,7 @@
 
         <nav id="navbar" class="nav-menu navbar">
           <ul>
+            <li><a href="#hero" class="nav-link scrollto active"><i class="bx bx-home"></i> <span>خانه</span></a></li>
             @if($visibilities->about)<li><a href="#about" class="nav-link scrollto"><i class="bx bx-user"></i> <span> درباره من </span></a></li>@endif
             @if($visibilities->resume)<li><a href="#resume" class="nav-link scrollto"><i class="bx bx-file-blank"></i> <span> رزومه </span></a></li>@endif
             @if($visibilities->portfolio)<li><a href="#portfolio" class="nav-link scrollto"><i class="bx bx-book-content"></i> <span> نمونه کار</span></a></li>@endif
@@ -616,6 +617,7 @@
     <main id="main">
 
       <!-- ======= About Section ======= -->
+      @if ($visibilities->about) 
       <section id="about" class="about">
         <div class="container">
 
@@ -658,8 +660,10 @@
 
         </div>
       </section><!-- End About Section -->
+      @endif
 
       <!-- ======= Facts Section ======= -->
+      @if ($visibilities->fact)
       <section id="facts" class="facts">
         <div class="container">
 
@@ -706,8 +710,10 @@
 
         </div>
       </section><!-- End Facts Section -->
+      @endif
 
       <!-- ======= Skills Section ======= -->
+      @if ($visibilities->skill)
       <section id="skills" class="skills section-bg">
         <div class="container">
 
@@ -747,6 +753,7 @@
 
         </div>
       </section><!-- End Skills Section -->
+      @endif
 
     <!-- ======= Resume Section ======= -->
     @if ($visibilities->resume)
@@ -811,12 +818,13 @@
     @endif
 
   <!-- ======= Portfolio Section ======= -->
+  @if ($visibilities->portfolio)
     <section id="portfolio" class="portfolio section-bg">
       <div class="container">
 
         <div class="section-title">
           <h2>نمونه کارها</h2>
-          <p>{{ $owner->portfolio_text }}</p>
+          <p>{{ $owner->portfolio_text_fa }}</p>
         </div>
 
         <div class="row" data-aos="fade-up">
@@ -845,8 +853,10 @@
         </div>
       </div>
     </section><!-- End Portfolio Section -->
+    @endif
 
       <!-- ======= Services Section ======= -->
+      @if ($visibilities->service)
       <section id="services" class="services">
         <div class="container">
 
@@ -896,8 +906,10 @@
 
         </div>
       </section><!-- End Services Section -->
+      @endif
 
       <!-- ======= Testimonials Section ======= -->
+      @if ($visibilities->testimonial)
       <section id="testimonials" class="testimonials section-bg">
         <div class="container">
 
@@ -930,8 +942,10 @@
 
         </div>
       </section><!-- End Testimonials Section -->
+      @endif
 
       <!-- ======= Contact Section ======= -->
+      @if ($visibilities->contact)
       <section id="contact" class="contact">
         <div class="container">
 
@@ -1001,6 +1015,7 @@
 
         </div>
       </section><!-- End Contact Section -->
+      @endif
 
     </main><!-- End #main -->
 
