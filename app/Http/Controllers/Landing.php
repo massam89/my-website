@@ -35,20 +35,25 @@ class Landing extends Controller
         $categoreis = array_unique($categoreis);
 
         if(isset($owner->name)) {
-            return view('welcome', [
-                'owner' => $owner,
-                'facts' => $facts,
-                'skills' => $skills,
-                'educations' => $educations,
-                'experiences' => $experiences,
-                'portfolios' => $portfolios,
-                'categories' => $categoreis,
-                'testimonials' => $testimonials,
-                'visibilities' => $visibilities,
-                'lang' => $request->lang
-            ]);
+            if($request->lang == 'en' || $request->lang == 'fa'){
+                return view('welcome', [
+                    'owner' => $owner,
+                    'facts' => $facts,
+                    'skills' => $skills,
+                    'educations' => $educations,
+                    'experiences' => $experiences,
+                    'portfolios' => $portfolios,
+                    'categories' => $categoreis,
+                    'testimonials' => $testimonials,
+                    'visibilities' => $visibilities,
+                    'lang' => $request->lang
+                ]);
+            }else {
+                return redirect('/');
+            }
+            
         }else{
             return view('defaultWelcome');
-        }       
+        } 
     }
 }
