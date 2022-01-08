@@ -62,7 +62,7 @@ Route::post('/{lang}/user/change-password', [ChangePasswordController::class, 'c
 Route::post('/contactForm', [FormController::class, 'getContactForm'])->name('get-contact-form');
 Route::get('/{lang}/messages', [MessageController::class, 'index'])->name('messages.index');
 
-Route::get('/clear', function() {
+Route::get('/cashe/clear', function() {
     LSCache::purgeAll();
     return view('cacheClear');
 });
