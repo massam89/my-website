@@ -31,7 +31,7 @@ use Litespeed\LSCache\LSCache;
 Auth::routes(['verify' => true, 'register' => false]);
 
 Route::redirect('/', '/en');
-Route::get('/{lang}', [Landing::class, 'index'])->middleware('lscache:max-age=422000;public');
+Route::get('/{lang}', [Landing::class, 'index'])->middleware('lscache:max-age=604800;public');
 
 Route::get('/{lang}/home', [HomeController::class, 'index'])->name('home');
 
