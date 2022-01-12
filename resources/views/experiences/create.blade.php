@@ -115,7 +115,7 @@
                 <div class="col-md-8">
                     <div class="card">
                         <div class="card-header">
-                            {{ __('تحربه جدید') }}
+                            {{ __('تجربه جدید') }}
                             <a href="{{ route('experience.index', $lang) }}" class="float-left btn">صفحه قبل</a>
                         </div>
         
