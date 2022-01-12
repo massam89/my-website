@@ -131,7 +131,7 @@
                   </div>
                 </div>
                 <p>{{ $owner->about_text3 }}</p>
-                <div class="text-center mt-5"><a target="_blank" href="/{{ $owner->resume_url }}" class="btn btn-primary text-white">Download resume</a></div>
+                @isset($owner->resume_url)<div class="text-center mt-5"><a target="_blank" href="/{{ $owner->resume_url }}" class="btn btn-primary text-white">Download resume</a></div>@endisset
               </div>
             </div>
 
@@ -287,6 +287,26 @@
                     <p>{{ $education->education_description }}</p>
                   </div>
                 @endforeach
+                <h3 class="resume-title">Languages</h3>
+                <div id="skills" class="skills ">         
+                    <div class="row skills-content">
+                      <div class="col-lg-7" data-aos="fade-up">
+                          <div class="progress">
+                            <span class="skill">English<i class="val">70</i></span>
+                            <div class="progress-bar-wrap">
+                              <div class="progress-bar" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"></div>
+                            </div>
+                          </div>
+                        </div>
+                      <div class="col-lg-7" data-aos="fade-up">
+                          <div class="progress">
+                            <span class="skill">Persian(Native)<i class="val">100</i></span>
+                            <div class="progress-bar-wrap">
+                              <div class="progress-bar" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+                            </div>
+                          </div>
+                        </div>                  
+                  </div>
               </div>
             @endif        
           </div>
@@ -660,9 +680,8 @@
                   </ul>
                 </div>
               </div>
-              <p>
-                {{ $owner->about_text3_fa }}
-              </p>
+              <p>{{ $owner->about_text3_fa }}</p>
+              @isset($owner->resume_url)<div class="text-center mt-5"><a target="_blank" href="/{{ $owner->resume_url }}" class="btn btn-primary text-white">دانلود فایل رزومه</a></div>@endisset
             </div>
           </div>
 
@@ -818,6 +837,27 @@
                   <p>{{ $education->education_description }}</p>
                 </div>
               @endforeach
+              <h3 class="resume-title">زبان</h3>
+              <div id="skills" class="skills ">         
+                  <div class="row skills-content">
+                    <div class="col-lg-7" data-aos="fade-up">
+                        <div class="progress">
+                          <span class="skill">انگلیسی<i class="val">{!! engNumToPerNum('70') !!}%</i></span>
+                          <div class="progress-bar-wrap">
+                            <div class="progress-bar" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"></div>
+                          </div>
+                        </div>
+                      </div>
+                    <div class="col-lg-7" data-aos="fade-up">
+                        <div class="progress">
+                          <span class="skill">فارسی (زبان مادری)<i class="val">{!! engNumToPerNum('100') !!}%</i></span>
+                          <div class="progress-bar-wrap">
+                            <div class="progress-bar" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+                          </div>
+                        </div>
+                      </div>                  
+                </div>
+            </div>
             </div>
           @endif        
         </div>
