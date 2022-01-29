@@ -31,7 +31,7 @@ use Litespeed\LSCache\LSCache;
 Auth::routes(['verify' => true, 'register' => false]);
 
 Route::redirect('/', '/en');
-Route::get('/{lang}', [Landing::class, 'index'])->middleware('lscache:max-age=604800;public');
+Route::get('/{lang}', [Landing::class, 'index']);
 
 Route::get('/{lang}/home', [HomeController::class, 'index'])->name('home');
 
@@ -62,10 +62,10 @@ Route::post('/{lang}/user/change-password', [ChangePasswordController::class, 'c
 Route::post('/contactForm', [FormController::class, 'getContactForm'])->name('get-contact-form');
 Route::get('/{lang}/messages', [MessageController::class, 'index'])->name('messages.index');
 
-Route::get('/cashe/clear', function() {
-    LSCache::purgeAll();
-    return view('cacheClear');
-});
+// Route::get('/cashe/clear', function() {
+//     LSCache::purgeAll();
+//     return view('cacheClear');
+// });
 
 Route::get('{any}', function(){
     return redirect('/');
