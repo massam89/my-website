@@ -8,7 +8,6 @@
 
     <title>Main | {{ $owner->name }}</title>
     
-    <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta content="My name is {{ $owner->name }} and my job is {{ $owner->expertises }}" name="description">
     <meta content="{{ $owner->name }}, {{ $owner->expertises }}, about, portfolio, service, contact, resume, cv, social media, facts, education, experience " name="keywords">
     <meta name="author" content="{{ $owner->name }}">
