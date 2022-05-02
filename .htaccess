@@ -1,16 +1,6 @@
-#<IfModule LiteSpeed>
-#   CacheLookup on
-#</IfModule>
-
-<IfModule litespeed>
-    CacheLookup on
-    RewriteEngine On
-    RewriteCond %{REQUEST_URI} !/login/ [NC]
-    RewriteRule .* - [E=cache-control:max-age=120]
+<IfModule LiteSpeed>
+   CacheLookup on
 </IfModule>
-
-# RewriteEngine On
-# RewriteRule .* - [E=Cache-Vary:Authorization]
 
 <IFModule mod.rewrite.c>
 RewriteEngine On
