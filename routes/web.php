@@ -30,10 +30,7 @@ use Litespeed\LSCache\LSCache;
 
 Auth::routes(['verify' => true, 'register' => false]);
 
-Route::get('/', function(){
-    return redirect()->route('index', 'en');
-});
-
+Route::redirect('/', '/en');
 Route::get('/{lang}', [Landing::class, 'index'])->name('index');
 
 Route::get('/{lang}/home', [HomeController::class, 'index'])->name('home');
