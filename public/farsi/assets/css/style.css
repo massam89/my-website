@@ -1001,6 +1001,14 @@ section {
   z-index:1001;
 }
 
+@media (max-width: 768px) {
+  .loader {  
+    top:50%;
+    right:30%;
+    transform: translate(-50%, -50%);
+  }
+}
+
 .loader:before {
   content:"";
   position: absolute;
