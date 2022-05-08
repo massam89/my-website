@@ -559,12 +559,13 @@
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
     <title>صفحه اصلی | {{ $owner->name_fa }}</title>
-    <meta content="" name="description">
-    <meta content="" name="keywords">
-    <meta name="author" content="">
-    <meta name="page-topic" content="">
-    <meta name="page-type" content="">
-    <meta name="audience" content="">
+
+    <meta content="اسم من {{ $owner->name_fa }} و شغل من {{ $owner->expertises_fa }}" name="description">
+    <meta content="{{ $owner->name_fa }}, {{ $owner->expertises_fa }}, درباره من, نمونه کار, خدمات, تماس با من, رزومه, شبکه های اجتماعی, واقعیت ها, تحصیلات, تحربیات " name="keywords">
+    <meta name="author" content="{{ $owner->name_fa }}">
+    <meta name="page-topic" content="Resume">
+    <meta name="page-type" content="Resume">
+    <meta name="audience" content="Everyone">
     <!-- Favicons -->
     <link href="/{{ $owner->favicon_url }}" rel="icon">
     <link href="/{{ $owner->favicon_url }}" rel="apple-touch-icon">
