@@ -9,7 +9,7 @@ class VisibilityController extends Controller
 {
     public function index(Request $request) 
     {
-        $visibilities = Visibility::all()->first();
+        $visibilities = Visibility::first();
 
         return view('visibility.index', [
             'visibilities'=> $visibilities,
@@ -19,7 +19,7 @@ class VisibilityController extends Controller
 
     public function update(Request $request)
     {
-        $visibilities = Visibility::all()->first();
+        $visibilities = Visibility::first();
   
         ($request->about == 'on') ? $visibilities->update(['about' => true]) : $visibilities->update(['about' => false]);
         ($request->fact == 'on') ? $visibilities->update(['fact' => true]) : $visibilities->update(['fact' => false]);

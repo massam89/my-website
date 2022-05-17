@@ -15,7 +15,7 @@ class ChangePasswordController extends Controller
             'password_confirmation' => 'required|min:6|same:password'
         ]);
 
-        $user = User::all()->first();
+        $user = User::first();
 
         $user->update([
             'password' => Hash::make($request->password)

@@ -25,7 +25,7 @@ class HomeController extends Controller
     public function index($lang)
     {
        
-        $owner = Owner::all()->first();
+        $owner = Owner::first();
       
         return view('home', [
             'owner' => $owner,

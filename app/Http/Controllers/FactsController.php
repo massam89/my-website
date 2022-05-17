@@ -15,7 +15,7 @@ class FactsController extends Controller
 
     public function index(Request $request)
     {
-        $facts = Facts::all()->first();
+        $facts = Facts::first();
 
         return view('facts.index', [
             'facts' => $facts,
@@ -25,7 +25,7 @@ class FactsController extends Controller
 
     public function update(Request $request)
     {
-        $facts = Facts::all()->first();
+        $facts = Facts::first();
 
         $facts->update([
             'clients_number' => isset($request->clients_number) ? $request->clients_number : $facts->clients_number,

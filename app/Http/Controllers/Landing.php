@@ -16,14 +16,14 @@ class Landing extends Controller
 {
     public function index(Request $request) {
 
-        $owner = Owner::all()->first();
-        $facts = Facts::all()->first();
+        $owner = Owner::first();
+        $facts = Facts::first();
         $skills = Skill::where('lang', $request->lang)->get(); 
         $educations = Education::where('lang', $request->lang)->get();
         $experiences = Experience::where('lang', $request->lang)->with('descriptions')->get();
         $portfolios = Portfolio::where('lang', $request->lang)->get();
         $testimonials = Testimonial::where('lang', $request->lang)->get();
-        $visibilities = Visibility::all()->first();
+        $visibilities = Visibility::first();
 
         $categoreis = [];
         foreach ($portfolios as $portfolio) {

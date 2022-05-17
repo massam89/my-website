@@ -15,7 +15,7 @@ class OwnerController extends Controller
 
     public function index($lang)
     {
-        $owner = Owner::all()->first();
+        $owner = Owner::first();
 
         return view('owner.index',[
             'owner' => $owner,
@@ -30,7 +30,7 @@ class OwnerController extends Controller
         $favExt = '';
         $resumeExt = '';
 
-        $owner = Owner::all()->first();
+        $owner = Owner::first();
         
         if(isset($request->avatar_url)){
             $avatarExt = $request->avatar_url->extension();

@@ -9,7 +9,7 @@ class UserController extends Controller
 {
     public function index(Request $request) 
     {
-        $user = User::all()->first();
+        $user = User::first();
 
         return view('user.index', [
             'user' => $user,
@@ -19,7 +19,7 @@ class UserController extends Controller
 
     public function update(Request $request) 
     {
-        $user = User::all()->first();
+        $user = User::first();
 
         $user->update([
             'name' => isset($request->name) ? $request->name : $user->name,

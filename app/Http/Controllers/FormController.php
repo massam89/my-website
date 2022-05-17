@@ -20,7 +20,7 @@ class FormController extends Controller
         ];
 
         Mail::send('mail', $data, function($message) {
-            $user = User::all()->first();
+            $user = User::first();
 
             $message->to($user->email)->subject
                 ('Got new message');
