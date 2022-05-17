@@ -7,12 +7,10 @@
     <title>Cashe Clearing</title>
 </head>
 <body>
-    <p>Cashe has been cleared!</p>
+    <p>Cache has been cleared!</p>
 
     <script>
-        window.addEventListener('load', () => {setTimeout(() => {
-            window.location.href = "/";
-        }, 2000);})
+        window.addEventListener('load', () => {setTimeout(() => window.location.href = "/" , 2000);})
     </script>
 </body>
 </html>
