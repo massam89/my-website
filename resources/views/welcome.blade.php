@@ -67,8 +67,7 @@
             @isset($owner->github)<a href="{{ $owner->github }}" class="github"><i class="bx bxl-github"></i></a>@endisset
           </div>
           <div class="text-center mt-3 h6">
-            <a href="/">English</a>
-            / 
+            <a>English</a>
             <a href="/fa">Farsi</a>
           </div>
         </div>
@@ -619,8 +618,7 @@
           </div>
           <div class="text-center mt-3 h6">
             <a href="/">انگلیسی</a>
-            / 
-            <a href="/fa">فارسی</a>
+            <a>فارسی</a>
           </div>
         </div>
 
