@@ -131,7 +131,7 @@
                   </div>
                 </div>
                 <p>{{ $owner->about_text3 }}</p>
-                @isset($owner->resume_url)<div class="text-center mt-5"><a target="_blank" href="/{{ $owner->resume_url }}" class="btn btn-primary text-white">Download resume</a></div>@endisset
+               {{-- @isset($owner->resume_url)<div class="text-center mt-5"><a target="_blank" href="/{{ $owner->resume_url }}" class="btn btn-primary text-white">Download resume</a></div>@endisset --}}
               </div>
             </div>
 
@@ -681,7 +681,7 @@
                 </div>
               </div>
               <p>{{ $owner->about_text3_fa }}</p>
-              @isset($owner->resume_url)<div class="text-center mt-5"><a target="_blank" href="/{{ $owner->resume_url }}" class="btn btn-primary text-white">دانلود فایل رزومه</a></div>@endisset
+              {{-- @isset($owner->resume_url)<div class="text-center mt-5"><a target="_blank" href="/{{ $owner->resume_url }}" class="btn btn-primary text-white">دانلود فایل رزومه</a></div>@endisset --}}
             </div>
           </div>
 
