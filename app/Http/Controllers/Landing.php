@@ -20,7 +20,7 @@ class Landing extends Controller
         $facts = Facts::first();
         $skills = Skill::where('lang', $request->lang)->get(); 
         $educations = Education::where('lang', $request->lang)->get();
-        $experiences = Experience::where('lang', $request->lang)->with('descriptions')->get();
+        $experiences = Experience::where('lang', $request->lang)->orderBy('created_at', 'desc')->with('descriptions')->get();
         $portfolios = Portfolio::where('lang', $request->lang)->get();
         $testimonials = Testimonial::where('lang', $request->lang)->get();
         $visibilities = Visibility::first();
